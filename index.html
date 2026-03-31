@@ -32,32 +32,36 @@
     .header-inner {
       max-width:900px;
       margin:auto;
-      position:relative;
     }
 
-    .header-center {
-      text-align:center;
+    /* NEU: Layout statt absolute positioning */
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    .header-center img {
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-align: left;
+    }
+
+    .header-left img {
       width:70px;
-      margin-bottom:10px;
     }
 
-    .header-center h1 {
+    .header-left h1 {
       margin:5px 0;
       font-size:1.8em;
     }
 
-    .header-center p {
+    .header-left p {
       margin:0;
       opacity:0.95;
-    }
-
-    .header-btn {
-      position:absolute;
-      right:0;
-      top:0;
     }
 
     .btn {
@@ -136,15 +140,23 @@
 
 <header>
   <div class="header-inner">
-    <div class="header-center">
-      <img src="logo.png" alt="VokabelSafe Logo">
-      <h1>VokabelSafe</h1>
-      <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+
+    <div class="header-top">
+
+      <div class="header-left">
+        <img src="logo.png" alt="VokabelSafe Logo">
+        <div>
+          <h1>VokabelSafe</h1>
+          <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+        </div>
+      </div>
+
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank">
+        Im Play Store öffnen
+      </a>
+
     </div>
 
-    <div class="header-btn">
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank">Im Play Store öffnen</a>
-    </div>
   </div>
 </header>
 
