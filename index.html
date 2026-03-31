@@ -13,116 +13,87 @@
       --card: #ffffff;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+    body { margin:0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text);} 
+
+    header { background: linear-gradient(135deg, var(--primary), #6ec6ff); color:white; padding:30px 20px 40px; }
+
+    .header-inner { max-width:900px; margin:auto; position:relative; }
+
+    .header-center { text-align:center; }
+
+    .header-center img { width:70px; margin-bottom:10px; }
+
+    .header-center h1 { margin:5px 0; font-size:1.8em; }
+
+    .header-center p { margin:0; opacity:0.95; }
+
+    .header-btn { position:absolute; right:0; top:0; }
+
+    .btn { display:inline-block; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:bold; color:white; }
+
+    .btn-primary { background: var(--primary); }
+    .btn-secondary { background: var(--secondary); }
+
+    .container { max-width:900px; margin:auto; padding:20px; }
+
+    .promo {
+      background: linear-gradient(135deg, #fff8e1, #ffe082);
+      border:2px solid #ffd54f;
+      border-radius:12px;
+      padding:25px;
+      text-align:center;
+      margin-bottom:40px;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--primary), #6ec6ff);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+    .card { background:var(--card); border-radius:12px; padding:20px; margin-bottom:20px; box-shadow:0 4px 12px rgba(0,0,0,0.08);} 
 
-    header img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
+    .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:15px; }
 
-    h1 {
-      margin: 10px 0;
-      font-size: 2em;
-    }
+    .feature { background:#f9fcff; padding:15px; border-radius:10px; border:1px solid #e3eefc; }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+    .buttons { text-align:center; margin:30px 0; }
 
-    .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
+    .highlight { background:#e8f5e9; border-left:5px solid var(--secondary); padding:15px; border-radius:8px; margin:20px 0; }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
+    footer { text-align:center; font-size:0.9em; color:#666; padding:30px 20px; }
 
-    .feature {
-      background: #f9fcff;
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #e3eefc;
-    }
-
-    .buttons {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      color: white;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-    }
-
-    .btn-secondary {
-      background: var(--secondary);
-    }
-
-    .highlight {
-      background: #e8f5e9;
-      border-left: 5px solid var(--secondary);
-      padding: 15px;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-      padding: 30px 20px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
+    ul { padding-left:20px; }
   </style>
 </head>
 <body>
 
 <header>
-  <!-- Logo Platzhalter -->
-  <img src="logo.png" alt="VokabelSafe Logo">
-  <h1>VokabelSafe</h1>
-  <p>Der ruhige, werbefreie Vokabeltrainer für Kinder – offline, sicher und flexibel</p>
+  <div class="header-inner">
+    <div class="header-center">
+      <img src="logo.png" alt="VokabelSafe Logo">
+      <h1>VokabelSafe</h1>
+      <p>Der ruhige, werbefreie Vokabeltrainer für Kinder – offline, sicher und flexibel</p>
+    </div>
+
+    <div class="header-btn">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank">Play Store</a>
+    </div>
+  </div>
 </header>
 
 <div class="container">
 
-  <div class="buttons">
-    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank">Jetzt im Google Play Store</a>
-    <a class="btn btn-secondary" href="mailto:christine.steiner.dev@gmail.com?subject=Kostenloser%20Freischaltcode%20VokabelSafe">Kostenlosen Vollzugang testen</a>
+  <div class="promo">
+    <h2>🎉 Einführungsaktion 🎉</h2>
+    <p><strong>Begrenzte Anzahl kostenloser Vollzugänge!</strong></p>
+    <p>Sie erhalten die komplette <strong>Lifetime-Freischaltung (Wert: 49,99 €)</strong> kostenlos.</p>
+    <p><strong>👉 Greifen Sie zu, solange der Vorrat reicht.</strong></p>
+    <p>Wir suchen erste Nutzer, die die App testen und ehrliches Feedback geben.</p>
+    <div class="buttons">
+      <a class="btn btn-secondary" href="mailto:christine.steiner.dev@gmail.com?subject=Promo-Code%20VokabelSafe&body=Hallo,%20ich%20möchte%20einen%20kostenlosen%20Vollzugang%20anfragen.">🎁 Kostenlosen Zugang sichern</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💬 Warum VokabelSafe entstanden ist</h2>
+    <p>Die Idee zu VokabelSafe entstand aus dem echten Alltag: Meine Tochter sollte regelmäßig Vokabeln lernen – aber klassische Vokabeltrainer waren entweder zu kompliziert, voller Werbung oder passten nicht zum Schulstoff.</p>
+    <p>Also entstand eine einfache Lösung: Eine App, in der genau die Vokabeln gelernt werden, die sie aktuell in der Schule lernen – ohne Ablenkung.</p>
+    <p>Heute nutzt sie die App täglich – oft ganz entspannt im Auto oder auf dem Weg zur Schule.</p>
   </div>
 
   <div class="card">
@@ -146,29 +117,37 @@
   <div class="card">
     <h2>🧠 Intelligentes Lernen</h2>
     <div class="features">
-      <div class="feature">Lernlevel 1–5 mit Wiederholungssystem</div>
-      <div class="feature">Fokus auf neue und schwierige Wörter</div>
-      <div class="feature">Wählbare Schwierigkeitsgrade</div>
-      <div class="feature">Flexible Abfragerichtung</div>
-      <div class="feature">Übersichtliche Wortliste mit Suche</div>
+      <div class="feature">Lernlevel 1–5 mit intelligenter Wiederholung</div>
+      <div class="feature">Fokus auf neue und ungelernte Wörter</div>
+      <div class="feature">Wählbarer Schwierigkeitsgrad: Leicht, Mittel oder Schwer</div>
+      <div class="feature">Abfragerichtung frei wählbar</div>
+      <div class="feature">Übersichtliche Wortliste mit Such- und Filterfunktionen</div>
       <div class="feature">Multi-Set-System für verschiedene Fächer</div>
     </div>
   </div>
 
   <div class="card">
-    <h2>📂 Multi-Set-System</h2>
-    <p>Erstellen Sie separate Sets für jedes Schuljahr oder jede Sprache:</p>
+    <h2>📂 Das Multi-Set-System</h2>
+    <p>Für jedes Schuljahr oder jede Sprache kann ein eigenes Set angelegt werden:</p>
     <ul>
-      <li>Englisch Klasse 5</li>
-      <li>Französisch Klasse 6</li>
-      <li>Latein Klasse 7</li>
+      <li>Klasse 5 Englisch</li>
+      <li>Klasse 6 Französisch</li>
+      <li>Klasse 7 Latein</li>
+      <li>Parallele Kurse gleichzeitig möglich</li>
     </ul>
-    <p>Sets lassen sich jederzeit erstellen, wechseln und verwalten.</p>
+    <p>Sets lassen sich jederzeit erstellen, verwalten und wechseln.</p>
   </div>
 
   <div class="card">
     <h2>🎯 Motivation ohne Druck</h2>
-    <p>Kinder erhalten für Lernerfolge Münzen, die optional für kleine Minispiele genutzt werden können – ohne Zwang, ohne Wettbewerb.</p>
+    <p>Für erfolgreiche Trainingseinheiten erhalten Kinder Münzen.</p>
+    <p>Diese können freiwillig für ruhige, altersgerechte Minispiele genutzt werden.</p>
+    <ul>
+      <li>Keine Werbung</li>
+      <li>Keine Lootboxen</li>
+      <li>Kein Pay-to-Win</li>
+      <li>Keine In-Game-Käufe</li>
+    </ul>
   </div>
 
   <div class="highlight">
@@ -178,7 +157,9 @@
 
   <div class="card">
     <h2>💾 Backup & Import</h2>
-    <p>Die gesamte Datenbank kann gesichert und wiederhergestellt werden. Zusätzlich können Vokabellisten im JSON-Format importiert werden.</p>
+    <p>Die gesamte Datenbank kann gesichert und wiederhergestellt werden.</p>
+    <p>Zusätzlich können einzelne Vokabelsets exportiert und importiert werden.</p>
+    <p>Der Import im JSON-Format ermöglicht es, vorbereitete Vokabellisten einfach zu übernehmen.</p>
   </div>
 
   <div class="card">
@@ -189,11 +170,7 @@
       <li>49,99 € Lifetime</li>
     </ul>
     <p>30 Tage kostenlos testen – alle Funktionen freigeschaltet.</p>
-  </div>
-
-  <div class="buttons">
-    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank">Jetzt starten</a>
-    <a class="btn btn-secondary" href="mailto:christine.steiner.dev@gmail.com?subject=Kostenloser%20Freischaltcode%20VokabelSafe">Kostenlosen Vollzugang anfragen</a>
+    <p>Keine versteckten Kosten. Jederzeit kündbar.</p>
   </div>
 
 </div>
@@ -205,4 +182,5 @@
 
 </body>
 </html>
+
 
