@@ -6,7 +6,7 @@ VokabelSafe ist eine **Vokabel App für Schüler, Eltern und Familien**, die spe
 
 ---
 
-## 🌐 Website
+## 🌐 Website (Aktuell: Pormo Aktion => Kostenloser Premium Zugang)
 
 👉 https://vokabelsafe.github.io/vokabelsafe-app/
 
@@ -28,10 +28,10 @@ Viele Vokabeltrainer sind:
 
 VokabelSafe geht bewusst einen anderen Weg:
 
-✅ **100 % werbefrei**
-✅ **Keine Registrierung notwendig**
-✅ **Keine Cloud – alle Daten bleiben auf dem Gerät**
-✅ **Komplett offline nutzbar**
+✅ 100 % werbefrei
+✅ Keine Registrierung notwendig
+✅ Keine Cloud – alle Daten bleiben auf dem Gerät
+✅ Komplett offline nutzbar
 
 ---
 
