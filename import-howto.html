@@ -6,6 +6,8 @@
 
   <title>Import-Anleitung – VokabelSafe</title>
   <meta name="description" content="Anleitung zum Erzeugen von VokabelSets am PC für VokabelSafe.">
+  <link rel="canonical" href="https://vokabelsafe.github.io/vokabelsafe-app/import-howto.html">
+  <meta name="theme-color" content="#4aa3ff">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Import-Anleitung – VokabelSafe">
@@ -44,13 +46,14 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
 <header>
   <div class="header-inner">
     <div class="header-top">
       <div class="header-left">
         <img src="logo.png" alt="VokabelSafe Logo">
         <div>
-          <h1>VokabelSafe</h1>
+          <p class="site-title">VokabelSafe</p>
           <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
         </div>
       </div>
@@ -61,19 +64,19 @@
   </div>
 </header>
 
-<div class="container">
+<main id="main-content" class="container">
   <div class="card">
-    <h2>📥 Import-Anleitung</h2>
+    <h1>Import-Anleitung für VokabelSafe</h1>
 
-    <h3>📄 Anleitung: Vokabelliste aus Excel / OpenOffice importieren</h3>
+    <h2>📄 Anleitung: Vokabelliste aus Excel / OpenOffice importieren</h2>
 
-    <h4>Tabelle erstellen</h4>
+    <h3>Tabelle erstellen</h3>
     <p>Erstelle in Microsoft Excel oder LibreOffice Calc eine Tabelle mit genau diesen Spalten:</p>
     <p style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px;">
       vocabulary_group | term_learning_language | term_user_language | learning_status
     </p>
 
-    <h4>Vokabeln eintragen</h4>
+    <h3>Vokabeln eintragen</h3>
     <p>Beispiel (tabellarisch):</p>
     <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
       Unit 1 | scarf (sg), scarves (pl) | Schal; Tuch | 1<br>
@@ -92,27 +95,27 @@
       Unit 1,"woman (sg), women (pl)",Frau,1
     </div>
 
-    <h4>👉 Wichtig:</h4>
+    <h3>👉 Wichtig:</h3>
     <ul>
       <li>Mehrere Begriffe kannst du mit ; trennen</li>
       <li>Wenn ein Text Kommas enthält, setzt Excel automatisch Anführungszeichen – das ist korrekt</li>
     </ul>
 
-    <h4>Als CSV speichern</h4>
+    <h3>Als CSV speichern</h3>
     <ul>
       <li>In Excel: Datei → Speichern unter → CSV (UTF-8)</li>
       <li>In LibreOffice: Datei → Speichern unter → Dateityp: CSV</li>
     </ul>
 
-    <h4>Datei hier hochladen</h4>
+    <h3>Datei hier hochladen</h3>
     <p>Wähle deine .csv Datei unten aus</p>
     <p>Der Converter wandelt sie automatisch in das richtige Format um</p>
 
-    <h4>JSON herunterladen</h4>
+    <h3>JSON herunterladen</h3>
     <p>Klicke auf „JSON herunterladen"</p>
     <p>Die Datei kannst du direkt in der App verwenden</p>
 
-    <h4>⚠️ Wichtige Hinweise</h4>
+    <h3>⚠️ Wichtige Hinweise</h3>
     <ul>
       <li>Die erste Zeile muss die Spaltennamen enthalten</li>
       <li>Die Spaltennamen müssen genau so geschrieben sein</li>
@@ -125,16 +128,20 @@
     <h3>🔧 CSV → JSON Converter</h3>
 
     <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-      <input type="file" id="fileInput" accept=".csv" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%;">
+      <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
+      <input type="file" id="fileInput" accept=".csv" aria-describedby="csvHelp statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
 
-      <div style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+      <div id="csvHelp" style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
         <strong>Erwartete Spalten:</strong><br>
         vocabulary_group | term_learning_language | term_user_language | learning_status
       </div>
 
-      <textarea id="output" placeholder="Hier erscheint dein JSON..." style="width: 100%; height: 250px; margin-top: 15px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+      <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
 
-      <button onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+      <label for="output" style="display: block; margin-top: 15px;"><strong>JSON-Ausgabe</strong></label>
+      <textarea id="output" placeholder="Hier erscheint dein JSON..." readonly aria-describedby="statusMessage" style="width: 100%; height: 250px; margin-top: 8px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+
+      <button type="button" onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
         📥 JSON herunterladen
       </button>
     </div>
@@ -142,6 +149,11 @@
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script>
       let jsonData = [];
+      const statusMessage = document.getElementById("statusMessage");
+
+      function setStatus(message) {
+        statusMessage.textContent = message;
+      }
 
       document.getElementById("fileInput").addEventListener("change", function(event) {
         const file = event.target.files[0];
@@ -162,6 +174,7 @@
             console.log("Anzahl Zeilen:", results.data.length);
 
             if (!results.data || results.data.length === 0) {
+              setStatus("Keine Daten in der CSV gefunden.");
               alert("Keine Daten in der CSV gefunden!");
               return;
             }
@@ -191,10 +204,12 @@
             document.getElementById("output").value =
               JSON.stringify(jsonData, null, 2);
 
+            setStatus("CSV erfolgreich geladen. " + jsonData.length + " Vokabeln wurden konvertiert.");
             alert("✅ CSV erfolgreich geladen! (" + jsonData.length + " Vokabel)");
           },
 
           error: function(err) {
+            setStatus("Fehler beim Einlesen: " + err.message);
             alert("Fehler beim Einlesen: " + err.message);
           }
         });
@@ -202,6 +217,7 @@
 
       function downloadJSON() {
         if (!jsonData || jsonData.length === 0) {
+          setStatus("Bitte zuerst eine CSV-Datei hochladen.");
           alert("Bitte zuerst eine CSV-Datei hochladen!");
           return;
         }
@@ -218,10 +234,11 @@
         a.click();
 
         URL.revokeObjectURL(url);
+        setStatus("JSON-Datei wurde zum Download vorbereitet.");
       }
     </script>
   </div>
-</div>
+</main>
 
 <footer>
   <p>

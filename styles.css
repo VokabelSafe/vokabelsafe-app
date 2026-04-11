@@ -11,6 +11,23 @@ body {
   font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  background: #1f2a36;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 16px;
 }
 
 header {
@@ -45,10 +62,12 @@ header {
   border-radius: 18px;
 }
 
-.header-left h1 {
+.header-left h1,
+.site-title {
   margin: 5px 0;
   font-size: 1.8em;
   color: #1f2a36;
+  font-weight: 700;
 }
 
 .header-left p {
@@ -64,6 +83,14 @@ header {
   text-decoration: none;
   font-weight: bold;
   color: white;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #1f2a36;
+  outline-offset: 3px;
 }
 
 .btn-primary {
