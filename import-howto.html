@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Import-Anleitung – VokabelSafe</title>
+  <meta name="description" content="Anleitung zum Erzeugen von VokabelSets am PC für VokabelSafe.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Import-Anleitung – VokabelSafe">
+  <meta property="og:description" content="Anleitung zum Erzeugen von VokabelSets am PC.">
+  <meta property="og:url" content="https://vokabelsafe.github.io/vokabelsafe-app/import-howto.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VokabelSafe">
+
+  <!-- Website Name für Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "VokabelSafe",
+    "url": "https://vokabelsafe.github.io/vokabelsafe-app/"
+  }
+  </script>
+
+  <!-- Organisation / Entwickler -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VokabelSafe",
+    "url": "https://vokabelsafe.github.io/vokabelsafe-app/",
+    "email": "christine.steiner.dev@gmail.com"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+  <link rel="apple-touch-icon" href="favicon-64.png">
+  <link rel="shortcut icon" href="favicon-32.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="logo.png" alt="VokabelSafe Logo">
+        <div>
+          <h1>VokabelSafe</h1>
+          <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+        Im Play Store öffnen
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>📥 Import-Anleitung</h2>
+
+    <h3>📄 Anleitung: Vokabelliste aus Excel / OpenOffice importieren</h3>
+
+    <h4>Tabelle erstellen</h4>
+    <p>Erstelle in Microsoft Excel oder LibreOffice Calc eine Tabelle mit genau diesen Spalten:</p>
+    <p style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px;">
+      vocabulary_group | term_learning_language | term_user_language | learning_status
+    </p>
+
+    <h4>Vokabeln eintragen</h4>
+    <p>Beispiel (tabellarisch):</p>
+    <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
+      Unit 1 | scarf (sg), scarves (pl) | Schal; Tuch | 1<br>
+      Unit 1 | to come to meet, came to meet | begrüßen | 1<br>
+      Unit 1 | man (sg), men (pl) | Mann | 1<br>
+      Unit 1 | life (sg), lives (pl) | Leben | 1<br>
+      Unit 1 | woman (sg), women (pl) | Frau | 1
+    </div>
+
+    <p>Wie es im CSV aussieht:</p>
+    <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
+      Unit 1,"scarf (sg), scarves (pl)",Schal; Tuch,1<br>
+      Unit 1,"to come to meet, came to meet",begrüßen,1<br>
+      Unit 1,"man (sg), men (pl)",Mann,1<br>
+      Unit 1,"life (sg), lives (pl)",Leben,1<br>
+      Unit 1,"woman (sg), women (pl)",Frau,1
+    </div>
+
+    <h4>👉 Wichtig:</h4>
+    <ul>
+      <li>Mehrere Begriffe kannst du mit ; trennen</li>
+      <li>Wenn ein Text Kommas enthält, setzt Excel automatisch Anführungszeichen – das ist korrekt</li>
+    </ul>
+
+    <h4>Als CSV speichern</h4>
+    <ul>
+      <li>In Excel: Datei → Speichern unter → CSV (UTF-8)</li>
+      <li>In LibreOffice: Datei → Speichern unter → Dateityp: CSV</li>
+    </ul>
+
+    <h4>Datei hier hochladen</h4>
+    <p>Wähle deine .csv Datei unten aus</p>
+    <p>Der Converter wandelt sie automatisch in das richtige Format um</p>
+
+    <h4>JSON herunterladen</h4>
+    <p>Klicke auf „JSON herunterladen"</p>
+    <p>Die Datei kannst du direkt in der App verwenden</p>
+
+    <h4>⚠️ Wichtige Hinweise</h4>
+    <ul>
+      <li>Die erste Zeile muss die Spaltennamen enthalten</li>
+      <li>Die Spaltennamen müssen genau so geschrieben sein</li>
+      <li>Speichere die Datei immer als CSV (UTF-8)</li>
+      <li>Excel kann ; oder , verwenden → das wird automatisch erkannt</li>
+    </ul>
+
+    <hr style="margin: 30px 0; border: none; border-top: 2px solid #ddd;">
+
+    <h3>🔧 CSV → JSON Converter</h3>
+
+    <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+      <input type="file" id="fileInput" accept=".csv" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%;">
+
+      <div style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+        <strong>Erwartete Spalten:</strong><br>
+        vocabulary_group | term_learning_language | term_user_language | learning_status
+      </div>
+
+      <textarea id="output" placeholder="Hier erscheint dein JSON..." style="width: 100%; height: 250px; margin-top: 15px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+
+      <button onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+        📥 JSON herunterladen
+      </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script>
+      let jsonData = [];
+
+      document.getElementById("fileInput").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        Papa.parse(file, {
+          header: true,
+          dynamicTyping: false,
+          skipEmptyLines: true,
+          delimiter: "",  // Auto-Erkennung
+          transformHeader: (header) => {
+            return header.trim().toLowerCase().replace(/\s+/g, "_");
+          },
+
+          complete: function(results) {
+            console.log("Erkannte Spalten:", results.meta.fields);
+            console.log("Erste Zeile:", results.data[0]);
+            console.log("Anzahl Zeilen:", results.data.length);
+
+            if (!results.data || results.data.length === 0) {
+              alert("Keine Daten in der CSV gefunden!");
+              return;
+            }
+
+            let data = results.data.filter(row => {
+              return Object.values(row).some(val => val !== null && val !== "");
+            });
+
+            jsonData = data.map((row) => {
+              const vocab = (row["vocabulary_group"] || "").trim();
+              const userLang = (row["term_user_language"] || "").trim();
+              const learnLang = (row["term_learning_language"] || "").trim();
+              const statusRaw = (row["learning_status"] || "").trim();
+
+              const status = statusRaw !== "" ? Number(statusRaw) : 0;
+
+              return {
+                vocabulary_group: vocab,
+                term_user_language: userLang,
+                term_learning_language: learnLang,
+                learning_status: status
+              };
+            });
+
+            console.log("Konvertierte Daten:", jsonData);
+
+            document.getElementById("output").value =
+              JSON.stringify(jsonData, null, 2);
+
+            alert("✅ CSV erfolgreich geladen! (" + jsonData.length + " Vokabel)");
+          },
+
+          error: function(err) {
+            alert("Fehler beim Einlesen: " + err.message);
+          }
+        });
+      });
+
+      function downloadJSON() {
+        if (!jsonData || jsonData.length === 0) {
+          alert("Bitte zuerst eine CSV-Datei hochladen!");
+          return;
+        }
+
+        const blob = new Blob(
+          [JSON.stringify(jsonData, null, 2)],
+          { type: "application/json" }
+        );
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "vokabeln.json";
+        a.click();
+
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </div>
+</div>
+
+<footer>
+  <p>
+    Kontakt:
+    <a href="mailto:christine.steiner.dev@gmail.com">
+      christine.steiner.dev@gmail.com
+    </a>
+  </p>
+
+  <p>
+    <a href="https://vokabelsafe.github.io/vokabelsafe-datenschutz/" target="_blank" rel="noopener noreferrer">
+      Datenschutzerklärung
+    </a>
+  </p>
+
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>
