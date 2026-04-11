@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vokabelsafe.github.io/vokabelsafe-app/sitemap.xml
