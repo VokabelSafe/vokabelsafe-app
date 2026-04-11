@@ -150,6 +150,12 @@
     <script>
       let jsonData = [];
       const statusMessage = document.getElementById("statusMessage");
+      const requiredHeaders = [
+        "vocabulary_group",
+        "term_learning_language",
+        "term_user_language",
+        "learning_status"
+      ];
 
       function setStatus(message) {
         statusMessage.textContent = message;
@@ -172,6 +178,16 @@
             console.log("Erkannte Spalten:", results.meta.fields);
             console.log("Erste Zeile:", results.data[0]);
             console.log("Anzahl Zeilen:", results.data.length);
+
+            const fields = Array.isArray(results.meta.fields) ? results.meta.fields : [];
+            const missingHeaders = requiredHeaders.filter((header) => !fields.includes(header));
+
+            if (missingHeaders.length > 0) {
+              const message = "Fehlende Spalten: " + missingHeaders.join(", ");
+              setStatus(message);
+              alert(message);
+              return;
+            }
 
             if (!results.data || results.data.length === 0) {
               setStatus("Keine Daten in der CSV gefunden.");
