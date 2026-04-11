@@ -8,6 +8,10 @@
   <meta name="description" content="Anleitung zum Erzeugen von VokabelSets am PC für VokabelSafe.">
   <link rel="canonical" href="https://vokabelsafe.github.io/vokabelsafe-app/import-howto.html">
   <meta name="theme-color" content="#4aa3ff">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Import-Anleitung – VokabelSafe">
+  <meta name="twitter:description" content="CSV-Dateien vorbereiten und in JSON für VokabelSafe umwandeln.">
+  <meta name="twitter:image" content="https://vokabelsafe.github.io/vokabelsafe-app/logo.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Import-Anleitung – VokabelSafe">
@@ -15,6 +19,9 @@
   <meta property="og:url" content="https://vokabelsafe.github.io/vokabelsafe-app/import-howto.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VokabelSafe">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/logo.png">
+  <meta property="og:image:alt" content="VokabelSafe Logo">
 
   <!-- Website Name für Google -->
   <script type="application/ld+json">
@@ -27,15 +34,32 @@
   </script>
 
   <!-- Organisation / Entwickler -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "VokabelSafe",
-    "url": "https://vokabelsafe.github.io/vokabelsafe-app/",
-    "email": "christine.steiner.dev@gmail.com"
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "CSV-Datei für VokabelSafe vorbereiten",
+  "description": "So erstellen Sie eine CSV-Datei mit den richtigen Spalten und wandeln sie in JSON für VokabelSafe um.",
+  "url": "https://vokabelsafe.github.io/vokabelsafe-app/import-howto.html",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Tabelle erstellen",
+      "text": "Erstellen Sie eine Tabelle mit den Spalten vocabulary_group, term_learning_language, term_user_language und learning_status."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Als CSV speichern",
+      "text": "Speichern Sie die Datei als CSV in UTF-8."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "CSV hochladen",
+      "text": "Laden Sie die CSV-Datei auf der Seite hoch und prüfen Sie die erzeugte JSON-Ausgabe."
+    }
+  ]
+}
+</script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -67,6 +91,8 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>Import-Anleitung für VokabelSafe</h1>
+    <p>Sie können Vokabellisten bequem am PC vorbereiten und anschließend als JSON in VokabelSafe importieren.</p>
+    <p>Die Umwandlung erfolgt direkt im Browser. Ihre Datei wird dabei nicht an einen Server hochgeladen.</p>
 
     <h2>📄 Anleitung: Vokabelliste aus Excel / OpenOffice importieren</h2>
 
