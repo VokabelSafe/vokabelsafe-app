@@ -99,29 +99,42 @@ textarea:focus-visible {
 
 .header-actions {
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-left: auto;
-  flex: 1;
-  min-width: 280px;
+  margin-right: auto;
+  flex: 0 0 auto;
+  min-width: 0;
 }
 
 .header-menu {
   min-width: 0;
-  max-width: 360px;
-  margin-right: auto;
+  width: 32ch;
+  max-width: min(100%, calc(100vw - 40px));
   position: relative;
-  width: auto;
+}
+
+.header-actions .btn-primary {
+  width: 32ch;
+  max-width: min(100%, calc(100vw - 40px));
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .menu-dropdown {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
 }
 
 .menu-summary {
   list-style: none;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px 12px;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.65);
@@ -131,6 +144,7 @@ textarea:focus-visible {
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
+  text-align: center;
 }
 
 .menu-summary::-webkit-details-marker {
@@ -152,11 +166,12 @@ textarea:focus-visible {
   padding: 8px;
   list-style: none;
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 100%;
-  min-width: 20ch;
+  transform: translateX(-50%);
+  min-width: max(100%, 36ch);
   width: max-content;
-  max-width: calc(100vw - 24px);
+  max-width: min(calc(100vw - 24px), 52ch);
   overflow-x: auto;
   background: #e9f4ff;
   border: 1px solid #b6d6f5;
@@ -173,6 +188,7 @@ textarea:focus-visible {
   padding: 9px 10px;
   border-radius: 8px;
   white-space: nowrap;
+  text-align: center;
 }
 
 .menu-list a:hover,
@@ -277,19 +293,20 @@ ul {
 
 @media (max-width: 920px) {
   .header-actions {
-    width: 100%;
     margin-top: 10px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: 10px;
+    width: auto;
+    align-items: center;
   }
 
   .header-menu {
-    min-width: 0;
+    width: min(100%, 32ch);
+  }
+
+  .header-actions .btn-primary {
+    width: min(100%, 32ch);
   }
 
   .menu-list {
-    width: 100%;
+    max-width: calc(100vw - 24px);
   }
 }
