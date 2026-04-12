@@ -111,28 +111,19 @@
 
     <h3>Tabelle erstellen</h3>
     <p>Erstelle in Microsoft Excel oder LibreOffice Calc eine Tabelle mit genau diesen Spalten:</p>
-    <p style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px;">
-      vocabulary_group | term_learning_language | term_user_language | learning_status
-    </p>
+    <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
+      vocabulary_group<br>
+      term_learning_language<br>
+      term_user_language<br>
+      learning_status
+    </div>
 
     <h3>Vokabeln eintragen</h3>
     <p>Beispiel (tabellarisch):</p>
-    <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
-      Unit 1 | scarf (sg), scarves (pl) | Schal; Tuch | 1<br>
-      Unit 1 | to come to meet, came to meet | begrüßen | 1<br>
-      Unit 1 | man (sg), men (pl) | Mann | 1<br>
-      Unit 1 | life (sg), lives (pl) | Leben | 1<br>
-      Unit 1 | woman (sg), women (pl) | Frau | 1
-    </div>
+    <img src="screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste am PC" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box;">
 
     <p>Wie es im CSV aussieht:</p>
-    <div style="font-family: monospace; background: #f5f5f5; padding: 10px; border-radius: 5px; line-height: 1.6;">
-      Unit 1,"scarf (sg), scarves (pl)",Schal; Tuch,1<br>
-      Unit 1,"to come to meet, came to meet",begrüßen,1<br>
-      Unit 1,"man (sg), men (pl)",Mann,1<br>
-      Unit 1,"life (sg), lives (pl)",Leben,1<br>
-      Unit 1,"woman (sg), women (pl)",Frau,1
-    </div>
+    <img src="screenshot_csvtext.png" alt="Beispiel einer CSV-Datei für den Import" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box;">
 
     <h3>👉 Wichtig:</h3>
     <ul>
@@ -172,7 +163,10 @@
 
       <div id="csvHelp" style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
         <strong>Erwartete Spalten:</strong><br>
-        vocabulary_group | term_learning_language | term_user_language | learning_status
+        vocabulary_group<br>
+        term_learning_language<br>
+        term_user_language<br>
+        learning_status
       </div>
 
       <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
