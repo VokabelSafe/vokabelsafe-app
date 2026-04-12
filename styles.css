@@ -97,6 +97,48 @@ textarea:focus-visible {
   background: var(--primary);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex: 1;
+  min-width: 280px;
+}
+
+.header-menu {
+  min-width: 220px;
+  max-width: 360px;
+  margin-right: auto;
+}
+
+.header-menu select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.header-menu select option {
+  color: #1f2a36;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .btn-secondary {
   background: var(--secondary);
 }
@@ -173,4 +215,19 @@ footer {
 
 ul {
   padding-left: 20px;
+}
+
+@media (max-width: 920px) {
+  .header-actions {
+    width: 100%;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .header-menu {
+    min-width: 0;
+  }
 }

@@ -81,9 +81,20 @@
           <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
-        Im Play Store öffnen
-      </a>
+      <div class="header-actions">
+        <div class="header-menu">
+          <label class="sr-only" for="page-nav">Seite auswählen</label>
+          <select id="page-nav" aria-label="Hauptmenü" onchange="if (this.value) window.location.href=this.value;">
+            <option value="index.html">Startseite</option>
+            <option value="promo-aktion.html">Promo-Aktion</option>
+            <option value="import-howto.html" selected>Vokabelset am PC erstellen</option>
+            <option value="datenschutz.html">Sicherheit und Datenschutz</option>
+          </select>
+        </div>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Im Play Store öffnen
+        </a>
+      </div>
     </div>
   </div>
 </header>
