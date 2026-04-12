@@ -108,13 +108,15 @@
 
       <div class="header-actions">
         <div class="header-menu">
-          <label class="sr-only" for="page-nav">Seite auswählen</label>
-          <select id="page-nav" aria-label="Hauptmenü" onchange="if (this.value) window.location.href=this.value;">
-            <option value="index.html" selected>Startseite</option>
-            <option value="promo-aktion.html">Promo-Aktion</option>
-            <option value="import-howto.html">Vokabelset am PC erstellen</option>
-            <option value="datenschutz.html">Sicherheit und Datenschutz</option>
-          </select>
+          <details class="menu-dropdown">
+            <summary class="menu-summary">🏠 Startseite</summary>
+            <ul class="menu-list" aria-label="Hauptmenü">
+              <li><a class="current" href="index.html">🏠 Startseite</a></li>
+              <li><a href="promo-aktion.html">🎁 Promo-Aktion</a></li>
+              <li><a href="import-howto.html">📊 Vokabelset am PC erstellen</a></li>
+              <li><a href="datenschutz.html">🛡️ Sicherheit und Datenschutz</a></li>
+            </ul>
+          </details>
         </div>
         <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
           Im Play Store öffnen

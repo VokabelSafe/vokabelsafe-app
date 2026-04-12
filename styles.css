@@ -110,9 +110,15 @@ textarea:focus-visible {
   min-width: 220px;
   max-width: 360px;
   margin-right: auto;
+  position: relative;
 }
 
-.header-menu select {
+.menu-dropdown {
+  position: relative;
+}
+
+.menu-summary {
+  list-style: none;
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
@@ -121,10 +127,55 @@ textarea:focus-visible {
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
+  user-select: none;
 }
 
-.header-menu select option {
+.menu-summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-summary::after {
+  content: "▾";
+  float: right;
+  opacity: 0.9;
+}
+
+.menu-dropdown[open] .menu-summary {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.menu-list {
+  margin: 8px 0 0;
+  padding: 8px;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 100%;
+  background: #e9f4ff;
+  border: 1px solid #b6d6f5;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(15, 38, 61, 0.18);
+  z-index: 50;
+}
+
+.menu-list a {
+  display: block;
+  text-decoration: none;
   color: #1f2a36;
+  font-weight: 700;
+  padding: 9px 10px;
+  border-radius: 8px;
+}
+
+.menu-list a:hover,
+.menu-list a:focus-visible {
+  background: #d4e9ff;
+}
+
+.menu-list a.current {
+  background: #4aa3ff;
+  color: #ffffff;
 }
 
 .sr-only {
@@ -229,5 +280,9 @@ ul {
 
   .header-menu {
     min-width: 0;
+  }
+
+  .menu-list {
+    width: 100%;
   }
 }
