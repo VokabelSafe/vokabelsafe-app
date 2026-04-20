@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilderübersicht</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #808080;
+    color: white;
+}
+
+.section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.viewer {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.viewer img {
+    max-width: 90vw;
+    max-height: 60vh;
+    border-radius: 8px;
+}
+
+/* Buttons */
+.controls {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+    <h2>Smartphone</h2>
+    <div class="viewer">
+        <img id="img-smartphone" src="Final/Smartphone/S1.png">
+    </div>
+    <div class="controls">
+        <button onclick="prev('smartphone')">◀</button>
+        <button onclick="next('smartphone')">▶</button>
+    </div>
+</div>
+
+<div class="section">
+    <h2>7 Zoll</h2>
+    <div class="viewer">
+        <img id="img-7zoll" src="Final/7%20Zoll/T1.png">
+    </div>
+    <div class="controls">
+        <button onclick="prev('7zoll')">◀</button>
+        <button onclick="next('7zoll')">▶</button>
+    </div>
+</div>
+
+<div class="section">
+    <h2>10 Zoll</h2>
+    <div class="viewer">
+        <img id="img-10zoll" src="Final/10%20Zoll/T1.png">
+    </div>
+    <div class="controls">
+        <button onclick="prev('10zoll')">◀</button>
+        <button onclick="next('10zoll')">▶</button>
+    </div>
+</div>
+
+<script>
+const images = {
+    smartphone: [
+        "Final/Smartphone/S1.png",
+        "Final/Smartphone/S2.png",
+        "Final/Smartphone/S3.png",
+        "Final/Smartphone/S4.png",
+        "Final/Smartphone/S5.png",
+        "Final/Smartphone/S6.png",
+        "Final/Smartphone/S7.png",
+        "Final/Smartphone/S8.png"
+    ],
+    "7zoll": [
+        "Final/7%20Zoll/T1.png",
+        "Final/7%20Zoll/T2.png",
+        "Final/7%20Zoll/T3.png",
+        "Final/7%20Zoll/T4.png",
+        "Final/7%20Zoll/T5.png",
+        "Final/7%20Zoll/T6.png",
+        "Final/7%20Zoll/T7.png",
+        "Final/7%20Zoll/T8.png"
+    ],
+    "10zoll": [
+        "Final/10%20Zoll/T1.png",
+        "Final/10%20Zoll/T2.png",
+        "Final/10%20Zoll/T3.png",
+        "Final/10%20Zoll/T4.png",
+        "Final/10%20Zoll/T5.png",
+        "Final/10%20Zoll/T6.png",
+        "Final/10%20Zoll/T7.png",
+        "Final/10%20Zoll/T8.png"
+    ]
+};
+
+const index = {
+    smartphone: 0,
+    "7zoll": 0,
+    "10zoll": 0
+};
+
+function show(category) {
+    document.getElementById("img-" + category).src =
+        images[category][index[category]];
+}
+
+function next(category) {
+    index[category] = (index[category] + 1) % images[category].length;
+    show(category);
+}
+
+function prev(category) {
+    index[category] =
+        (index[category] - 1 + images[category].length) % images[category].length;
+    show(category);
+}
+</script>
+
+</body>
+</html>

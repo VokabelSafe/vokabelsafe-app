@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilderübersicht</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #808080;
+    color: white;
+}
+
+/* Kategorie-Block */
+.section {
+    margin-bottom: 50px;
+}
+
+/* Überschrift */
+h2 {
+    margin-bottom: 15px;
+}
+
+/* GRID (Desktop) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px; /* Abstand zwischen Bildern */
+}
+
+/* Bild-Karte */
+.card {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+}
+
+/* MOBILE: Swipe */
+@media (max-width: 700px) {
+    .grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 10px;
+    }
+
+    .card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+    <h2>Smartphone</h2>
+    <div class="grid">
+        <div class="card"><img src="Final/Smartphone/S1.png"></div>
+        <div class="card"><img src="Final/Smartphone/S2.png"></div>
+        <div class="card"><img src="Final/Smartphone/S3.png"></div>
+        <div class="card"><img src="Final/Smartphone/S4.png"></div>
+        <div class="card"><img src="Final/Smartphone/S5.png"></div>
+        <div class="card"><img src="Final/Smartphone/S6.png"></div>
+        <div class="card"><img src="Final/Smartphone/S7.png"></div>
+        <div class="card"><img src="Final/Smartphone/S8.png"></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>7 Zoll</h2>
+    <div class="grid">
+        <div class="card"><img src="Final/7%20Zoll/T1.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T2.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T3.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T4.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T5.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T6.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T7.png"></div>
+        <div class="card"><img src="Final/7%20Zoll/T8.png"></div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>10 Zoll</h2>
+    <div class="grid">
+        <div class="card"><img src="Final/10%20Zoll/T1.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T2.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T3.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T4.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T5.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T6.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T7.png"></div>
+        <div class="card"><img src="Final/10%20Zoll/T8.png"></div>
+    </div>
+</div>
+
+</body>
+</html>
