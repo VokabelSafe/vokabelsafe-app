@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vokabelsets mit Excel/OpenOffice erstellen – VokabelSafe</title>
+  <meta name="description" content="Detaillierte Anleitung zum Erstellen von Vokabellisten mit Excel oder LibreOffice für den Import in VokabelSafe.">
+  <link rel="canonical" href="https://vokabelsafe.github.io/vokabelsafe-app/excel.html">
+  <meta name="theme-color" content="#4aa3ff">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vokabelsets mit Excel erstellen – VokabelSafe">
+  <meta name="twitter:description" content="Schritt-für-Schritt Anleitung für den Vokabel-Import via CSV.">
+  <meta name="twitter:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vokabelsets mit Excel erstellen – VokabelSafe">
+  <meta property="og:description" content="Anleitung zum Erzeugen von VokabelSets mit Tabellenprogrammen.">
+  <meta property="og:url" content="https://vokabelsafe.github.io/vokabelsafe-app/excel.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VokabelSafe">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
+  <meta property="og:image:alt" content="VokabelSafe Logo">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
+  <link rel="apple-touch-icon" href="favicon/favicon-64.png">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
+        <div>
+          <p class="site-title">VokabelSafe</p>
+          <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-menu">
+          <details class="menu-dropdown">
+            <summary class="menu-summary">🧾 Vokabelset am PC erstellen</summary>
+            <ul class="menu-list" aria-label="Hauptmenü">
+              <li><a href="index.html">🏠 Startseite</a></li>
+              <li><a href="screenshots.html">📸 Screenshots</a></li>
+              <li><a href="promo-aktion.html">🎁 Promo-Aktion</a></li>
+              <li><a href="vokabelsets.html">🧾 Vokabelset am PC erstellen</a></li>
+              <li><a href="csv-to-json.html">🔧 CSV-Converter</a></li>
+              <li><a href="datenschutz.html">🛡️ Sicherheit und Datenschutz</a></li>
+              <li><a href="kontakt.html">✉️ Kontakt und Support</a></li>
+            </ul>
+          </details>
+        </div>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Im Play Store öffnen
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container">
+  <div class="card">
+    <h1>📊 Vokabelsets mit Excel oder OpenOffice erstellen</h1>
+    <p>Die Erstellung eigener Listen in einem Tabellenprogramm ist der klassische Weg, um größere Mengen an Vokabeln schnell und fehlerfrei vorzubereiten.</p>
+
+    <h3>1. Tabelle vorbereiten</h3>
+    <p>Erstellen Sie eine neue Tabelle und legen Sie in der ersten Zeile genau diese vier Spaltennamen an:</p>
+    <div style="font-family: monospace; background: #f5f5f5; padding: 15px; border-radius: 5px; line-height: 1.6; margin: 10px 0;">
+      <strong>vocabulary_group</strong> (z.B. "Unit 1")<br>
+      <strong>term_learning_language</strong> (Das Wort, das gelernt werden soll)<br>
+      <strong>term_user_language</strong> (Die Übersetzung)<br>
+      <strong>learning_status</strong> (Standardmäßig "0")
+    </div>
+
+    <h3>2. Vokabeln eintragen</h3>
+    <p>So sollte Ihre Tabelle in Excel oder LibreOffice Calc aussehen:</p>
+    <img src="pics/screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste in Excel" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box; margin-bottom: 20px;">
+
+    <h3>3. Als CSV speichern</h3>
+    <p>Damit der Converter die Datei lesen kann, muss sie im CSV-Format gespeichert werden:</p>
+    <ul>
+      <li>Wählen Sie <strong>Datei → Speichern unter</strong>.</li>
+      <li>Wählen Sie als Dateityp <strong>CSV (Trennzeichen-getrennt)</strong>.</li>
+      <li>Achten Sie nach Möglichkeit auf die Codierung <strong>UTF-8</strong>, damit Umlaute korrekt übernommen werden.</li>
+    </ul>
+
+    <div class="highlight" style="margin-top: 20px;">
+      <strong>Nächster Schritt:</strong><br>
+      Sobald Sie Ihre CSV-Datei fertig haben, können Sie diese in unserem Converter umwandeln:
+      <div style="margin-top: 15px;">
+        <a class="btn btn-primary" href="csv-to-json.html">Zum CSV-Converter →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a class="btn btn-secondary" href="vokabelsets.html">Zurück zur Übersicht</a>
+    <a class="btn btn-secondary" href="index.html">Startseite</a>
+  </div>
+</main>
+
+<footer>
+  <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
+  <p><a href="https://vokabelsafe.github.io/vokabelsafe-datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a></p>
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>
