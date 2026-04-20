@@ -52,6 +52,7 @@
               <li><a href="screenshots.html">📸 Screenshots</a></li>
               <li><a href="promo-aktion.html">🎁 Promo-Aktion</a></li>
               <li><a href="import-howto.html">🧾 Vokabelset am PC erstellen</a></li>
+              <li><a class="current" href="csv-to-json.html">🔧 CSV-Converter</a></li>
               <li><a href="datenschutz.html">🛡️ Sicherheit und Datenschutz</a></li>
               <li><a href="kontakt.html">✉️ Kontakt und Support</a></li>
             </ul>
@@ -68,17 +69,15 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>🔧 CSV → JSON Converter</h1>
-    <p>Wandeln Sie hier Ihre vorbereitete CSV-Datei in das passende Format für VokabelSafe um.</p>
+    <p>
+      Wandeln Sie hier Ihre vorbereitete CSV-Datei in das passende Format für VokabelSafe um.
+      <a class="btn btn-secondary" href="import-howto.html" style="margin-left: 10px; padding: 5px 12px; font-size: 14px;">Zur Anleitung</a>
+    </p>
     <p>Die Verarbeitung findet lokal in Ihrem Browser statt. Es werden keine Daten an einen Server übertragen.</p>
 
     <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-top: 20px;">
       <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
-      <input type="file" id="fileInput" accept=".csv" aria-describedby="csvHelp statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
-
-      <div id="csvHelp" style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
-        <strong>Erwartete Spalten:</strong><br>
-        vocabulary_group, term_learning_language, term_user_language, learning_status
-      </div>
+      <input type="file" id="fileInput" accept=".csv" aria-describedby="statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
 
       <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
 
@@ -177,7 +176,6 @@
   </div>
 
   <div class="buttons">
-    <a class="btn btn-secondary" href="import-howto.html">Zurück zur Anleitung</a>
     <a class="btn btn-secondary" href="index.html">Startseite</a>
   </div>
 </main>
