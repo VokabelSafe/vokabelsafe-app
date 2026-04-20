@@ -246,12 +246,35 @@ textarea:focus-visible {
   font-size: 1.2em;
 }
 
+.card h1,
+.card h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
 .card {
   background: var(--card);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h1,
+.card h2,
+.promo-banner h1,
+.promo-banner h2,
+.highlight h1,
+.highlight h2 {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.card h1,
+.card h2 {
+  font-size: 1.5em;
+  margin-top: 0;
 }
 
 .features {
