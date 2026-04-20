@@ -63,7 +63,7 @@ button:hover {
 <div class="section">
     <h2>Smartphone</h2>
     <div class="viewer">
-        <img id="img-smartphone" src="Final/Smartphone/S1.png">
+        <img id="img-smartphone" src="Final/Smartphone/S1.png" alt="Smartphone Screenshot">
     </div>
     <div class="controls">
         <button onclick="prev('smartphone')">◀</button>
@@ -72,24 +72,13 @@ button:hover {
 </div>
 
 <div class="section">
-    <h2>7 Zoll</h2>
+    <h2>Tablet</h2>
     <div class="viewer">
-        <img id="img-7zoll" src="Final/7%20Zoll/T1.png">
+        <img id="img-tablet" src="Final/7%20Zoll/T1.png" alt="Tablet Screenshot">
     </div>
     <div class="controls">
-        <button onclick="prev('7zoll')">◀</button>
-        <button onclick="next('7zoll')">▶</button>
-    </div>
-</div>
-
-<div class="section">
-    <h2>10 Zoll</h2>
-    <div class="viewer">
-        <img id="img-10zoll" src="Final/10%20Zoll/T1.png">
-    </div>
-    <div class="controls">
-        <button onclick="prev('10zoll')">◀</button>
-        <button onclick="next('10zoll')">▶</button>
+        <button onclick="prev('tablet')">◀</button>
+        <button onclick="next('tablet')">▶</button>
     </div>
 </div>
 
@@ -105,7 +94,7 @@ const images = {
         "Final/Smartphone/S7.png",
         "Final/Smartphone/S8.png"
     ],
-    "7zoll": [
+    "tablet": [
         "Final/7%20Zoll/T1.png",
         "Final/7%20Zoll/T2.png",
         "Final/7%20Zoll/T3.png",
@@ -114,23 +103,12 @@ const images = {
         "Final/7%20Zoll/T6.png",
         "Final/7%20Zoll/T7.png",
         "Final/7%20Zoll/T8.png"
-    ],
-    "10zoll": [
-        "Final/10%20Zoll/T1.png",
-        "Final/10%20Zoll/T2.png",
-        "Final/10%20Zoll/T3.png",
-        "Final/10%20Zoll/T4.png",
-        "Final/10%20Zoll/T5.png",
-        "Final/10%20Zoll/T6.png",
-        "Final/10%20Zoll/T7.png",
-        "Final/10%20Zoll/T8.png"
     ]
 };
 
 const index = {
     smartphone: 0,
-    "7zoll": 0,
-    "10zoll": 0
+    "tablet": 0
 };
 
 function show(category) {
