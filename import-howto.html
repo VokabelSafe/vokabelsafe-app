@@ -11,7 +11,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Import-Anleitung – VokabelSafe">
   <meta name="twitter:description" content="CSV-Dateien vorbereiten und in JSON für VokabelSafe umwandeln.">
-  <meta name="twitter:image" content="https://vokabelsafe.github.io/vokabelsafe-app/logo.png">
+  <meta name="twitter:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Import-Anleitung – VokabelSafe">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VokabelSafe">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/logo.png">
+  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
   <meta property="og:image:alt" content="VokabelSafe Logo">
 
   <!-- Website Name für Google -->
@@ -40,7 +40,7 @@
     "@type": "Organization",
     "name": "VokabelSafe",
     "url": "https://vokabelsafe.github.io/vokabelsafe-app/",
-    "logo": "https://vokabelsafe.github.io/vokabelsafe-app/logo.png",
+    "logo": "https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png",
     "email": "christine.steiner.dev@gmail.com"
   }
   </script>
@@ -87,7 +87,7 @@
   <div class="header-inner">
     <div class="header-top">
       <div class="header-left">
-        <img src="logo.png" alt="VokabelSafe Logo">
+        <img src="pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
         <div>
           <p class="site-title">VokabelSafe</p>
           <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
@@ -134,174 +134,21 @@
 
     <h3>Vokabeln eintragen</h3>
     <p>Beispiel (tabellarisch):</p>
-    <img src="screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste am PC" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box;">
+    <img src="pics/screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste am PC" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box;">
 
-    <p>Wie es im CSV aussieht:</p>
-    <img src="screenshot_csvtext.png" alt="Beispiel einer CSV-Datei für den Import" style="width: 100%; max-width: 100%; background: #f5f5f5; padding: 10px; border-radius: 5px; box-sizing: border-box;">
-
-    <h3>👉 Wichtig:</h3>
-    <ul>
-      <li>Mehrere Begriffe kannst du mit einem Semikolon (";") trennen.</li>
-      <li>Wenn ein Text Kommas enthält, setzt Excel automatisch Anführungszeichen. Das ist korrekt.</li>
-    </ul>
-
-    <h3>Als CSV speichern</h3>
-    <ul>
-      <li>In Excel: Datei → Speichern unter → CSV (UTF-8)</li>
-      <li>In LibreOffice: Datei → Speichern unter → Dateityp: CSV</li>
-    </ul>
-
-    <h3>Datei hier hochladen</h3>
-    <p>Wähle deine CSV-Datei (.csv) unten aus.</p>
-    <p>Der Converter wandelt sie automatisch in das richtige Format um.</p>
-
-    <h3>JSON herunterladen</h3>
-    <p>Klicke auf „JSON herunterladen“.</p>
-    <p>Die Datei kannst du direkt in der App verwenden.</p>
-
-    <h3>⚠️ Wichtige Hinweise</h3>
-    <ul>
-      <li>Die erste Zeile muss die Spaltennamen enthalten.</li>
-      <li>Die Spaltennamen müssen genau so geschrieben sein.</li>
-      <li>Speichere die Datei immer als CSV (UTF-8).</li>
-      <li>Excel kann ";" oder "," verwenden. Das wird automatisch erkannt.</li>
-    </ul>
-
-    <hr style="margin: 30px 0; border: none; border-top: 2px solid #ddd;">
-
-    <h3>🔧 CSV → JSON Converter</h3>
-
-    <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-      <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
-      <input type="file" id="fileInput" accept=".csv" aria-describedby="csvHelp statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
-
-      <div id="csvHelp" style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
-        <strong>Erwartete Spalten:</strong><br>
-        vocabulary_group<br>
-        term_learning_language<br>
-        term_user_language<br>
-        learning_status
-      </div>
-
-      <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
-
-      <label for="output" style="display: block; margin-top: 15px;"><strong>JSON-Ausgabe</strong></label>
-      <textarea id="output" placeholder="Hier erscheint dein JSON..." readonly aria-describedby="statusMessage" style="width: 100%; height: 250px; margin-top: 8px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
-
-      <button type="button" onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-        📥 JSON herunterladen
-      </button>
+    <div class="highlight" style="margin-top: 20px;">
+      <strong>Kurzanleitung:</strong>
+      <ol>
+        <li>Tabelle als <strong>CSV (UTF-8)</strong> speichern.</li>
+        <li>Die Datei in unserem <a href="csv-to-json.html"><strong>Online-Converter</strong></a> auswählen.</li>
+        <li>Erzeugtes JSON herunterladen und in die App importieren.</li>
+      </ol>
+      <p><small>💡 Tipp: Trenne mehrere Begriffe in einer Zelle einfach mit einem Semikolon (;). Das Trennzeichen der CSV-Datei (Komma oder Semikolon) erkennt der Converter automatisch.</small></p>
     </div>
 
-    <!-- von: "https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js -->
-    <script src="js/papaparse.min.js"></script>
-    
-    <script>
-      let jsonData = [];
-      const statusMessage = document.getElementById("statusMessage");
-      const requiredHeaders = [
-        "vocabulary_group",
-        "term_learning_language",
-        "term_user_language",
-        "learning_status"
-      ];
-
-      function setStatus(message) {
-        statusMessage.textContent = message;
-      }
-
-      document.getElementById("fileInput").addEventListener("change", function(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        Papa.parse(file, {
-          header: true,
-          dynamicTyping: false,
-          skipEmptyLines: true,
-          delimiter: "",  // Auto-Erkennung
-          transformHeader: (header) => {
-            return header.trim().toLowerCase().replace(/\s+/g, "_");
-          },
-
-          complete: function(results) {
-            console.log("Erkannte Spalten:", results.meta.fields);
-            console.log("Erste Zeile:", results.data[0]);
-            console.log("Anzahl Zeilen:", results.data.length);
-
-            const fields = Array.isArray(results.meta.fields) ? results.meta.fields : [];
-            const missingHeaders = requiredHeaders.filter((header) => !fields.includes(header));
-
-            if (missingHeaders.length > 0) {
-              const message = "Fehlende Spalten: " + missingHeaders.join(", ");
-              setStatus(message);
-              alert(message);
-              return;
-            }
-
-            if (!results.data || results.data.length === 0) {
-              setStatus("Keine Daten in der CSV gefunden.");
-              alert("Keine Daten in der CSV gefunden!");
-              return;
-            }
-
-            let data = results.data.filter(row => {
-              return Object.values(row).some(val => val !== null && val !== "");
-            });
-
-            jsonData = data.map((row) => {
-              const vocab = (row["vocabulary_group"] || "").trim();
-              const userLang = (row["term_user_language"] || "").trim();
-              const learnLang = (row["term_learning_language"] || "").trim();
-              const statusRaw = (row["learning_status"] || "").trim();
-
-              const status = statusRaw !== "" ? Number(statusRaw) : 0;
-
-              return {
-                vocabulary_group: vocab,
-                term_user_language: userLang,
-                term_learning_language: learnLang,
-                learning_status: status
-              };
-            });
-
-            console.log("Konvertierte Daten:", jsonData);
-
-            document.getElementById("output").value =
-              JSON.stringify(jsonData, null, 2);
-
-            setStatus("Konvertierung abgeschlossen. " + jsonData.length + " Vokabeln wurden geladen.");
-            alert("✅ " + jsonData.length + " Vokabeln wurden erfolgreich geladen.");
-          },
-
-          error: function(err) {
-            setStatus("Fehler beim Einlesen: " + err.message);
-            alert("Fehler beim Einlesen: " + err.message);
-          }
-        });
-      });
-
-      function downloadJSON() {
-        if (!jsonData || jsonData.length === 0) {
-          setStatus("Bitte zuerst eine CSV-Datei hochladen.");
-          alert("Bitte zuerst eine CSV-Datei hochladen!");
-          return;
-        }
-
-        const blob = new Blob(
-          [JSON.stringify(jsonData, null, 2)],
-          { type: "application/json" }
-        );
-
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "vokabeln.json";
-        a.click();
-
-        URL.revokeObjectURL(url);
-        setStatus("JSON-Datei wurde zum Download vorbereitet.");
-      }
-    </script>
+    <div class="buttons" style="margin-top: 30px;">
+      <a class="btn btn-primary" href="csv-to-json.html">Zum CSV-Converter →</a>
+    </div>
   </div>
 
   <div class="buttons">

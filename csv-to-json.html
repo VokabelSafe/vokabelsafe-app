@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CSV zu JSON Converter – VokabelSafe</title>
+  <meta name="description" content="Konvertieren Sie Ihre Vokabellisten aus Excel oder CSV einfach online in das JSON-Format für den Import in VokabelSafe.">
+  <link rel="canonical" href="https://vokabelsafe.github.io/vokabelsafe-app/csv-to-json.html">
+  <meta name="theme-color" content="#4aa3ff">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CSV zu JSON Converter – VokabelSafe">
+  <meta name="twitter:description" content="Online-Tool zur Umwandlung von Vokabellisten für VokabelSafe.">
+  <meta name="twitter:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CSV zu JSON Converter – VokabelSafe">
+  <meta property="og:description" content="Vokabellisten einfach für die App VokabelSafe umwandeln.">
+  <meta property="og:url" content="https://vokabelsafe.github.io/vokabelsafe-app/csv-to-json.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VokabelSafe">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
+  <meta property="og:image:alt" content="VokabelSafe Logo">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
+  <link rel="apple-touch-icon" href="favicon/favicon-64.png">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
+        <div>
+          <p class="site-title">VokabelSafe</p>
+          <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-menu">
+          <details class="menu-dropdown">
+            <summary class="menu-summary">🔧 CSV-Converter</summary>
+            <ul class="menu-list" aria-label="Hauptmenü">
+              <li><a href="index.html">🏠 Startseite</a></li>
+              <li><a href="screenshots.html">📸 Screenshots</a></li>
+              <li><a href="promo-aktion.html">🎁 Promo-Aktion</a></li>
+              <li><a href="import-howto.html">🧾 Vokabelset am PC erstellen</a></li>
+              <li><a href="datenschutz.html">🛡️ Sicherheit und Datenschutz</a></li>
+              <li><a href="kontakt.html">✉️ Kontakt und Support</a></li>
+            </ul>
+          </details>
+        </div>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Im Play Store öffnen
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container">
+  <div class="card">
+    <h1>🔧 CSV → JSON Converter</h1>
+    <p>Wandeln Sie hier Ihre vorbereitete CSV-Datei in das passende Format für VokabelSafe um.</p>
+    <p>Die Verarbeitung findet lokal in Ihrem Browser statt. Es werden keine Daten an einen Server übertragen.</p>
+
+    <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-top: 20px;">
+      <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
+      <input type="file" id="fileInput" accept=".csv" aria-describedby="csvHelp statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
+
+      <div id="csvHelp" style="margin-top: 15px; font-size: 14px; color: #555; background: #f9f9f9; padding: 10px; border-radius: 5px;">
+        <strong>Erwartete Spalten:</strong><br>
+        vocabulary_group, term_learning_language, term_user_language, learning_status
+      </div>
+
+      <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
+
+      <label for="output" style="display: block; margin-top: 15px;"><strong>JSON-Ausgabe</strong></label>
+      <textarea id="output" placeholder="Hier erscheint dein JSON..." readonly aria-describedby="statusMessage" style="width: 100%; height: 250px; margin-top: 8px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+
+      <button type="button" onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+        📥 JSON herunterladen
+      </button>
+    </div>
+
+    <script src="js/papaparse.min.js"></script>
+    <script>
+      let jsonData = [];
+      const statusMessage = document.getElementById("statusMessage");
+      const requiredHeaders = [
+        "vocabulary_group",
+        "term_learning_language",
+        "term_user_language",
+        "learning_status"
+      ];
+
+      function setStatus(message) {
+        statusMessage.textContent = message;
+      }
+
+      document.getElementById("fileInput").addEventListener("change", function(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        Papa.parse(file, {
+          header: true,
+          dynamicTyping: false,
+          skipEmptyLines: true,
+          delimiter: "",  // Auto-Erkennung
+          transformHeader: (header) => {
+            return header.trim().toLowerCase().replace(/\s+/g, "_");
+          },
+
+          complete: function(results) {
+            const fields = Array.isArray(results.meta.fields) ? results.meta.fields : [];
+            const missingHeaders = requiredHeaders.filter((header) => !fields.includes(header));
+
+            if (missingHeaders.length > 0) {
+              const message = "Fehlende Spalten: " + missingHeaders.join(", ");
+              setStatus(message);
+              alert(message);
+              return;
+            }
+
+            if (!results.data || results.data.length === 0) {
+              setStatus("Keine Daten in der CSV gefunden.");
+              alert("Keine Daten in der CSV gefunden!");
+              return;
+            }
+
+            let data = results.data.filter(row => {
+              return Object.values(row).some(val => val !== null && val !== "");
+            });
+
+            jsonData = data.map((row) => {
+              return {
+                vocabulary_group: (row["vocabulary_group"] || "").trim(),
+                term_user_language: (row["term_user_language"] || "").trim(),
+                term_learning_language: (row["term_learning_language"] || "").trim(),
+                learning_status: row["learning_status"] !== "" ? Number(row["learning_status"]) : 0
+              };
+            });
+
+            document.getElementById("output").value = JSON.stringify(jsonData, null, 2);
+            setStatus("Konvertierung abgeschlossen. " + jsonData.length + " Vokabeln geladen.");
+            alert("✅ " + jsonData.length + " Vokabeln erfolgreich geladen.");
+          },
+
+          error: function(err) {
+            setStatus("Fehler beim Einlesen: " + err.message);
+            alert("Fehler beim Einlesen: " + err.message);
+          }
+        });
+      });
+
+      function downloadJSON() {
+        if (!jsonData || jsonData.length === 0) {
+          alert("Bitte zuerst eine CSV-Datei hochladen!");
+          return;
+        }
+        const blob = new Blob([JSON.stringify(jsonData, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "vokabeln.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  </div>
+
+  <div class="buttons">
+    <a class="btn btn-secondary" href="import-howto.html">Zurück zur Anleitung</a>
+    <a class="btn btn-secondary" href="index.html">Startseite</a>
+  </div>
+</main>
+
+<footer>
+  <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
+  <p><a href="https://vokabelsafe.github.io/vokabelsafe-datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a></p>
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>
