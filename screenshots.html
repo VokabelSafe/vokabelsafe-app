@@ -58,6 +58,19 @@
         text-align: center;
     }
 
+    .screenshot-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    .section {
+        flex: 1 1 400px; /* Basisbreite 400px, wächst und schrumpft flexibel */
+        max-width: 100%;
+    }
+
     .viewer {
         background: white;
         padding: 10px;
@@ -138,25 +151,27 @@
     <p>Hier erhalten Sie einen Einblick in die Benutzeroberfläche von VokabelSafe. Die App ist bewusst schlicht und ruhig gestaltet, um Kinder beim Lernen nicht abzulenken.</p>
   </div>
 
-  <div class="section">
-    <h2>📱 Smartphone</h2>
-    <div class="viewer">
-        <img id="img-smartphone" src="pics/screenshots/smartphone/S1.png" alt="Smartphone Screenshot">
+  <div class="screenshot-grid">
+    <div class="section">
+      <h2>📱 Smartphone</h2>
+      <div class="viewer">
+          <img id="img-smartphone" src="pics/screenshots/smartphone/S1.png" alt="Smartphone Screenshot">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('smartphone')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('smartphone')" aria-label="Nächstes Bild">▶</button>
+      </div>
     </div>
-    <div class="controls">
-        <button class="btn-nav" onclick="prev('smartphone')" aria-label="Vorheriges Bild">◀</button>
-        <button class="btn-nav" onclick="next('smartphone')" aria-label="Nächstes Bild">▶</button>
-    </div>
-  </div>
 
-  <div class="section">
-    <h2>Tablet</h2>
-    <div class="viewer">
-        <img id="img-tablet" src="pics/screenshots/tablet/T1.png" alt="Tablet Screenshot">
-    </div>
-    <div class="controls">
-        <button class="btn-nav" onclick="prev('tablet')" aria-label="Vorheriges Bild">◀</button>
-        <button class="btn-nav" onclick="next('tablet')" aria-label="Nächstes Bild">▶</button>
+    <div class="section">
+      <h2>💻 Tablet</h2>
+      <div class="viewer">
+          <img id="img-tablet" src="pics/screenshots/tablet/T1.png" alt="Tablet Screenshot">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('tablet')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('tablet')" aria-label="Nächstes Bild">▶</button>
+      </div>
     </div>
   </div>
 
