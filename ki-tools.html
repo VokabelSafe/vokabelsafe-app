@@ -105,12 +105,59 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>🤖 Vokabelsets mit KI-Tools erstellen</h1>
-    <p>Hier entsteht in Kürze eine detaillierte Anleitung, wie Sie künstliche Intelligenz (wie ChatGPT, Gemini oder Claude) nutzen können, um in Sekunden fertige Vokabellisten für VokabelSafe zu generieren.</p>
+    <p>Künstliche Intelligenz (wie ChatGPT, Gemini oder Claude) ist der ultimative Abkürzungsweg. Anstatt Vokabeln mühsam abzutippen, lassen Sie die KI direkt eine Datei im <strong>VokabelSafe-JSON-Format</strong> erstellen.</p>
 
-    <div class="highlight" style="margin: 20px 0; padding: 30px; text-align: center;">
-      <h3>🚧 Unter Konstruktion</h3>
-      <p>Wir arbeiten gerade an den besten Prompts und Beispielen für Sie.</p>
+    <div class="highlight">
+      <h3>✨ Der "Direkt-Import"-Trick</h3>
+      <p>Wenn Sie die KI bitten, das Ergebnis direkt als <strong>JSON-Code</strong> auszugeben, sparen Sie sich den Umweg über Excel oder den Converter. Sie kopieren den Code, speichern ihn als Datei und fertig!</p>
     </div>
+  </div>
+
+  <div class="card">
+    <h2>🚀 Beispiel 1: Vokabeln zu einem Thema</h2>
+    <p>Perfekt für den nächsten Urlaub oder ein neues Hobby. Kopiere diesen Prompt:</p>
+    <div class="prompt-box">
+      Erstelle eine Liste mit 20 englischen Vokabeln zum Thema "Im Hotel".
+      Gib das Ergebnis ausschließlich als JSON-Array aus.
+      Jedes Objekt im Array muss diese Struktur haben:
+      {
+        "vocabulary_group": "Hotel",
+        "term_learning_language": "[Englisches Wort]",
+        "term_user_language": "[Deutsche Übersetzung]",
+        "learning_status": 1
+      }
+      Gib nur den rohen JSON-Code aus, ohne Einleitung oder Formatierung.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🎨 Beispiel 2: Visuelle Merkhilfen (Emoji-Power)</h2>
+    <p>Bilder helfen dem Gehirn, Wörter schneller zu speichern. Lass die KI die Emojis direkt in die Übersetzung einbauen:</p>
+    <div class="prompt-box">
+      Erstelle eine JSON-Liste mit 15 Adjektiven zum Thema "Gefühle & Charakter" (z.B. happy, brave, tired).
+      Wichtig: Die deutsche Übersetzung im Feld "term_user_language" muss immer 1-2 passende Emojis enthalten (z.B. "müde 😴💤" oder "mutig 🦁").
+      Gruppe: "Charakter".
+      Format: [{"vocabulary_group": "Charakter", "term_learning_language": "...", "term_user_language": "...", "learning_status": 1}]
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🧩 Beispiel 3: Der "Rätsel-Modus"</h2>
+    <p>Mach ein Spiel daraus! Die KI schreibt ein kurzes Rätsel auf Englisch, und du musst die Lösung wissen:</p>
+    <div class="prompt-box">
+      Erstelle 10 englische "Was bin ich?"-Rätsel als JSON-Set.
+      In "term_learning_language" schreibst du eine kurze Beschreibung (z.B. "I am big, grey and have a trunk").
+      In "term_user_language" schreibst du nur das Lösungswort auf Deutsch (z.B. "Der Elefant 🐘").
+      Gruppe: "Rätsel-Spaß".
+      Status: 1. Nur den JSON-Code ausgeben.
+    </div>
+  </div>
+
+  <div class="highlight highlight-spacing">
+    <strong>Was mache ich mit dem JSON-Code?</strong><br>
+    1. Kopieren Sie den von der KI erzeugten Code-Block (alles zwischen <code>[</code> und <code>]</code>).<br>
+    2. Speichern Sie diesen Text in einer neuen Datei mit der Endung <strong>.json</strong> (z.B. <code>meine_vokabeln.json</code>).<br>
+    3. Diese Datei können Sie direkt in der VokabelSafe-App importieren.
   </div>
 
   <div class="buttons">
