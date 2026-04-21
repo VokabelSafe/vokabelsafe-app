@@ -5,5 +5,9 @@ magick temp/out_cut.png temp/hand_small.png -gravity south -geometry +0+220 -com
 magick temp/out_hand.png -alpha set -background none -virtual-pixel transparent -channel A -blur 0x15 -threshold 50% +channel show_import.png
 rm temp/out*.png temp/hand_small.png
 
-
+convert temp/main.png -gravity north -chop 0x80 temp/out_cut.png
+magick temp/hand.png -resize 128 temp/hand_small.png
+magick temp/out_cut.png temp/hand_small.png -gravity south -geometry +0+490 -composite temp/out_hand.png
+magick temp/out_hand.png -alpha set -background none -virtual-pixel transparent -channel A -blur 0x15 -threshold 50% +channel show_main.png
+rm temp/out*.png temp/hand_small.png
 
