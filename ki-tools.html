@@ -129,6 +129,20 @@
       }
       Gib nur den rohen JSON-Code aus, ohne Einleitung oder Formatierung.
     </div>
+
+    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+      So sieht das Ergebnis in der App aus, nachdem Sie die erzeugte JSON-Datei importiert haben:
+    </p>
+
+    <div class="section" style="text-align: center;">
+      <div class="viewer">
+          <img id="img-ex1" src="pics/screenshots/ki/ex1/show_ki-example1-01.png" alt="Screenshot KI Beispiel 1" onclick="openModal('ex1')">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('ex1')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('ex1')" aria-label="Nächstes Bild">▶</button>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -139,6 +153,20 @@
       Wichtig: Die deutsche Übersetzung im Feld &quot;term_user_language&quot; muss immer 1-2 passende Emojis enthalten (z.B. &quot;müde 😴&quot; oder &quot;mutig 🦁&quot;).
       Gruppe: &quot;Charakter&quot;.
       Format: [{&quot;vocabulary_group&quot;: &quot;Charakter&quot;, &quot;term_learning_language&quot;: &quot;...&quot;, &quot;term_user_language&quot;: &quot;...&quot;, &quot;learning_status&quot;: 1}]
+    </div>
+
+    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+      So sieht das Ergebnis in der App aus, nachdem Sie die erzeugte JSON-Datei importiert haben:
+    </p>
+
+    <div class="section" style="text-align: center;">
+      <div class="viewer">
+          <img id="img-ex2" src="pics/screenshots/ki/ex2/show_ki-example2-01.png" alt="Screenshot KI Beispiel 2" onclick="openModal('ex2')">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('ex2')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('ex2')" aria-label="Nächstes Bild">▶</button>
+      </div>
     </div>
   </div>
 
@@ -151,6 +179,20 @@
       In &quot;term_user_language&quot; schreibst du nur das Lösungswort auf Deutsch (z.B. &quot;Der Elefant 🐘&quot;).
       Gruppe: &quot;Rätsel-Spaß&quot;.
       Status: 1. Nur den JSON-Code ausgeben.
+    </div>
+
+    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+      So sieht das Ergebnis in der App aus, nachdem Sie die erzeugte JSON-Datei importiert haben:
+    </p>
+
+    <div class="section" style="text-align: center;">
+      <div class="viewer">
+          <img id="img-ex3" src="pics/screenshots/ki/ex3/show_ki-example3-01.png" alt="Screenshot KI Beispiel 3" onclick="openModal('ex3')">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('ex3')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('ex3')" aria-label="Nächstes Bild">▶</button>
+      </div>
     </div>
   </div>
 
@@ -168,7 +210,98 @@
   <div class="buttons">
     <a class="btn btn-secondary" href="index.html">Zur Startseite</a>
   </div>
+
+  <!-- Modal / Lightbox -->
+  <div id="screenshotModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <button class="modal-btn" onclick="prevModal()" aria-label="Vorheriges Bild">◀</button>
+      <img id="modalImg" class="modal-img" src="" alt="Vollbild Screenshot" onclick="closeModal()">
+      <button class="modal-btn" onclick="nextModal()" aria-label="Nächstes Bild">▶</button>
+    </div>
+  </div>
 </main>
+
+<script>
+const images = {
+    ex1: [
+        "pics/screenshots/ki/ex1/show_ki-example1-01.png",
+        "pics/screenshots/ki/ex1/show_ki-example1-02.png",
+        "pics/screenshots/ki/ex1/show_ki-example1-03.png",
+        "pics/screenshots/ki/ex1/show_ki-example1-04.png"
+    ],
+    ex2: [
+        "pics/screenshots/ki/ex2/show_ki-example2-01.png",
+        "pics/screenshots/ki/ex2/show_ki-example2-02.png",
+        "pics/screenshots/ki/ex2/show_ki-example2-03.png",
+        "pics/screenshots/ki/ex2/show_ki-example2-04.png"
+    ],
+    ex3: [
+        "pics/screenshots/ki/ex3/show_ki-example3-01.png",
+        "pics/screenshots/ki/ex3/show_ki-example3-02.png",
+        "pics/screenshots/ki/ex3/show_ki-example3-03.png",
+        "pics/screenshots/ki/ex3/show_ki-example3-04.png"
+    ]
+};
+
+const index = {
+    ex1: 0,
+    ex2: 0,
+    ex3: 0
+};
+
+let currentModalCategory = '';
+
+function show(category) {
+    const imgPath = images[category][index[category]];
+    document.getElementById("img-" + category).src = imgPath;
+    if (document.getElementById("screenshotModal").style.display === "flex") {
+        document.getElementById("modalImg").src = imgPath;
+    }
+}
+
+function next(category) {
+    index[category] = (index[category] + 1) % images[category].length;
+    show(category);
+}
+
+function prev(category) {
+    index[category] =
+        (index[category] - 1 + images[category].length) % images[category].length;
+    show(category);
+}
+
+function openModal(category) {
+    currentModalCategory = category;
+    const modal = document.getElementById("screenshotModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = images[category][index[category]];
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("screenshotModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+function nextModal() {
+    next(currentModalCategory);
+}
+
+function prevModal() {
+    prev(currentModalCategory);
+}
+
+// Schließen mit Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+    if (document.getElementById("screenshotModal").style.display === "flex") {
+        if (e.key === "ArrowRight") nextModal();
+        if (e.key === "ArrowLeft") prevModal();
+    }
+});
+</script>
 
 <footer>
   <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
