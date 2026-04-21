@@ -106,18 +106,68 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>📖 Vokabeln in die App importieren</h1>
-    <p>Hier erfahren Sie in Kürze Schritt für Schritt, wie Sie Ihre vorbereiteten Vokabelsets (JSON-Dateien) direkt in die VokabelSafe-App auf Ihrem Smartphone oder Tablet laden.</p>
+    <p>Das Importieren Ihrer eigenen Vokabellisten in VokabelSafe ist einfach und schnell. Folgen Sie dieser kurzen Anleitung, um Ihre Dateien auf das Smartphone oder Tablet zu übertragen.</p>
 
-    <div class="highlight highlight-centered">
-      <h3>🚧 Unter Konstruktion</h3>
-      <p>Wir erstellen gerade die Screenshots und die detaillierte Klick-Anleitung für Sie. Schauen Sie bald wieder vorbei!</p>
+    <div class="highlight">
+      <h3>📁 Vorbereitung: Datei übertragen</h3>
+      <p>Bevor Sie starten, muss die JSON-Datei auf Ihrem Mobilgerät (Smartphone oder Tablet) gespeichert sein. Sie können die Datei ganz einfach übertragen:</p>
+      <ul>
+        <li>Per <strong>E-Mail</strong> an sich selbst senden und den Anhang speichern.</li>
+        <li>Über einen Cloud-Dienst wie <strong>Google Drive</strong>, <strong>OneDrive</strong> oder <strong>iCloud</strong>.</li>
+        <li>Per <strong>Messenger</strong> (z. B. WhatsApp, Signal oder Telegram) an sich selbst schicken.</li>
+      </ul>
+      <p>Wichtig ist nur, dass die Datei im Speicher Ihres Geräts (z. B. im Ordner "Downloads") liegt.</p>
     </div>
+
+    <h3>1. Den Bereich "Vokabeln hinzufügen" öffnen</h3>
+    <p>Starten Sie die VokabelSafe-App auf Ihrem Gerät. Tippen Sie auf der Hauptseite auf den Button <strong>"Vokabeln hinzufügen"</strong>.</p>
+
+    <h3>2. Import-Funktion starten</h3>
+    <p>In der nun folgenden Ansicht finden Sie die Schaltfläche <strong>"Vokabeln aus Backup wiederherstellen"</strong>. Tippen Sie auf diesen Button, um Ihre JSON-Datei auszuwählen und den Import zu starten.</p>
+
+    <img src="pics/screenshots/import/show_import.png" alt="Screenshot der VokabelSafe App: Schaltfläche Vokabeln aus Backup wiederherstellen" class="instruction-img" style="max-width: 300px; cursor: zoom-in; display: block; margin: 0 auto 20px;" onclick="openModal(this.src)">
+
+    <div class="highlight">
+      <h3>💡 Tipp: Dateiformat beachten</h3>
+      <p>Stellen Sie sicher, dass Ihre Vokabelliste im <strong>JSON-Format</strong> vorliegt. Falls Sie noch eine Excel-Tabelle oder CSV-Datei haben, nutzen Sie unseren <a href="csv-to-json.html">Konverter</a> oder lassen Sie sich die Liste direkt von einer <a href="ki-tools.html">KI erstellen</a>.</p>
+    </div>
+
+    <h3>3. Datei auswählen und fertig</h3>
+    <p>Nach dem Tippen auf den Button öffnet sich die Dateiauswahl Ihres Geräts. Wählen Sie dort Ihre vorbereitete JSON-Datei aus (diese liegt meist im Ordner "Downloads"). Die Vokabeln werden nun automatisch importiert und sind sofort in Ihrer Liste verfügbar. Fertig!</p>
   </div>
 
   <div class="buttons">
     <a class="btn btn-secondary" href="index.html">Zurück zur Startseite</a>
   </div>
+
+  <!-- Modal / Lightbox -->
+  <div id="screenshotModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" class="modal-img" src="" alt="Vollbild Screenshot" onclick="closeModal()">
+    </div>
+  </div>
 </main>
+
+<script>
+function openModal(src) {
+    const modal = document.getElementById("screenshotModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("screenshotModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Schließen mit Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
 
 <footer>
   <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
