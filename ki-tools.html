@@ -128,7 +128,7 @@ Jedes Objekt im Array muss diese Struktur haben:
   "term_user_language": "[Deutsche Übersetzung]",
   "learning_status": 1
 }
-Gib nur den rohen JSON-Code aus, ohne Einleitung oder Formatierung.</pre>
+Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
     <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
@@ -155,7 +155,15 @@ Gib nur den rohen JSON-Code aus, ohne Einleitung oder Formatierung.</pre>
       <pre>Erstelle eine JSON-Liste mit 15 Adjektiven zum Thema "Gefühle & Charakter" (z.B. happy, brave, tired).
 Wichtig: Die deutsche Übersetzung im Feld "term_user_language" muss immer 1-2 passende Emojis enthalten (z.B. "müde 😴" oder "mutig 🦁").
 Gruppe: "Charakter".
-Format: [{"vocabulary_group": "Charakter", "term_learning_language": "...", "term_user_language": "...", "learning_status": 1}]</pre>
+Format: [
+  {
+    "vocabulary_group": "Charakter",
+    "term_learning_language": "...",
+    "term_user_language": "...",
+    "learning_status": 1
+  }
+]
+Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
     <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
@@ -182,8 +190,14 @@ Format: [{"vocabulary_group": "Charakter", "term_learning_language": "...", "ter
       <pre>Erstelle 10 englische "Was bin ich?"-Rätsel als JSON-Set.
 In "term_learning_language" schreibst du eine kurze Beschreibung (z.B. "I am big, grey and have a trunk").
 In "term_user_language" schreibst du nur das Lösungswort auf Deutsch (z.B. "Der Elefant 🐘").
-Gruppe: "Rätsel-Spaß".
-Status: 1. Nur den JSON-Code ausgeben.</pre>
+Jedes Objekt muss diese Struktur haben:
+{
+  "vocabulary_group": "Rätsel-Spaß",
+  "term_learning_language": "[Rätsel-Text]",
+  "term_user_language": "[Lösung]",
+  "learning_status": 1
+}
+Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
     <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
