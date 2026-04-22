@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VokabelSet Prompt Generator – VokabelSafe</title>
+  <meta name="description" content="Erstellen Sie perfekte KI-Prompts für umfangreiche Vokabelsets. Generieren Sie strukturierte JSON-Listen für ChatGPT, Gemini und Co.">
+  <link rel="canonical" href="https://vokabelsafe.github.io/vokabelsafe-app/prompt-gen.html">
+  <meta name="theme-color" content="#4aa3ff">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VokabelSet Prompt Generator – VokabelSafe">
+  <meta property="og:description" content="Der einfachste Weg zu komplexen Vokabellisten per KI.">
+  <meta property="og:url" content="https://vokabelsafe.github.io/vokabelsafe-app/prompt-gen.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://vokabelsafe.github.io/vokabelsafe-app/pics/VokabelSafe-Logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="favicon/favicon-64.png">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <style>
+    .gen-container {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #1f2a36;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .form-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .form-row .form-group {
+      flex: 1;
+      min-width: 150px;
+    }
+    .prompt-output {
+      background: #f4f7f9;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #cfe0eb;
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin-top: 20px;
+      position: relative;
+      display: none;
+    }
+    .copy-overlay {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .checkbox-group input {
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
+        <div>
+          <p class="site-title">VokabelSafe</p>
+          <p>Der ruhige, werbefreie Vokabeltrainer für Kinder und Schüler – offline, sicher und flexibel</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-menu">
+          <details class="menu-dropdown">
+            <summary class="menu-summary">✨ Prompt-Gen</summary>
+            <ul class="menu-list" aria-label="Hauptmenü">
+              <li><a href="index.html">🏠 Startseite</a></li>
+              <li><a href="screenshots.html">📸 Screenshots</a></li>
+              <li><a href="promo-aktion.html">🎁 Promo-Aktion</a></li>
+              <li><a href="vokabelsets.html">🧾 Vokabelsets erstellen</a></li>
+              <li><a href="excel.html">📊 Excel / OpenOffice</a></li>
+              <li><a href="ki-tools.html">🤖 KI-Tools</a></li>
+              <li><a href="import-howto.html">📖 Import-Anleitung</a></li>
+              <li><a href="csv-to-json.html">🔧 CSV-Converter</a></li>
+              <li><a href="datenschutz.html">🛡️ Sicherheit und Datenschutz</a></li>
+              <li><a href="ueber-uns.html">👩‍👧 Von Eltern entwickelt</a></li>
+              <li><a href="kontakt.html">✉️ Kontakt und Support</a></li>
+            </ul>
+          </details>
+        </div>
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Im Play Store öffnen
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container">
+  <div class="card">
+    <h1>✨ VokabelSet Prompt Generator</h1>
+    <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (z.B. ChatGPT) einfügen können.</p>
+  </div>
+
+  <div class="gen-container">
+    <div class="form-group">
+      <label for="language">Welche Sprache möchten Sie lernen?</label>
+      <input type="text" id="language" placeholder="z.B. Englisch, Spanisch, Französisch..." value="Englisch">
+    </div>
+
+    <div class="form-group">
+      <label for="mode">Art des Sets</label>
+      <select id="mode" onchange="toggleMode()">
+        <option value="topics">Bestimmte Themengebiete</option>
+        <option value="comprehensive">Die wichtigsten Vokabeln der Sprache (Allgemein)</option>
+      </select>
+    </div>
+
+    <div id="topicsGroup" class="form-group">
+      <label for="topics">Welche Themen? (kommagetrennt)</label>
+      <textarea id="topics" placeholder="z.B. Im Restaurant, Wegbeschreibung, Berufe..."></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="groupCount">Anzahl der Gruppen</label>
+        <input type="number" id="groupCount" value="5" min="1" max="20">
+      </div>
+      <div class="form-group">
+        <label for="wordCount">Vokabeln pro Gruppe</label>
+        <input type="number" id="wordCount" value="15" min="5" max="50">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-group">
+        <input type="checkbox" id="useEmojis" checked>
+        Sollen Emojis in der Übersetzung enthalten sein? 🦁
+      </label>
+    </div>
+
+    <button type="button" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1em;" onclick="generatePrompt()">
+      🚀 Prompt generieren
+    </button>
+
+    <div id="promptOutput" class="prompt-output">
+      <div class="copy-overlay">
+        <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px;" onclick="copyGeneratedPrompt()">📋 Kopieren</button>
+      </div>
+      <div id="promptText"></div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a class="btn btn-secondary" href="ki-tools.html">Zurück zu den KI-Tools</a>
+    <a class="btn btn-secondary" href="csv-to-json.html">Zum Converter & Speichern</a>
+  </div>
+</main>
+
+<script>
+  function toggleMode() {
+    const mode = document.getElementById('mode').value;
+    document.getElementById('topicsGroup').style.display = (mode === 'topics') ? 'block' : 'none';
+  }
+
+  function generatePrompt() {
+    const language = document.getElementById('language').value || 'Englisch';
+    const mode = document.getElementById('mode').value;
+    const topics = document.getElementById('topics').value;
+    const groupCount = document.getElementById('groupCount').value;
+    const wordCount = document.getElementById('wordCount').value;
+    const useEmojis = document.getElementById('useEmojis').checked;
+
+    let strategy = '';
+    if (mode === 'topics') {
+      strategy = `Erstelle ein Vokabelset für die Sprache ${language}.
+Das Set soll in ${groupCount} thematische Gruppen unterteilt sein.
+Themenwünsche: ${topics || 'Wähle sinnvolle Alltagsthemen'}.
+Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
+    } else {
+      strategy = `Erstelle ein umfassendes Vokabelset für die Sprache ${language} mit den wichtigsten Vokabeln für Anfänger und Fortgeschrittene.
+Unterteile das Set in ${groupCount} logische Gruppen (z.B. Basis-Verben, Adjektive, Zeitangaben etc.).
+Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
+    }
+
+    const emojiInstruction = useEmojis
+      ? "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein, um das Lernen visuell zu unterstützen."
+      : "Verwende keine Emojis in den Übersetzungen.";
+
+    const prompt = `Handle als erfahrener Sprachlehrer.
+${strategy}
+
+${emojiInstruction}
+
+Gib das Ergebnis AUSSCHLIESSLICH als ein einziges JSON-Array aus, das alle Vokabeln aller Gruppen enthält.
+Jedes Objekt im Array MUSS exakt diese Struktur haben:
+{
+  "vocabulary_group": "[Name der Gruppe]",
+  "term_learning_language": "[Wort in ${language}]",
+  "term_user_language": "[Deutsche Übersetzung]",
+  "learning_status": 1
+}
+
+WICHTIG:
+- Nur den rohen JSON-Code ausgeben, kein Text davor oder danach.
+- Das JSON muss valide sein und direkt mit [ beginnen und mit ] enden.`;
+
+    document.getElementById('promptText').textContent = prompt;
+    document.getElementById('promptOutput').style.display = 'block';
+
+    // Scroll smoothly to output
+    document.getElementById('promptOutput').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function copyGeneratedPrompt() {
+    const text = document.getElementById('promptText').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("✅ Prompt in die Zwischenablage kopiert!");
+    });
+  }
+</script>
+
+<footer>
+  <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
+  <p><a href="https://vokabelsafe.github.io/vokabelsafe-datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a></p>
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>
