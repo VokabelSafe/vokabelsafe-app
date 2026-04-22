@@ -175,7 +175,101 @@
   <div class="gen-container">
     <div class="form-group">
       <label for="language">Welche Sprache möchten Sie lernen?</label>
-      <input type="text" id="language" placeholder="z.B. Englisch, Spanisch, Französisch..." value="Englisch">
+      <select id="language" onchange="checkOtherLanguage()">
+        <option value="Afrikaans">Afrikaans 🇿🇦</option>
+        <option value="Albanisch">Albanisch 🇦🇱</option>
+        <option value="Altgriechisch">Altgriechisch 🏺</option>
+        <option value="Amharisch">Amharisch 🇪🇹</option>
+        <option value="Arabisch">Arabisch 🇸🇦</option>
+        <option value="Armenisch">Armenisch 🇦🇲</option>
+        <option value="Aserbaidschanisch">Aserbaidschanisch 🇦🇿</option>
+        <option value="Baskisch">Baskisch 🇪🇸</option>
+        <option value="Belarussisch">Belarussisch 🇧🇾</option>
+        <option value="Bengalisch">Bengalisch 🇧🇩</option>
+        <option value="Bosnisch">Bosnisch 🇧🇦</option>
+        <option value="Bulgarisch">Bulgarisch 🇧🇬</option>
+        <option value="Burmesisch">Burmesisch 🇲🇲</option>
+        <option value="Chinesisch (Kantonesisch)">Chinesisch (Kantonesisch) 🇭🇰</option>
+        <option value="Chinesisch (Mandarin)">Chinesisch (Mandarin) 🇨🇳</option>
+        <option value="Dänisch">Dänisch 🇩🇰</option>
+        <option value="Deutsch">Deutsch 🇩🇪</option>
+        <option value="Englisch" selected>Englisch 🇬🇧</option>
+        <option value="Estnisch">Estnisch 🇪🇪</option>
+        <option value="Finnisch">Finnisch 🇫🇮</option>
+        <option value="Französisch">Französisch 🇫🇷</option>
+        <option value="Georgisch">Georgisch 🇬🇪</option>
+        <option value="Griechisch">Griechisch 🇬🇷</option>
+        <option value="Gujarati">Gujarati 🇮🇳</option>
+        <option value="Haitianisch">Haitianisch 🇭🇹</option>
+        <option value="Hausa">Hausa 🇳🇬</option>
+        <option value="Hebräisch">Hebräisch 🇮🇱</option>
+        <option value="Hindi">Hindi 🇮🇳</option>
+        <option value="Indonesisch">Indonesisch 🇮🇩</option>
+        <option value="Irisch">Irisch 🇮🇪</option>
+        <option value="Isländisch">Isländisch 🇮🇸</option>
+        <option value="Italienisch">Italienisch 🇮🇹</option>
+        <option value="Japanisch">Japanisch 🇯🇵</option>
+        <option value="Javanisch">Javanisch 🇮🇩</option>
+        <option value="Kannada">Kannada 🇮🇳</option>
+        <option value="Kasachisch">Kasachisch 🇰🇿</option>
+        <option value="Katalanisch">Katalanisch 🇪🇸</option>
+        <option value="Khmer">Khmer 🇰🇭</option>
+        <option value="Kirgisisch">Kirgisisch 🇰🇬</option>
+        <option value="Koreanisch">Koreanisch 🇰🇷</option>
+        <option value="Kroatisch">Kroatisch 🇭🇷</option>
+        <option value="Kurdisch">Kurdisch ☀️</option>
+        <option value="Laotisch">Laotisch 🇱🇦</option>
+        <option value="Latein">Latein 🏛️</option>
+        <option value="Lettisch">Lettisch 🇱🇻</option>
+        <option value="Litauisch">Litauisch 🇱🇹</option>
+        <option value="Luxemburgisch">Luxemburgisch 🇱🇺</option>
+        <option value="Madagassisch">Madagassisch 🇲🇬</option>
+        <option value="Malaiisch">Malaiisch 🇲🇾</option>
+        <option value="Malayalam">Malayalam 🇮🇳</option>
+        <option value="Maltesisch">Maltesisch 🇲🇹</option>
+        <option value="Maori">Maori 🇳🇿</option>
+        <option value="Marathi">Marathi 🇮🇳</option>
+        <option value="Mazedonisch">Mazedonisch 🇲🇰</option>
+        <option value="Mongolisch">Mongolisch 🇲🇳</option>
+        <option value="Nepalesisch">Nepalesisch 🇳🇵</option>
+        <option value="Niederländisch">Niederländisch 🇳🇱</option>
+        <option value="Norwegisch">Norwegisch 🇳🇴</option>
+        <option value="Paschtu">Paschtu 🇦🇫</option>
+        <option value="Persisch">Persisch 🇮🇷</option>
+        <option value="Polnisch">Polnisch 🇵🇱</option>
+        <option value="Portugiesisch">Portugiesisch 🇵🇹</option>
+        <option value="Punjabi">Punjabi 🇮🇳</option>
+        <option value="Rumänisch">Rumänisch 🇷🇴</option>
+        <option value="Russisch">Russisch 🇷🇺</option>
+        <option value="Schwedisch">Schwedisch 🇸🇪</option>
+        <option value="Serbisch">Serbisch 🇷🇸</option>
+        <option value="Slowakisch">Slowakisch 🇸🇰</option>
+        <option value="Slowenisch">Slowenisch 🇸🇮</option>
+        <option value="Somali">Somali 🇸🇴</option>
+        <option value="Spanisch">Spanisch 🇪🇸</option>
+        <option value="Suaheli">Suaheli 🇰🇪</option>
+        <option value="Tadschikisch">Tadschikisch 🇹🇯</option>
+        <option value="Tagalog">Tagalog 🇵🇭</option>
+        <option value="Tamil">Tamil 🇮🇳</option>
+        <option value="Telugu">Telugu 🇮🇳</option>
+        <option value="Thai">Thai 🇹🇭</option>
+        <option value="Tschechisch">Tschechisch 🇨🇿</option>
+        <option value="Türkisch">Türkisch 🇹🇷</option>
+        <option value="Turkmenisch">Turkmenisch 🇹🇲</option>
+        <option value="Ukrainisch">Ukrainisch 🇺🇦</option>
+        <option value="Ungarisch">Ungarisch 🇭🇺</option>
+        <option value="Urdu">Urdu 🇵🇰</option>
+        <option value="Usbekisch">Usbekisch 🇺🇿</option>
+        <option value="Vietnamesisch">Vietnamesisch 🇻🇳</option>
+        <option value="Walisisch">Walisisch 🏴󠁧󠁢󠁷󠁬󠁳󠁿</option>
+        <option value="Zulu">Zulu 🇿🇦</option>
+        <option value="other">Sonstige Sprache...</option>
+      </select>
+    </div>
+
+    <div id="otherLanguageGroup" class="form-group" style="display: none; margin-top: 10px;">
+      <label for="otherLanguage">Name der Sprache</label>
+      <input type="text" id="otherLanguage" placeholder="Welche Sprache möchtest du lernen?">
     </div>
 
     <div class="form-group">
@@ -250,8 +344,19 @@
     }
   }
 
+  function checkOtherLanguage() {
+    const langSelect = document.getElementById('language');
+    const otherGroup = document.getElementById('otherLanguageGroup');
+    otherGroup.style.display = (langSelect.value === 'other') ? 'block' : 'none';
+  }
+
   function generatePrompt() {
-    const language = document.getElementById('language').value || 'Englisch';
+    const langSelect = document.getElementById('language');
+    let language = langSelect.value;
+    if (language === 'other') {
+      language = document.getElementById('otherLanguage').value || 'Fremdsprache';
+    }
+
     const mode = document.getElementById('mode').value;
     const topics = document.getElementById('topics').value;
     const groupCount = document.getElementById('groupCount').value;
