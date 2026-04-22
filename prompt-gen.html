@@ -230,7 +230,24 @@
 <script>
   function toggleMode() {
     const mode = document.getElementById('mode').value;
-    document.getElementById('topicsGroup').style.display = (mode === 'topics') ? 'block' : 'none';
+    const isTopics = (mode === 'topics');
+
+    // Themen-Textarea ein/ausblenden
+    document.getElementById('topicsGroup').style.display = isTopics ? 'block' : 'none';
+
+    // Gruppen-Anzahl ausgrauen, wenn "Allgemein" gewählt ist
+    const groupCountInput = document.getElementById('groupCount');
+    if (!isTopics) {
+      groupCountInput.disabled = true;
+      groupCountInput.style.backgroundColor = "#f5f5f5";
+      groupCountInput.style.cursor = "not-allowed";
+      groupCountInput.title = "Im allgemeinen Modus bestimmt die KI die optimale Anzahl der Gruppen selbst.";
+    } else {
+      groupCountInput.disabled = false;
+      groupCountInput.style.backgroundColor = "";
+      groupCountInput.style.cursor = "";
+      groupCountInput.title = "";
+    }
   }
 
   function generatePrompt() {
@@ -248,8 +265,8 @@ Das Set soll in ${groupCount} thematische Gruppen unterteilt sein.
 Themenwünsche: ${topics || 'Wähle sinnvolle Alltagsthemen'}.
 Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
     } else {
-      strategy = `Erstelle ein umfassendes Vokabelset für die Sprache ${language} mit den wichtigsten Vokabeln für Anfänger und Fortgeschrittene.
-Unterteile das Set in ${groupCount} logische Gruppen (z.B. Basis-Verben, Adjektive, Zeitangaben etc.).
+      strategy = `Erstelle ein umfassendes Vokabelset für die Sprache ${language} mit den wichtigsten Vokabeln für Anfänger und Fortgeschrittene (Level A1 bis B2).
+Unterteile das Set selbstständig in logische, sinnvolle Gruppen (z.B. Basis-Verben, Adjektive, Zeitangaben, Reisen, Essen etc.).
 Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
     }
 
