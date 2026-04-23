@@ -206,7 +206,8 @@
       <strong>🤖 Welche KI eignet sich am besten für größere Vokabel-Sets?</strong><br>
       • <strong>Gemini 1.5 (Google):</strong> Aktuell die beste Empfehlung. Hält sich sehr strikt an die Menge und das Format.<br>
       • <strong>DeepSeek:</strong> Sehr leistungsstark, liefert oft sogar mehr als angefordert. Falls der Code abbricht, einfach "fortsetzen" tippen.<br>
-      • <strong>ChatGPT (OpenAI):</strong> Bei 500 Vokabeln stößt ChatGPT oft an sein technisches Ausgabemittel. Hier empfiehlt es sich, die Menge ggf. auf 200-300 zu reduzieren.
+      • <strong>ChatGPT (OpenAI):</strong> Bei 500 Vokabeln stößt ChatGPT oft an sein technisches Ausgabemittel. Hier empfiehlt es sich, die Menge ggf. auf 200-300 zu reduzieren.<br>
+      • <strong>Tipp:</strong> Es ist egal, ob die KI den Code schön untereinander oder alles in eine lange Zeile schreibt – der Converter akzeptiert beides!
     </div>
   </div>
 
@@ -380,23 +381,32 @@
     <div id="exampleModal" class="modal" onclick="closeExample()">
       <div class="card" style="max-width: 600px; margin: 50px auto; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">
         <h2>💡 Beispiel für das Ergebnis</h2>
-        <p>So sieht der Code aus, den die KI für Sie generieren wird:</p>
-        <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.85em;">
+        <p>Die KI gibt den Code oft in verschiedenen Formaten aus. Beides ist absolut in Ordnung:</p>
+
+        <div style="margin-bottom: 15px;">
+          <strong style="display: block; margin-bottom: 5px; color: #666; font-size: 0.85em;">Variante A: Mehrzeilig (gut lesbar)</strong>
+          <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.8em; margin: 0;">
 <pre>[
   {
     "vocabulary_group": "Unit 1",
     "term_learning_language": "apple",
     "term_user_language": "der Apfel 🍎",
     "learning_status": 1
-  },
-  {
-    "vocabulary_group": "Unit 1",
-    "term_learning_language": "bread",
-    "term_user_language": "das Brot 🍞",
-    "learning_status": 1
   }
 ]</pre>
+          </div>
         </div>
+
+        <div style="margin-bottom: 15px;">
+          <strong style="display: block; margin-bottom: 5px; color: #666; font-size: 0.85em;">Variante B: Einzeilig/Kompakt (Völlig okay!)</strong>
+          <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.8em; margin: 0;">
+<pre>[{"vocabulary_group":"Unit 1","term_learning_language":"apple","term_user_language":"Apfel","learning_status":1}, ...]</pre>
+          </div>
+        </div>
+
+        <p style="font-size: 0.85em; background: #f8f9fa; padding: 10px; border-left: 4px solid #007bff; color: #333;">
+          <strong>Hinweis:</strong> Es ist egal, ob die KI Leerzeichen oder Umbrüche einfügt. Solange die Struktur mit den eckigen Klammern <code>[]</code> und den 4 Feldnamen stimmt, kann der Converter es verarbeiten.
+        </p>
         <button class="btn btn-primary" onclick="closeExample()" style="width: 100%; margin-top: 15px;">Verstanden</button>
       </div>
     </div>
