@@ -96,7 +96,12 @@
     }
     .form-row .form-group {
       flex: 1;
-      min-width: 150px;
+      min-width: 200px;
+    }
+    @media (max-width: 600px) {
+      .form-row .form-group {
+        flex: 1 1 100%;
+      }
     }
     .prompt-output {
       background: #f4f7f9;
@@ -135,14 +140,15 @@
       min-height: 40px;
     }
     .tag {
-      background: #4aa3ff;
-      color: white;
-      padding: 5px 10px;
+      padding: 6px 14px;
       border-radius: 20px;
       font-size: 14px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .tag .remove {
       cursor: pointer;
@@ -345,8 +351,12 @@
 
     <div class="form-row">
       <div class="form-group">
-        <label for="wordCount">Vokabeln pro Gruppe</label>
-        <select id="wordCount"></select>
+        <label for="wordCount" id="wordCountLabel">Vokabeln pro Gruppe</label>
+        <select id="wordCount" onchange="updateGroupCountOptions()"></select>
+      </div>
+      <div id="groupCountContainer" class="form-group" style="display: none;">
+        <label for="groupCount">Anzahl der Gruppen</label>
+        <select id="groupCount"></select>
       </div>
     </div>
 
@@ -357,9 +367,39 @@
       </label>
     </div>
 
-    <button type="button" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1em;" onclick="generatePrompt()">
-      🚀 Prompt generieren
-    </button>
+    <div class="form-row" style="margin-top: 10px;">
+      <button type="button" class="btn btn-primary" style="flex: 2; padding: 15px; font-size: 1.1em;" onclick="generatePrompt()">
+        🚀 Prompt generieren
+      </button>
+      <button type="button" class="btn btn-secondary" style="flex: 1; padding: 15px; font-size: 1.1em; background-color: #6c757d;" onclick="showExample()">
+        💡 Beispiel JSON
+      </button>
+    </div>
+
+    <!-- Beispiel-Modal -->
+    <div id="exampleModal" class="modal" onclick="closeExample()">
+      <div class="card" style="max-width: 600px; margin: 50px auto; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">
+        <h2>💡 Beispiel für das Ergebnis</h2>
+        <p>So sieht der Code aus, den die KI für Sie generieren wird:</p>
+        <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.85em;">
+<pre>[
+  {
+    "vocabulary_group": "Unit 1",
+    "term_learning_language": "apple",
+    "term_user_language": "der Apfel 🍎",
+    "learning_status": 1
+  },
+  {
+    "vocabulary_group": "Unit 1",
+    "term_learning_language": "bread",
+    "term_user_language": "das Brot 🍞",
+    "learning_status": 1
+  }
+]</pre>
+        </div>
+        <button class="btn btn-primary" onclick="closeExample()" style="width: 100%; margin-top: 15px;">Verstanden</button>
+      </div>
+    </div>
 
     <div id="promptOutput" class="prompt-output">
       <div class="copy-overlay">
@@ -434,33 +474,50 @@
     renderTags();
   }
 
+  const tagColors = [
+    '#4aa3ff', '#4caf50', '#ff9800', '#e91e63', '#9c27b0',
+    '#00bcd4', '#3f51b5', '#ff5722', '#607d8b', '#8bc34a'
+  ];
+
   function renderTags() {
     const container = document.getElementById('tagContainer');
     container.innerHTML = "";
-    selectedTopics.forEach(topic => {
+    selectedTopics.forEach((topic, index) => {
       const tag = document.createElement('span');
       tag.className = 'tag';
+      tag.style.backgroundColor = tagColors[index % tagColors.length];
       tag.innerHTML = `${topic} <span class="remove" onclick="removeTopic('${topic}')">×</span>`;
       container.appendChild(tag);
     });
     updateWordCountOptions();
   }
 
+  function showExample() {
+    document.getElementById('exampleModal').style.display = 'flex';
+  }
+
+  function closeExample() {
+    document.getElementById('exampleModal').style.display = 'none';
+  }
+
   function updateWordCountOptions() {
     const mode = document.getElementById('mode').value;
     const select = document.getElementById('wordCount');
+    const label = document.getElementById('wordCountLabel');
     const currentValue = select.value;
 
-    let maxVal = 500;
+    let maxVal = 100;
+
     if (mode === 'topics') {
       const numTopics = selectedTopics.length;
-      maxVal = numTopics > 0 ? Math.floor(500 / numTopics) : 500;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(500 / numTopics)) : 100;
+      label.textContent = numTopics > 0 ? "Vokabeln pro Thema" : "Vokabeln pro Gruppe";
     } else if (mode === 'riddle') {
-      maxVal = 100; // Rätsel sind komplexer, daher Limit 100
-      const label = document.querySelector('label[for="wordCount"]');
-      label.textContent = "Anzahl der Rätsel";
+      const numTopics = selectedTopics.length;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(500 / numTopics)) : 100;
+      label.textContent = numTopics > 0 ? "Rätsel pro Thema" : "Rätsel pro Gruppe";
     } else {
-      const label = document.querySelector('label[for="wordCount"]');
+      maxVal = 100;
       label.textContent = "Vokabeln pro Gruppe";
     }
 
@@ -473,11 +530,42 @@
       select.appendChild(opt);
     }
 
-    // Default falls nichts gewählt
     if (!select.value && select.options.length > 0) {
-      // Wähle einen sinnvollen Standard (z.B. 20 oder das Maximum falls kleiner)
       if (maxVal >= 20) select.value = "20";
       else select.value = select.options[select.options.length - 1].value;
+    }
+
+    updateGroupCountOptions();
+  }
+
+  function updateGroupCountOptions() {
+    const mode = document.getElementById('mode').value;
+    const wordCount = parseInt(document.getElementById('wordCount').value) || 20;
+    const container = document.getElementById('groupCountContainer');
+    const groupSelect = document.getElementById('groupCount');
+    const numTopics = selectedTopics.length;
+
+    // Das Dropdown wird angezeigt, wenn Basis-Paket gewählt ist ODER Rätsel ohne Themenwahl
+    if (mode === 'comprehensive' || (mode === 'riddle' && numTopics === 0)) {
+      container.style.display = 'block';
+      const maxGroups = Math.floor(500 / wordCount);
+      const currentVal = groupSelect.value;
+
+      groupSelect.innerHTML = "";
+      for (let i = 1; i <= maxGroups; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = i;
+        if (parseInt(currentVal) === i) opt.selected = true;
+        groupSelect.appendChild(opt);
+      }
+
+      // Standardwert setzen, falls leer
+      if (!groupSelect.value) {
+        groupSelect.value = Math.min(maxGroups, 10);
+      }
+    } else {
+      container.style.display = 'none';
     }
   }
 
@@ -504,14 +592,8 @@
         return;
       }
 
-      // Wir verteilen die 500 Wörter auf die gewählten Themen
       let groupCount = selectedTopics.length;
-      // Falls viele Themen gewählt wurden, passen wir wordCount entsprechend an.
-      // Wir versuchen bei ca. 500 gesamt zu bleiben.
-      let wordsPerGroup = Math.floor(totalTarget / groupCount);
-      // Wenn der User einen sehr kleinen wordCount will, nehmen wir den
-      if (wordCount < wordsPerGroup) wordsPerGroup = wordCount;
-
+      let wordsPerGroup = wordCount;
       const totalWords = groupCount * wordsPerGroup;
 
       strategy = `Erstelle ein professionelles Vokabelset für die Sprache ${language}.
@@ -520,20 +602,37 @@ Die Gruppen sind: ${selectedTopics.join(", ")}.
 Jede einzelne Gruppe MUSS EXAKT ${wordsPerGroup} Vokabeln enthalten.
 Unterschreite diese Menge niemals. Ich erwarte insgesamt EXAKT ${totalWords} Vokabel-Objekte.`;
     } else if (mode === 'riddle') {
-      const groupName = selectedTopics.length > 0 ? "Themen-Rätsel" : "Vokabel-Rätsel";
-      const topicContext = selectedTopics.length > 0 ? ` zu den Themen: ${selectedTopics.join(", ")}` : "";
+      const numTopics = selectedTopics.length;
+      if (numTopics > 0) {
+        const totalWords = numTopics * wordCount;
+        strategy = `Erstelle ein Vokabel-Rätsel-Set ("Was bin ich?") für die Sprache ${language}.
+Das Set MUSS in EXAKT ${numTopics} thematische Gruppen unterteilt sein.
+Die Gruppen sind: ${selectedTopics.join(", ")}.
+Jede einzelne Gruppe MUSS EXAKT ${wordCount} Rätsel enthalten.
 
-      strategy = `Erstelle EXAKT ${wordCount} spannende "Was bin ich?"-Rätsel in der Sprache ${language}${topicContext}.
-Das Ziel ist es, dass der Nutzer das gesuchte Wort anhand einer Beschreibung in ${language} erraten muss.
+KONSTRUKTION PRO OBJEKT:
+- 'vocabulary_group': Benenne die Gruppe "Rätsel: [Themenname]" (z.B. "Rätsel: ${selectedTopics[0]}").
+- 'term_learning_language': Eine kurze Beschreibung des Begriffs in ${language} (1-2 Sätze).
+- 'term_user_language': Die Lösung auf Deutsch.
 
-KONSTRUKTION:
-- 'term_learning_language': Eine kurze, klare Beschreibung des gesuchten Begriffs in ${language} (1-2 Sätze).
-- 'term_user_language': Das gesuchte Wort auf Deutsch.
-- 'vocabulary_group': Verwende "${groupName}" als Name für alle Einträge.
+Ich benötige insgesamt EXAKT ${totalWords} Rätsel-Objekte.`;
+      } else {
+        let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
+        const totalWords = groupCount * wordCount;
+        strategy = `Erstelle ein Paket an "Was bin ich?"-Rätseln in der Sprache ${language}.
+Unterteile das Set in EXAKT ${groupCount} Gruppen.
+Benenne die Gruppen strikt nach dem Schema: "Rätsel Unit 1", "Rätsel Unit 2", ..., "Rätsel Unit ${groupCount}".
+Jede Unit MUSS EXAKT ${wordCount} Rätsel enthalten.
 
-Ich benötige insgesamt EXAKT ${wordCount} Rätsel-Objekte.`;
+KONSTRUKTION PRO OBJEKT:
+- 'term_learning_language': Eine kurze Beschreibung des Begriffs in ${language} (1-2 Sätze).
+- 'term_user_language': Die Lösung auf Deutsch.
+- 'vocabulary_group': Der entsprechende Gruppenname (z.B. "Rätsel Unit 1").
+
+Ich benötige insgesamt EXAKT ${totalWords} Rätsel-Objekte.`;
+      }
     } else {
-      let groupCount = Math.ceil(totalTarget / wordCount);
+      let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
       const totalWords = groupCount * wordCount;
 
       strategy = `Erstelle das ultimative "Fluency-Basispaket" für die Sprache ${language}. Dieses Paket soll die ca. ${totalWords} wichtigsten Wörter enthalten, um den Grundstein für fließendes Sprechen (Level A1-B2) zu legen.
