@@ -692,8 +692,17 @@ TECHNISCHE ANFORDERUNGEN:
 
   function copyGeneratedPrompt() {
     const text = document.getElementById('promptText').textContent;
+    const btn = document.querySelector('.prompt-box .copy-btn');
     navigator.clipboard.writeText(text).then(() => {
-      alert("✅ Prompt in die Zwischenablage kopiert!");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "✅ Kopiert!";
+      btn.style.background = "var(--secondary)";
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = "";
+      }, 2000);
+    }).catch(err => {
+      console.error('Fehler beim Kopieren: ', err);
     });
   }
 </script>
