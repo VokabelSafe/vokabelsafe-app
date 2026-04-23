@@ -412,11 +412,13 @@
       </div>
     </div>
 
-    <div id="promptOutput" class="prompt-output">
-      <div class="copy-overlay">
-        <button class="btn btn-secondary" style="padding: 5px 10px; font-size: 12px;" onclick="copyGeneratedPrompt()">📋 Kopieren</button>
+    <div id="promptOutput" class="prompt-output" style="display: none; margin-top: 20px;">
+      <h3 style="margin-top: 0;">📋 Dein persönlicher KI-Prompt:</h3>
+      <p style="font-size: 0.9em; color: #555; margin-bottom: 10px;">Kopiere diesen Text und füge ihn in ChatGPT, Gemini oder eine andere KI ein:</p>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyGeneratedPrompt()">📋 Kopieren</button>
+        <pre id="promptText"></pre>
       </div>
-      <div id="promptText"></div>
     </div>
   </div>
 
