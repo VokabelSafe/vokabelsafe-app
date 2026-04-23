@@ -293,6 +293,10 @@ textarea:focus-visible {
 .buttons {
   text-align: center;
   margin: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .highlight {
