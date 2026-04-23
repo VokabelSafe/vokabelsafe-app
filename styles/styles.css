@@ -372,6 +372,12 @@ textarea:focus-visible {
   margin: 10px 0;
 }
 
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
 .instruction-img {
   width: 100%;
   max-width: 100%;
@@ -429,6 +435,77 @@ textarea:focus-visible {
 .mt-15 {
   margin-top: 15px;
 }
+
+.mt-5 { margin-top: 5px; }
+.mt-10 { margin-top: 10px; }
+.mt-15 { margin-top: 15px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mb-15 { margin-bottom: 15px; }
+.m-0 { margin: 0; }
+
+.variant-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+  font-size: 0.85em;
+}
+
+.prompt-intro {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.highlight-info {
+  background-color: #f0f7ff;
+  border-left: 5px solid #4aa3ff;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.modal-card {
+  max-width: 600px;
+  margin: 50px auto;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.code-block-dark {
+  text-align: left;
+  background: #2d3436;
+  color: #fab1a0;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.note-box {
+  font-size: 0.85em;
+  background: #f8f9fa;
+  padding: 10px;
+  border-left: 4px solid #007bff;
+  color: #333;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.form-label-small {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.btn-gray {
+  background-color: #6c757d;
+}
+
+.flex-2 { flex: 2; }
+.flex-1 { flex: 1; }
+.p-15 { padding: 15px; }
+.fs-1-1 { font-size: 1.1em; }
 
 footer {
   text-align: center;
@@ -599,4 +676,108 @@ ul {
 
 .viewer img {
   cursor: zoom-in;
+}
+
+/* Prompt Generator Styles */
+.gen-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1f2a36;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.prompt-output {
+  background: #f4f7f9;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #cfe0eb;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin-top: 20px;
+  position: relative;
+  display: none;
+}
+
+.copy-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  width: auto;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  min-height: 40px;
+}
+
+.tag {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tag .remove {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .form-row .form-group {
+    flex: 1 1 100%;
+  }
 }

@@ -63,98 +63,6 @@
   <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
   <link rel="apple-touch-icon" href="favicon/favicon-64.png">
   <link rel="stylesheet" href="styles/styles.css">
-
-  <style>
-    .gen-container {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: #1f2a36;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-      box-sizing: border-box;
-    }
-    .form-row {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-    .form-row .form-group {
-      flex: 1;
-      min-width: 200px;
-    }
-    @media (max-width: 600px) {
-      .form-row .form-group {
-        flex: 1 1 100%;
-      }
-    }
-    .prompt-output {
-      background: #f4f7f9;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #cfe0eb;
-      font-family: monospace;
-      white-space: pre-wrap;
-      word-break: break-all;
-      margin-top: 20px;
-      position: relative;
-      display: none;
-    }
-    .copy-overlay {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-    .checkbox-group input {
-      width: auto;
-    }
-    .tag-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      padding: 10px;
-      border: 1px dashed #ccc;
-      border-radius: 8px;
-      min-height: 40px;
-    }
-    .tag {
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .tag .remove {
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
 </head>
 
 <body>
@@ -203,7 +111,7 @@
     <h1>✨ VokabelSet Prompt Generator</h1>
     <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (z.B. ChatGPT) einfügen können.</p>
 
-    <div class="highlight" style="background-color: #f0f7ff; border-left: 5px solid #4aa3ff; padding: 15px; margin-top: 15px; font-size: 0.95em; line-height: 1.5;">
+    <div class="highlight highlight-info">
       <strong>🤖 Welche KI eignet sich am besten für größere Vokabel-Sets?</strong><br>
       • <strong>Gemini 1.5 (Google):</strong> Aktuell die beste Empfehlung. Hält sich sehr strikt an die Menge und das Format.<br>
       • <strong>DeepSeek:</strong> Sehr leistungsstark, liefert oft sogar mehr als angefordert. Falls der Code abbricht, einfach "fortsetzen" tippen.<br>
@@ -307,7 +215,7 @@
       </select>
     </div>
 
-    <div id="otherLanguageGroup" class="form-group" style="display: none; margin-top: 10px;">
+    <div id="otherLanguageGroup" class="form-group mt-10" style="display: none;">
       <label for="otherLanguage">Name der Sprache</label>
       <input type="text" id="otherLanguage" placeholder="Welche Sprache möchtest du lernen?">
     </div>
@@ -342,10 +250,10 @@
         <option value="custom">Sonstiges Thema...</option>
       </select>
 
-      <div id="customTopicGroup" style="display: none; margin-top: 10px;">
-        <label for="customTopicInput" style="font-size: 0.9em; color: #666;">Name des neuen Themas</label>
+      <div id="customTopicGroup" class="mt-10" style="display: none;">
+        <label for="customTopicInput" class="form-label-small">Name des neuen Themas</label>
         <input type="text" id="customTopicInput" placeholder="z. B. Im Hotel">
-        <button type="button" class="btn btn-secondary" style="margin-top: 5px; width: 100%;" onclick="addCustomTopic()">Thema hinzufügen</button>
+        <button type="button" class="btn btn-secondary mt-5 btn-full" onclick="addCustomTopic()">Thema hinzufügen</button>
       </div>
 
       <div id="tagContainer" class="tag-container"></div>
@@ -369,24 +277,24 @@
       </label>
     </div>
 
-    <div class="form-row" style="margin-top: 10px;">
-      <button type="button" class="btn btn-primary" style="flex: 2; padding: 15px; font-size: 1.1em;" onclick="generatePrompt()">
+    <div class="form-row mt-10">
+      <button type="button" class="btn btn-primary flex-2 p-15 fs-1-1" onclick="generatePrompt()">
         🚀 Prompt generieren
       </button>
-      <button type="button" class="btn btn-secondary" style="flex: 1; padding: 15px; font-size: 1.1em; background-color: #6c757d;" onclick="showExample()">
+      <button type="button" class="btn btn-secondary btn-gray flex-1 p-15 fs-1-1" onclick="showExample()">
         💡 Beispiel JSON
       </button>
     </div>
 
     <!-- Beispiel-Modal -->
     <div id="exampleModal" class="modal" onclick="closeExample()">
-      <div class="card" style="max-width: 600px; margin: 50px auto; max-height: 80vh; overflow-y: auto;" onclick="event.stopPropagation()">
+      <div class="card modal-card" onclick="event.stopPropagation()">
         <h2>💡 Beispiel für das Ergebnis</h2>
         <p>Die KI gibt den Code oft in verschiedenen Formaten aus. Beides ist absolut in Ordnung:</p>
 
-        <div style="margin-bottom: 15px;">
-          <strong style="display: block; margin-bottom: 5px; color: #666; font-size: 0.85em;">Variante A: Mehrzeilig (gut lesbar)</strong>
-          <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.8em; margin: 0;">
+        <div class="mb-15">
+          <strong class="variant-label">Variante A: Mehrzeilig (gut lesbar)</strong>
+          <div class="code-block code-block-dark">
 <pre>[
   {
     "vocabulary_group": "Unit 1",
@@ -398,23 +306,23 @@
           </div>
         </div>
 
-        <div style="margin-bottom: 15px;">
-          <strong style="display: block; margin-bottom: 5px; color: #666; font-size: 0.85em;">Variante B: Einzeilig/Kompakt (Völlig okay!)</strong>
-          <div class="code-block" style="text-align: left; background: #2d3436; color: #fab1a0; font-size: 0.8em; margin: 0;">
+        <div class="mb-15">
+          <strong class="variant-label">Variante B: Einzeilig/Kompakt (Völlig okay!)</strong>
+          <div class="code-block code-block-dark">
 <pre>[{"vocabulary_group":"Unit 1","term_learning_language":"apple","term_user_language":"Apfel","learning_status":1}, ...]</pre>
           </div>
         </div>
 
-        <p style="font-size: 0.85em; background: #f8f9fa; padding: 10px; border-left: 4px solid #007bff; color: #333;">
+        <p class="note-box">
           <strong>Hinweis:</strong> Es ist egal, ob die KI Leerzeichen oder Umbrüche einfügt. Solange die Struktur mit den eckigen Klammern <code>[]</code> und den 4 Feldnamen stimmt, kann der Converter es verarbeiten.
         </p>
-        <button class="btn btn-primary" onclick="closeExample()" style="width: 100%; margin-top: 15px;">Verstanden</button>
+        <button class="btn btn-primary btn-full mt-15" onclick="closeExample()">Verstanden</button>
       </div>
     </div>
 
-    <div id="promptOutput" class="prompt-output" style="display: none; margin-top: 20px;">
-      <h3 style="margin-top: 0;">📋 Dein persönlicher KI-Prompt:</h3>
-      <p style="font-size: 0.9em; color: #555; margin-bottom: 10px;">Kopiere diesen Text und füge ihn in ChatGPT, Gemini oder eine andere KI ein:</p>
+    <div id="promptOutput" class="prompt-output mt-20" style="display: none;">
+      <h3 class="m-0">📋 Dein persönlicher KI-Prompt:</h3>
+      <p class="prompt-intro">Kopiere diesen Text und füge ihn in ChatGPT, Gemini oder eine andere KI ein:</p>
       <div class="prompt-box">
         <button class="copy-btn" onclick="copyGeneratedPrompt()">📋 Kopieren</button>
         <pre id="promptText"></pre>
@@ -422,11 +330,11 @@
     </div>
   </div>
 
-  <div class="card" style="background-color: #f9f9f9; border: 1px dashed #ccc; margin-top: 30px;">
-    <p style="text-align: center; margin: 0;">
+  <div class="card card-help mt-30">
+    <p class="text-center">
       <strong>Individuelle Wünsche?</strong><br>
       Sie benötigen Vokabeln nach Kriterien, die unser Generator noch nicht abdeckt?
-      <a href="kontakt.html" style="color: var(--primary); font-weight: bold;">Kontaktieren Sie uns einfach →</a>
+      <a href="kontakt.html">Kontaktieren Sie uns einfach →</a>
     </p>
   </div>
 
