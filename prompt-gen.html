@@ -124,6 +124,30 @@
     .checkbox-group input {
       width: auto;
     }
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px dashed #ccc;
+      border-radius: 8px;
+      min-height: 40px;
+    }
+    .tag {
+      background: #4aa3ff;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tag .remove {
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -170,10 +194,14 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>✨ VokabelSet Prompt Generator</h1>
-    <div style="background: #fff4e5; border-left: 4px solid #ffa000; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; font-size: 0.95em; color: #663c00;">
-      <strong>🚧 In Entwicklung:</strong> Dieser Generator befindet sich noch in der Testphase. Einige Funktionen könnten noch nicht perfekt arbeiten.
-    </div>
     <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (z.B. ChatGPT) einfügen können.</p>
+
+    <div class="highlight" style="background-color: #f0f7ff; border-left: 5px solid #4aa3ff; padding: 15px; margin-top: 15px; font-size: 0.95em; line-height: 1.5;">
+      <strong>🤖 Welche KI eignet sich am besten für größere Vokabel-Sets?</strong><br>
+      • <strong>Gemini 1.5 (Google):</strong> Aktuell die beste Empfehlung. Hält sich sehr strikt an die Menge und das Format.<br>
+      • <strong>DeepSeek:</strong> Sehr leistungsstark, liefert oft sogar mehr als angefordert. Falls der Code abbricht, einfach "fortsetzen" tippen.<br>
+      • <strong>ChatGPT (OpenAI):</strong> Bei 500 Vokabeln stößt ChatGPT oft an sein technisches Ausgabemittel. Hier empfiehlt es sich, die Menge ggf. auf 200-300 zu reduzieren.
+    </div>
   </div>
 
   <div class="gen-container">
@@ -280,23 +308,41 @@
       <label for="mode">Art des Sets</label>
       <select id="mode" onchange="toggleMode()">
         <option value="topics">Bestimmte Themengebiete</option>
-        <option value="comprehensive">Die wichtigsten Vokabeln der Sprache (Allgemein)</option>
+        <option value="comprehensive">Basis Sprachpaket (500 wichtigsten Vokabeln)</option>
+        <option value="riddle">Vokabel-Rätsel ("Was bin ich?")</option>
       </select>
     </div>
 
     <div id="topicsGroup" class="form-group">
-      <label for="topics">Welche Themen? (kommagetrennt)</label>
-      <textarea id="topics" placeholder="z.B. Im Restaurant, Wegbeschreibung, Berufe..."></textarea>
+      <label for="topicSelect">Themen auswählen / hinzufügen</label>
+      <select id="topicSelect" onchange="addTopic()">
+        <option value="" disabled selected>Wähle ein Thema...</option>
+        <option value="Im Restaurant 🍽️">Im Restaurant 🍽️</option>
+        <option value="Reisen & Flughafen ✈️">Reisen & Flughafen ✈️</option>
+        <option value="Berufe & Arbeit 💼">Berufe & Arbeit 💼</option>
+        <option value="Einkaufen & Geld 🛒">Einkaufen & Geld 🛒</option>
+        <option value="Hobbys & Freizeit ⚽">Hobbys & Freizeit ⚽</option>
+        <option value="Familie & Freunde 👨‍👩‍👧">Familie & Freunde 👨‍👩‍👧</option>
+        <option value="Körper & Gesundheit 🏥">Körper & Gesundheit 🏥</option>
+        <option value="Wetter & Natur 🌳">Wetter & Natur 🌳</option>
+        <option value="Wegbeschreibung 🗺️">Wegbeschreibung 🗺️</option>
+        <option value="Gefühle & Charakter ❤️">Gefühle & Charakter ❤️</option>
+        <option value="custom">Sonstiges Thema...</option>
+      </select>
+
+      <div id="customTopicGroup" style="display: none; margin-top: 10px;">
+        <label for="customTopicInput" style="font-size: 0.9em; color: #666;">Name des neuen Themas</label>
+        <input type="text" id="customTopicInput" placeholder="z. B. Im Hotel">
+        <button type="button" class="btn btn-secondary" style="margin-top: 5px; width: 100%;" onclick="addCustomTopic()">Thema hinzufügen</button>
+      </div>
+
+      <div id="tagContainer" class="tag-container"></div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label for="groupCount">Anzahl der Gruppen</label>
-        <input type="number" id="groupCount" value="5" min="1" max="20">
-      </div>
-      <div class="form-group">
         <label for="wordCount">Vokabeln pro Gruppe</label>
-        <input type="number" id="wordCount" value="15" min="5" max="50">
+        <select id="wordCount"></select>
       </div>
     </div>
 
@@ -326,26 +372,22 @@
 </main>
 
 <script>
+  let selectedTopics = [];
+
   function toggleMode() {
     const mode = document.getElementById('mode').value;
     const isTopics = (mode === 'topics');
+    const isRiddle = (mode === 'riddle');
+    document.getElementById('topicsGroup').style.display = (isTopics || isRiddle) ? 'block' : 'none';
 
-    // Themen-Textarea ein/ausblenden
-    document.getElementById('topicsGroup').style.display = isTopics ? 'block' : 'none';
-
-    // Gruppen-Anzahl ausgrauen, wenn "Allgemein" gewählt ist
-    const groupCountInput = document.getElementById('groupCount');
-    if (!isTopics) {
-      groupCountInput.disabled = true;
-      groupCountInput.style.backgroundColor = "#f5f5f5";
-      groupCountInput.style.cursor = "not-allowed";
-      groupCountInput.title = "Im allgemeinen Modus bestimmt die KI die optimale Anzahl der Gruppen selbst.";
+    const topicLabel = document.querySelector('label[for="topicSelect"]');
+    if (isRiddle) {
+      topicLabel.textContent = "Themen für die Rätsel (optional)";
     } else {
-      groupCountInput.disabled = false;
-      groupCountInput.style.backgroundColor = "";
-      groupCountInput.style.cursor = "";
-      groupCountInput.title = "";
+      topicLabel.textContent = "Themen auswählen / hinzufügen";
     }
+
+    updateWordCountOptions();
   }
 
   function checkOtherLanguage() {
@@ -353,6 +395,90 @@
     const otherGroup = document.getElementById('otherLanguageGroup');
     otherGroup.style.display = (langSelect.value === 'other') ? 'block' : 'none';
   }
+
+  function addTopic() {
+    const select = document.getElementById('topicSelect');
+    const value = select.value;
+
+    if (value === 'custom') {
+      document.getElementById('customTopicGroup').style.display = 'block';
+      return;
+    }
+
+    if (value && !selectedTopics.includes(value)) {
+      selectedTopics.push(value);
+      renderTags();
+    }
+    select.value = "";
+    document.getElementById('customTopicGroup').style.display = 'none';
+  }
+
+  function addCustomTopic() {
+    const input = document.getElementById('customTopicInput');
+    const value = input.value.trim();
+    if (value && !selectedTopics.includes(value)) {
+      selectedTopics.push(value);
+      renderTags();
+    }
+    input.value = "";
+    document.getElementById('customTopicGroup').style.display = 'none';
+    document.getElementById('topicSelect').value = "";
+  }
+
+  function removeTopic(topic) {
+    selectedTopics = selectedTopics.filter(t => t !== topic);
+    renderTags();
+  }
+
+  function renderTags() {
+    const container = document.getElementById('tagContainer');
+    container.innerHTML = "";
+    selectedTopics.forEach(topic => {
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.innerHTML = `${topic} <span class="remove" onclick="removeTopic('${topic}')">×</span>`;
+      container.appendChild(tag);
+    });
+    updateWordCountOptions();
+  }
+
+  function updateWordCountOptions() {
+    const mode = document.getElementById('mode').value;
+    const select = document.getElementById('wordCount');
+    const currentValue = select.value;
+
+    let maxVal = 500;
+    if (mode === 'topics') {
+      const numTopics = selectedTopics.length;
+      maxVal = numTopics > 0 ? Math.floor(500 / numTopics) : 500;
+    } else if (mode === 'riddle') {
+      maxVal = 100; // Rätsel sind komplexer, daher Limit 100
+      const label = document.querySelector('label[for="wordCount"]');
+      label.textContent = "Anzahl der Rätsel";
+    } else {
+      const label = document.querySelector('label[for="wordCount"]');
+      label.textContent = "Vokabeln pro Gruppe";
+    }
+
+    select.innerHTML = "";
+    for (let i = 10; i <= maxVal; i += 10) {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = i;
+      if (parseInt(currentValue) === i) opt.selected = true;
+      select.appendChild(opt);
+    }
+
+    // Default falls nichts gewählt
+    if (!select.value && select.options.length > 0) {
+      // Wähle einen sinnvollen Standard (z.B. 20 oder das Maximum falls kleiner)
+      if (maxVal >= 20) select.value = "20";
+      else select.value = select.options[select.options.length - 1].value;
+    }
+  }
+
+  // Initial aufrufen
+  window.onload = updateWordCountOptions;
 
   function generatePrompt() {
     const langSelect = document.getElementById('language');
@@ -362,49 +488,81 @@
     }
 
     const mode = document.getElementById('mode').value;
-    const topics = document.getElementById('topics').value;
-    const groupCount = document.getElementById('groupCount').value;
-    const wordCount = document.getElementById('wordCount').value;
+    let wordCount = parseInt(document.getElementById('wordCount').value) || 25;
     const useEmojis = document.getElementById('useEmojis').checked;
 
     let strategy = '';
+    let totalTarget = 500;
+
     if (mode === 'topics') {
-      strategy = `Erstelle ein Vokabelset für die Sprache ${language}.
-Das Set soll in ${groupCount} thematische Gruppen unterteilt sein.
-Themenwünsche: ${topics || 'Wähle sinnvolle Alltagsthemen'}.
-Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
+      if (selectedTopics.length === 0) {
+        alert("Bitte wählen Sie mindestens ein Thema aus!");
+        return;
+      }
+
+      // Wir verteilen die 500 Wörter auf die gewählten Themen
+      let groupCount = selectedTopics.length;
+      // Falls viele Themen gewählt wurden, passen wir wordCount entsprechend an.
+      // Wir versuchen bei ca. 500 gesamt zu bleiben.
+      let wordsPerGroup = Math.floor(totalTarget / groupCount);
+      // Wenn der User einen sehr kleinen wordCount will, nehmen wir den
+      if (wordCount < wordsPerGroup) wordsPerGroup = wordCount;
+
+      const totalWords = groupCount * wordsPerGroup;
+
+      strategy = `Erstelle ein professionelles Vokabelset für die Sprache ${language}.
+Das Set MUSS in EXAKT ${groupCount} thematische Gruppen unterteilt sein.
+Die Gruppen sind: ${selectedTopics.join(", ")}.
+Jede einzelne Gruppe MUSS EXAKT ${wordsPerGroup} Vokabeln enthalten.
+Unterschreite diese Menge niemals. Ich erwarte insgesamt EXAKT ${totalWords} Vokabel-Objekte.`;
+    } else if (mode === 'riddle') {
+      const groupName = selectedTopics.length > 0 ? "Themen-Rätsel" : "Vokabel-Rätsel";
+      const topicContext = selectedTopics.length > 0 ? ` zu den Themen: ${selectedTopics.join(", ")}` : "";
+
+      strategy = `Erstelle EXAKT ${wordCount} spannende "Was bin ich?"-Rätsel in der Sprache ${language}${topicContext}.
+Das Ziel ist es, dass der Nutzer das gesuchte Wort anhand einer Beschreibung in ${language} erraten muss.
+
+KONSTRUKTION:
+- 'term_learning_language': Eine kurze, klare Beschreibung des gesuchten Begriffs in ${language} (1-2 Sätze).
+- 'term_user_language': Das gesuchte Wort auf Deutsch.
+- 'vocabulary_group': Verwende "${groupName}" als Name für alle Einträge.
+
+Ich benötige insgesamt EXAKT ${wordCount} Rätsel-Objekte.`;
     } else {
-      strategy = `Erstelle ein umfassendes Vokabelset für die Sprache ${language} mit den wichtigsten Vokabeln für Anfänger und Fortgeschrittene (Level A1 bis B2).
-Unterteile das Set selbstständig in logische, sinnvolle Gruppen (z.B. Basis-Verben, Adjektive, Zeitangaben, Reisen, Essen etc.).
-Pro Gruppe sollen ca. ${wordCount} Vokabeln enthalten sein.`;
+      let groupCount = Math.ceil(totalTarget / wordCount);
+      const totalWords = groupCount * wordCount;
+
+      strategy = `Erstelle das ultimative "Fluency-Basispaket" für die Sprache ${language}. Dieses Paket soll die ca. ${totalWords} wichtigsten Wörter enthalten, um den Grundstein für fließendes Sprechen (Level A1-B2) zu legen.
+Unterteile das Set in EXAKT ${groupCount} aufsteigende Lektionen.
+Benenne die Gruppen strikt nach dem Schema: "Unit 1", "Unit 2", ..., "Unit ${groupCount}".
+Jede Unit MUSS EXAKT ${wordCount} Vokabeln enthalten.
+Überspringe keine Wörter und fasse nichts zusammen. Ich benötige die volle Datenmenge von EXAKT ${totalWords} Einträgen.
+Gehe nach Häufigkeit vor: Unit 1 beginnt mit den allerwichtigsten Wörtern.`;
     }
 
-    const emojiInstruction = useEmojis
-      ? "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein, um das Lernen visuell zu unterstützen."
-      : "Verwende keine Emojis in den Übersetzungen.";
+    const emojiInstruction = useEmojis ?
+      "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein." :
+      "Verwende keine Emojis.";
 
-    const prompt = `Handle als erfahrener Sprachlehrer.
+    const prompt = `Handle als hochpräziser Daten-Generator.
 ${strategy}
 
 ${emojiInstruction}
 
-Gib das Ergebnis AUSSCHLIESSLICH als ein einziges JSON-Array aus, das alle Vokabeln aller Gruppen enthält.
-Jedes Objekt im Array MUSS exakt diese Struktur haben:
+TECHNISCHE ANFORDERUNGEN:
+1. Gib das Ergebnis AUSSCHLIESSLICH als ein einziges valides JSON-Array aus.
+2. KEIN Text davor, kein Text danach, keine Erklärungen. Nur das rohe JSON.
+3. Jedes Objekt im Array MUSS exakt diese Struktur haben:
 {
-  "vocabulary_group": "[Name der Gruppe]",
+  "vocabulary_group": "[Gruppenname]",
   "term_learning_language": "[Wort in ${language}]",
-  "term_user_language": "[Deutsche Übersetzung]",
+  "term_user_language": "[Übersetzung]",
   "learning_status": 1
 }
-
-WICHTIG:
-- Nur den rohen JSON-Code ausgeben, kein Text davor oder danach.
-- Das JSON muss valide sein und direkt mit [ beginnen und mit ] enden.`;
+4. Stelle sicher, dass die Liste vollständig ist und das JSON-Array sauber schließt.`;
 
     document.getElementById('promptText').textContent = prompt;
     document.getElementById('promptOutput').style.display = 'block';
-
-    // Scroll smoothly to output
     document.getElementById('promptOutput').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
