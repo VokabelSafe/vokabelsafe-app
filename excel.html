@@ -122,7 +122,11 @@
 
     <h3>2. Vokabeln eintragen</h3>
     <p>So sollte Ihre Tabelle in Excel oder LibreOffice Calc aussehen:</p>
-    <img src="pics/screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste in Excel" class="instruction-img">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div class="viewer">
+        <img src="pics/screenshot_csv.png" alt="Beispiel einer tabellarischen Vokabelliste in Excel" onclick="openModal(this.src)">
+      </div>
+    </div>
 
     <h3>3. Als CSV speichern</h3>
     <p>Damit der Converter die Datei lesen kann, muss sie im CSV-Format gespeichert werden:</p>
@@ -145,7 +149,35 @@
   <div class="buttons">
     <a class="btn btn-secondary" href="index.html">Zur Startseite</a>
   </div>
+
+  <!-- Modal / Lightbox -->
+  <div id="screenshotModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" class="modal-img" src="" alt="Vollbild Screenshot" onclick="closeModal()">
+    </div>
+  </div>
 </main>
+
+<script>
+function openModal(src) {
+    const modal = document.getElementById("screenshotModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("screenshotModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Schließen mit Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
 
 <footer>
   <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
