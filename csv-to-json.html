@@ -128,9 +128,14 @@
       <label for="output" style="display: block; margin-top: 15px;"><strong>JSON-Ausgabe / Editor</strong></label>
       <textarea id="output" placeholder="Hier erscheint dein JSON oder du fügst es hier direkt ein..." aria-describedby="statusMessage" style="width: 100%; height: 250px; margin-top: 8px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
 
-      <button type="button" onclick="downloadJSON()" style="margin-top: 15px; padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-        📥 JSON herunterladen
-      </button>
+      <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button type="button" onclick="downloadJSON()" style="padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+          📥 JSON herunterladen
+        </button>
+        <button type="button" onclick="checkJSON()" style="padding: 12px 20px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+          🔍 JSON prüfen
+        </button>
+      </div>
     </div>
 
     <script src="js/papaparse.min.js"></script>
@@ -205,50 +210,11 @@
 
       function downloadJSON() {
         const outputText = document.getElementById("output").value.trim();
-        if (!outputText) {
-          alert("Das JSON-Feld ist leer! Bitte CSV hochladen oder JSON einfügen.");
+        const validation = validateJSON(outputText);
+
+        if (!validation.success) {
+          alert(validation.message);
           return;
-        }
-
-        let data;
-        try {
-          data = JSON.parse(outputText);
-        } catch (e) {
-          alert("❌ Ungültiges JSON-Format! Bitte prüfen Sie auf fehlende Klammern oder Kommas.");
-          return;
-        }
-
-        if (!Array.isArray(data)) {
-          alert("❌ Fehler: Das JSON muss ein Array von Objekten sein (beginnend mit [ und endend mit ]).");
-          return;
-        }
-
-        for (let i = 0; i < data.length; i++) {
-          const entry = data[i];
-          const keys = Object.keys(entry);
-
-          // 1. Prüfen auf exakt 4 Schlüssel
-          if (keys.length !== 4) {
-            alert(`❌ Fehler in Datensatz ${i + 1}: Erwartet werden genau 4 Schlüssel, gefunden wurden ${keys.length}.`);
-            return;
-          }
-
-          // 2. Prüfen auf korrekte Schlüsselnamen (Tippfehler / Fehlende Keys)
-          for (const key of requiredHeaders) {
-            if (!(key in entry)) {
-              alert(`❌ Fehler in Datensatz ${i + 1}: Der Schlüssel "${key}" fehlt oder ist falsch geschrieben.`);
-              return;
-            }
-          }
-
-          // 3. Prüfen auf leere Werte
-          for (const key of requiredHeaders) {
-            const value = entry[key];
-            if (value === null || value === undefined || value === "") {
-              alert(`❌ Fehler in Datensatz ${i + 1}: Das Feld "${key}" darf nicht leer sein.`);
-              return;
-            }
-          }
         }
 
         const blob = new Blob([outputText], { type: "application/json" });
@@ -258,6 +224,64 @@
         a.download = "vokabeln.json";
         a.click();
         URL.revokeObjectURL(url);
+      }
+
+      function checkJSON() {
+        const outputText = document.getElementById("output").value.trim();
+        const validation = validateJSON(outputText);
+
+        if (validation.success) {
+          const successMsg = "✅ Syntax ok! " + validation.count + " Vokabeln gefunden.";
+          setStatus(successMsg);
+          alert(successMsg);
+        } else {
+          setStatus("❌ " + validation.message);
+          alert(validation.message);
+        }
+      }
+
+      function validateJSON(outputText) {
+        if (!outputText) {
+          return { success: false, message: "Das JSON-Feld ist leer! Bitte CSV hochladen oder JSON einfügen." };
+        }
+
+        let data;
+        try {
+          data = JSON.parse(outputText);
+        } catch (e) {
+          return { success: false, message: "Ungültiges JSON-Format! Bitte prüfen Sie auf fehlende Klammern oder Kommas." };
+        }
+
+        if (!Array.isArray(data)) {
+          return { success: false, message: "Fehler: Das JSON muss ein Array von Objekten sein (beginnend mit [ und endend mit ])." };
+        }
+
+        for (let i = 0; i < data.length; i++) {
+          const entry = data[i];
+          const keys = Object.keys(entry);
+
+          // 1. Prüfen auf exakt 4 Schlüssel
+          if (keys.length !== 4) {
+            return { success: false, message: `Fehler in Datensatz ${i + 1}: Erwartet werden genau 4 Schlüssel, gefunden wurden ${keys.length}.` };
+          }
+
+          // 2. Prüfen auf korrekte Schlüsselnamen
+          for (const key of requiredHeaders) {
+            if (!(key in entry)) {
+              return { success: false, message: `Fehler in Datensatz ${i + 1}: Der Schlüssel "${key}" fehlt oder ist falsch geschrieben.` };
+            }
+          }
+
+          // 3. Prüfen auf leere Werte
+          for (const key of requiredHeaders) {
+            const value = entry[key];
+            if (value === null || value === undefined || value === "") {
+              return { success: false, message: `Fehler in Datensatz ${i + 1}: Das Feld "${key}" darf nicht leer sein.` };
+            }
+          }
+        }
+
+        return { success: true, count: data.length };
       }
     </script>
   </div>

@@ -112,11 +112,16 @@
     <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (z.B. ChatGPT) einfügen können.</p>
 
     <div class="highlight highlight-info">
-      <strong>🤖 Welche KI eignet sich am besten für größere Vokabel-Sets?</strong><br>
+      <strong>🤖 Welche KI eignet sich am besten für Vokabel-Sets?</strong><br>
       • <strong>Gemini 1.5 (Google):</strong> Aktuell die beste Empfehlung. Hält sich sehr strikt an die Menge und das Format.<br>
       • <strong>DeepSeek:</strong> Sehr leistungsstark, liefert oft sogar mehr als angefordert. Falls der Code abbricht, einfach "fortsetzen" tippen.<br>
-      • <strong>ChatGPT (OpenAI):</strong> Bei 500 Vokabeln stößt ChatGPT oft an sein technisches Ausgabemittel. Hier empfiehlt es sich, die Menge ggf. auf 200-300 zu reduzieren.<br>
+      • <strong>ChatGPT (OpenAI):</strong> Bei größeren Mengen stößt ChatGPT oft an das Limit der Antwortlänge. Wir empfehlen Sets bis max. 300 Vokabeln.<br>
       • <strong>Tipp:</strong> Es ist egal, ob die KI den Code schön untereinander oder alles in eine lange Zeile schreibt – der Converter akzeptiert beides!
+    </div>
+
+    <div class="highlight highlight-danger">
+      <strong>⚠️ Wichtiger Hinweis zur Zuverlässigkeit</strong><br>
+      KIs sind keine mathematischen Maschinen. Es kann vorkommen, dass die KI die Anzahl der Vokabeln falsch zählt oder die Ausgabe bei sehr langen Listen abbricht. Nutzen Sie im Converter den Button <strong>"JSON prüfen"</strong>, um das Ergebnis schnell zu kontrollieren.
     </div>
   </div>
 
@@ -224,7 +229,7 @@
       <label for="mode">Art des Sets</label>
       <select id="mode" onchange="toggleMode()">
         <option value="topics">Bestimmte Themengebiete</option>
-        <option value="comprehensive">Basis Sprachpaket (500 wichtigsten Vokabeln)</option>
+        <option value="comprehensive">Basis Sprachpaket (300 wichtigsten Vokabeln)</option>
         <option value="riddle">Vokabel-Rätsel ("Was bin ich?")</option>
       </select>
     </div>
@@ -439,11 +444,11 @@
 
     if (mode === 'topics') {
       const numTopics = selectedTopics.length;
-      maxVal = numTopics > 0 ? Math.min(100, Math.floor(500 / numTopics)) : 100;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(300 / numTopics)) : 100;
       label.textContent = numTopics > 0 ? "Vokabeln pro Thema" : "Vokabeln pro Gruppe";
     } else if (mode === 'riddle') {
       const numTopics = selectedTopics.length;
-      maxVal = numTopics > 0 ? Math.min(100, Math.floor(500 / numTopics)) : 100;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(300 / numTopics)) : 100;
       label.textContent = numTopics > 0 ? "Rätsel pro Thema" : "Rätsel pro Gruppe";
     } else {
       maxVal = 100;
@@ -477,7 +482,7 @@
     // Das Dropdown wird angezeigt, wenn Basis-Paket gewählt ist ODER Rätsel ohne Themenwahl
     if (mode === 'comprehensive' || (mode === 'riddle' && numTopics === 0)) {
       container.style.display = 'block';
-      const maxGroups = Math.floor(500 / wordCount);
+      const maxGroups = Math.floor(300 / wordCount);
       const currentVal = groupSelect.value;
 
       groupSelect.innerHTML = "";
@@ -512,8 +517,10 @@
     let wordCount = parseInt(document.getElementById('wordCount').value) || 25;
     const useEmojis = document.getElementById('useEmojis').checked;
 
+    // Emojis aus Themennamen für den Prompt entfernen, um KI nicht zu verwirren
+    const cleanTopics = selectedTopics.map(t => t.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim());
+
     let strategy = '';
-    let totalTarget = 500;
 
     if (mode === 'topics') {
       if (selectedTopics.length === 0) {
@@ -521,55 +528,40 @@
         return;
       }
 
-      let groupCount = selectedTopics.length;
+      let groupCount = cleanTopics.length;
       let wordsPerGroup = wordCount;
-      const totalWords = groupCount * wordsPerGroup;
 
-      strategy = `Erstelle ein professionelles Vokabelset für die Sprache ${language}.
-Das Set MUSS in EXAKT ${groupCount} thematische Gruppen unterteilt sein.
-Die Gruppen sind: ${selectedTopics.join(", ")}.
-Jede einzelne Gruppe MUSS EXAKT ${wordsPerGroup} Vokabeln enthalten.
-Unterschreite diese Menge niemals. Ich erwarte insgesamt EXAKT ${totalWords} Vokabel-Objekte.`;
+      strategy = `Erstelle ein Vokabelset für ${language} mit insgesamt EXAKT ${groupCount * wordsPerGroup} Einträgen.
+Teile diese auf EXAKT ${groupCount} Gruppen auf: ${cleanTopics.join(", ")}.
+Jede Gruppe MUSS EXAKT ${wordsPerGroup} Vokabeln enthalten.`;
     } else if (mode === 'riddle') {
-      const numTopics = selectedTopics.length;
+      const numTopics = cleanTopics.length;
       if (numTopics > 0) {
-        const totalWords = numTopics * wordCount;
-        strategy = `Erstelle ein Vokabel-Rätsel-Set ("Was bin ich?") für die Sprache ${language}.
-Das Set MUSS in EXAKT ${numTopics} thematische Gruppen unterteilt sein.
-Die Gruppen sind: ${selectedTopics.join(", ")}.
-Jede einzelne Gruppe MUSS EXAKT ${wordCount} Rätsel enthalten.
+        strategy = `Erstelle ein "Was bin ich?" Rätsel-Set für ${language} mit insgesamt EXAKT ${numTopics * wordCount} Objekten.
+Unterteile das Set in EXAKT ${numTopics} Themen: ${cleanTopics.join(", ")}.
+Jede Gruppe MUSS EXAKT ${wordCount} Rätsel enthalten.
 
 KONSTRUKTION PRO OBJEKT:
-- 'vocabulary_group': Benenne die Gruppe "Rätsel: [Themenname]" (z.B. "Rätsel: ${selectedTopics[0]}").
-- 'term_learning_language': Eine kurze Beschreibung des Begriffs in ${language} (1-2 Sätze).
-- 'term_user_language': Die Lösung auf Deutsch.
-
-Ich benötige insgesamt EXAKT ${totalWords} Rätsel-Objekte.`;
+- 'vocabulary_group': "Rätsel: [Themenname]"
+- 'term_learning_language': Kurze Beschreibung in ${language} (1-2 Sätze).
+- 'term_user_language': Lösung auf Deutsch.`;
       } else {
         let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
-        const totalWords = groupCount * wordCount;
-        strategy = `Erstelle ein Paket an "Was bin ich?"-Rätseln in der Sprache ${language}.
-Unterteile das Set in EXAKT ${groupCount} Gruppen.
-Benenne die Gruppen strikt nach dem Schema: "Rätsel Unit 1", "Rätsel Unit 2", ..., "Rätsel Unit ${groupCount}".
+        strategy = `Erstelle insgesamt EXAKT ${groupCount * wordCount} "Was bin ich?"-Rätsel in ${language}.
+Teile diese auf EXAKT ${groupCount} Gruppen auf (Schema: "Rätsel Unit 1" bis "Rätsel Unit ${groupCount}").
 Jede Unit MUSS EXAKT ${wordCount} Rätsel enthalten.
 
 KONSTRUKTION PRO OBJEKT:
-- 'term_learning_language': Eine kurze Beschreibung des Begriffs in ${language} (1-2 Sätze).
-- 'term_user_language': Die Lösung auf Deutsch.
-- 'vocabulary_group': Der entsprechende Gruppenname (z.B. "Rätsel Unit 1").
-
-Ich benötige insgesamt EXAKT ${totalWords} Rätsel-Objekte.`;
+- 'term_learning_language': Kurze Beschreibung in ${language} (1-2 Sätze).
+- 'term_user_language': Lösung auf Deutsch.
+- 'vocabulary_group': Name der Unit.`;
       }
     } else {
       let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
-      const totalWords = groupCount * wordCount;
-
-      strategy = `Erstelle das ultimative "Fluency-Basispaket" für die Sprache ${language}. Dieses Paket soll die ca. ${totalWords} wichtigsten Wörter enthalten, um den Grundstein für fließendes Sprechen (Level A1-B2) zu legen.
-Unterteile das Set in EXAKT ${groupCount} aufsteigende Lektionen.
-Benenne die Gruppen strikt nach dem Schema: "Unit 1", "Unit 2", ..., "Unit ${groupCount}".
+      strategy = `Erstelle ein "Fluency-Basispaket" für ${language} (A1-B2) mit insgesamt EXAKT ${groupCount * wordCount} Wörtern.
+Unterteile das Set in EXAKT ${groupCount} Lektionen ("Unit 1" bis "Unit ${groupCount}").
 Jede Unit MUSS EXAKT ${wordCount} Vokabeln enthalten.
-Überspringe keine Wörter und fasse nichts zusammen. Ich benötige die volle Datenmenge von EXAKT ${totalWords} Einträgen.
-Gehe nach Häufigkeit vor: Unit 1 beginnt mit den allerwichtigsten Wörtern.`;
+Gehe nach Häufigkeit vor: Unit 1 beginnt mit den wichtigsten Wörtern.`;
     }
 
     const emojiInstruction = useEmojis ?
@@ -583,15 +575,15 @@ ${emojiInstruction}
 
 TECHNISCHE ANFORDERUNGEN:
 1. Gib das Ergebnis AUSSCHLIESSLICH als ein einziges valides JSON-Array aus.
-2. KEIN Text davor, kein Text danach, keine Erklärungen. Nur das rohe JSON.
-3. Jedes Objekt im Array MUSS exakt diese Struktur haben:
+2. Jedes Objekt im Array MUSS exakt diese Struktur haben:
 {
   "vocabulary_group": "[Gruppenname]",
   "term_learning_language": "[Wort in ${language}]",
   "term_user_language": "[Übersetzung]",
   "learning_status": 1
 }
-4. Stelle sicher, dass die Liste vollständig ist und das JSON-Array sauber schließt.`;
+3. Stelle sicher, dass die Liste vollständig ist und das JSON-Array sauber schließt.
+4. WICHTIG: Gib nur den rohen JSON-Code aus. Kein Text davor, kein Text danach, keine Erklärungen.`;
 
     document.getElementById('promptText').textContent = prompt;
     document.getElementById('promptOutput').style.display = 'block';
