@@ -382,6 +382,54 @@ textarea:focus-visible {
   margin-bottom: 20px;
 }
 
+.highlight-danger {
+  background-color: #fdf2f2;
+  border-left-color: #e74c3c;
+}
+
+.highlight-danger h1,
+.highlight-danger h2,
+.highlight-danger h3 {
+  color: #c0392b;
+  margin-top: 0;
+}
+
+.tip-box {
+  background: #eef9f1;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border: 1px dashed #27ae60;
+}
+
+.tip-box p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #27ae60;
+}
+
+.card-help {
+  background-color: #f9f9f9;
+  border: 1px dashed #ccc;
+}
+
+.card-help p {
+  margin: 0;
+}
+
+.card-help a {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
 footer {
   text-align: center;
   font-size: 0.9em;
