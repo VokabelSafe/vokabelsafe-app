@@ -83,6 +83,8 @@ header {
   text-decoration: none;
   font-weight: bold;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
 a:focus-visible,
@@ -450,8 +452,11 @@ textarea:focus-visible {
 .mt-15 { margin-top: 15px; }
 .mt-20 { margin-top: 20px; }
 .mt-30 { margin-top: 30px; }
+.mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
+.mb-10 { margin-bottom: 10px; }
 .mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
 .m-0 { margin: 0; }
 
 .btn-small {
@@ -540,6 +545,11 @@ textarea:focus-visible {
 .w-300 { width: 300px; }
 .max-w-300 { max-width: 300px; }
 
+.h-250 { height: 250px; }
+.h-200 { height: 200px; }
+.font-mono { font-family: monospace; }
+.font-sans { font-family: sans-serif; }
+
 .fs-14 { font-size: 14px; }
 
 .flex-wrap { flex-wrap: wrap; }
@@ -550,6 +560,19 @@ textarea:focus-visible {
 .bold { font-weight: bold; }
 .color-orange { color: #d35400; }
 .color-gray { color: #555; }
+.color-dark-gray { color: #444; }
+.color-primary { color: var(--primary); }
+
+.lh-16 { line-height: 1.6; }
+.underline { text-decoration: underline; }
+
+.opacity-08 { opacity: 0.8; }
+.border-top-light { border-top: 1px solid rgba(0,0,0,0.1); }
+
+.highlight-promo {
+  border: 2px solid var(--primary);
+  background-color: #f8fbff;
+}
 
 footer {
   text-align: center;

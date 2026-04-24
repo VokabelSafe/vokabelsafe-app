@@ -130,14 +130,14 @@
 
       <div class="form-group mt-15">
         <label for="output" class="d-block"><strong>JSON-Ausgabe / Editor</strong></label>
-        <textarea id="output" placeholder="Hier erscheint dein JSON oder du fügst es hier direkt ein..." aria-describedby="statusMessage" class="mt-5" style="height: 250px; font-family: monospace;"></textarea>
+        <textarea id="output" placeholder="Hier erscheint dein JSON oder du fügst es hier direkt ein..." aria-describedby="statusMessage" class="mt-5 h-250 font-mono"></textarea>
       </div>
 
-      <div class="d-flex gap-10 flex-wrap mt-15">
-        <button type="button" onclick="downloadJSON()" class="btn btn-primary p-15 bold" style="border: none; cursor: pointer;">
+      <div class="d-flex gap-10 flex-wrap mt-15 justify-center">
+        <button type="button" onclick="downloadJSON()" class="btn btn-primary p-15 bold">
           📥 JSON herunterladen
         </button>
-        <button type="button" onclick="checkJSON()" class="btn btn-secondary p-15 bold" style="border: none; cursor: pointer;">
+        <button type="button" onclick="checkJSON()" class="btn btn-secondary btn-gray p-15 bold">
           🔍 JSON prüfen
         </button>
       </div>
