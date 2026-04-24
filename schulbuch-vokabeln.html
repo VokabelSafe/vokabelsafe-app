@@ -124,29 +124,10 @@
     </ul>
 
     <h3>🤖 Schritt 2: Die KI aufräumen lassen</h3>
-    <p>Fügen Sie diesen Befehl zusammen mit Ihrem kopierten Text in eine KI (z.B. ChatGPT oder Gemini) ein:</p>
+    <p>Nutzen Sie unseren spezialisierten Prompt-Generator. Dort geben Sie einfach Ihren kopierten Text und den Namen der Lektion ein, und erhalten einen fertigen Befehl für die KI:</p>
 
-    <div class="prompt-box">
-      <button class="copy-btn" onclick="copyPrompt(this)">📋 Prompt kopieren</button>
-      <pre>Erstelle mir aus dem folgenden Text ein JSON-Vokabelset für VokabelSafe.
-Extrahiere nur Vokabeln und Übersetzungen. Ignoriere Seitenzahlen oder Übungen.
-
-Struktur pro Objekt:
-{
-  "vocabulary_group": "Unit 1",
-  "term_learning_language": "[Fremdsprache]",
-  "term_user_language": "[Deutsch]",
-  "learning_status": 1
-}
-
-Hier ist der kopierte Text aus meinem Buch:
-[FÜGE HIER DEINEN KOPIERTEN TEXT AUS SCHRITT 1 EIN]</pre>
-    </div>
-
-    <div class="tip-box">
-      <p><strong>💡 So sieht ein kopierter Text ("Text-Salat") oft aus:</strong><br>
-      <em>"page 42 Unit 1 A Hello there hallo da drüben apple Apfel blue blau Checkpoint 1..."</em><br>
-      Keine Sorge: Die KI erkennt automatisch, was eine Vokabel ist und was nicht!</p>
+    <div class="text-center mt-15 mb-20">
+      <a class="btn btn-primary" href="ocr-prompt.html">✨ Zum OCR-Prompt-Generator</a>
     </div>
   </div>
 
@@ -199,22 +180,6 @@ Hier ist der kopierte Text aus meinem Buch:
     <a class="btn btn-secondary" href="vokabelsets.html">Zurück zur Übersicht</a>
   </div>
 </main>
-
-<script>
-  function copyPrompt(btn) {
-    const box = btn.parentElement;
-    const text = box.querySelector('pre').innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      const originalText = btn.innerHTML;
-      btn.innerHTML = "✅ Kopiert!";
-      btn.style.background = "var(--secondary)";
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.background = "";
-      }, 2000);
-    });
-  }
-</script>
 
 <footer>
   <p>Kontakt: <a href="mailto:christine.steiner.dev@gmail.com">christine.steiner.dev@gmail.com</a></p>
