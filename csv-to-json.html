@@ -112,28 +112,32 @@
     <h1>🔧 CSV → JSON Converter & Downloader</h1>
     <p>
       Wandeln Sie hier Ihre vorbereitete CSV-Datei um oder fügen Sie direkt JSON-Code (z. B. von einer KI) ein, um ihn als Datei zu speichern.
-      <a class="btn btn-secondary" href="vokabelsets.html" style="margin-left: 10px; padding: 5px 12px; font-size: 14px;">Zur Anleitung</a>
+      <a class="btn btn-secondary btn-small ml-10" href="vokabelsets.html">Zur Anleitung</a>
     </p>
-    <div class="highlight" style="font-size: 0.9em; margin-top: 15px; background-color: #f0f7ff; border-left: 5px solid #4aa3ff; padding: 15px;">
+    <div class="highlight highlight-info">
       <strong>💡 Tipps:</strong><br>
       • <strong>Excel-Nutzer:</strong> Falls Umlaute nach dem Import falsch angezeigt werden, speichern Sie Ihre CSV-Datei in Excel unter "Speichern unter" → Dateityp: <strong>CSV UTF-8 (kommagetrennt)</strong>.<br>
       • <strong>KI-Nutzer:</strong> Sie können den JSON-Code einfach so wie er ist in das Feld unten einfügen. Es spielt keine Rolle, ob er schön formatiert oder in einer langen Zeile steht.
     </div>
 
-    <div style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-top: 20px;">
-      <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
-      <input type="file" id="fileInput" accept=".csv" aria-describedby="statusMessage" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; margin-top: 8px;">
+    <div class="gen-container mt-20">
+      <div class="form-group">
+        <label for="fileInput"><strong>CSV-Datei auswählen</strong></label>
+        <input type="file" id="fileInput" accept=".csv" aria-describedby="statusMessage" class="mt-5">
+      </div>
 
-      <div id="statusMessage" role="status" aria-live="polite" style="margin-top: 15px; font-size: 14px; color: #1f2a36;"></div>
+      <div id="statusMessage" role="status" aria-live="polite" class="mt-15 fs-14"></div>
 
-      <label for="output" style="display: block; margin-top: 15px;"><strong>JSON-Ausgabe / Editor</strong></label>
-      <textarea id="output" placeholder="Hier erscheint dein JSON oder du fügst es hier direkt ein..." aria-describedby="statusMessage" style="width: 100%; height: 250px; margin-top: 8px; padding: 10px; font-family: monospace; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+      <div class="form-group mt-15">
+        <label for="output" class="d-block"><strong>JSON-Ausgabe / Editor</strong></label>
+        <textarea id="output" placeholder="Hier erscheint dein JSON oder du fügst es hier direkt ein..." aria-describedby="statusMessage" class="mt-5" style="height: 250px; font-family: monospace;"></textarea>
+      </div>
 
-      <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-        <button type="button" onclick="downloadJSON()" style="padding: 12px 20px; background: #4aa3ff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+      <div class="d-flex gap-10 flex-wrap mt-15">
+        <button type="button" onclick="downloadJSON()" class="btn btn-primary p-15 bold" style="border: none; cursor: pointer;">
           📥 JSON herunterladen
         </button>
-        <button type="button" onclick="checkJSON()" style="padding: 12px 20px; background: #6c757d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+        <button type="button" onclick="checkJSON()" class="btn btn-secondary p-15 bold" style="border: none; cursor: pointer;">
           🔍 JSON prüfen
         </button>
       </div>

@@ -112,15 +112,15 @@
     <h1>🤖 Vokabelsets mit KI-Tools erstellen</h1>
     <p>Künstliche Intelligenz (wie ChatGPT, Gemini oder Claude) ist der schnellste Weg zu neuen Vokabellisten. Dabei sind Ihnen keine Grenzen gesetzt: Lassen Sie sich entweder umfangreiche Vokabelschätze für eine komplette Sprache mit vielen verschiedenen Themen-Gruppen erstellen oder konzentrieren Sie sich auf kompakte Sets für ganz gezielte Themengebiete. Die KI übernimmt das mühsame Abtippen für Sie. Dank unseres Converters ist dafür <strong>kein PC mehr nötig</strong> – alles funktioniert bequem direkt an Ihrem Smartphone. Nutzen Sie unsere drei Beispiele weiter unten, um den Prozess direkt selbst auszuprobieren!</p>
 
-    <div class="highlight" style="background-color: #f0f7ff; border-left: 5px solid var(--primary); padding: 20px; border-radius: 8px;">
-      <h3 style="margin-top: 0;">🚀 In 4 Schritten zum Vokabelset (direkt am Handy)</h3>
-      <ol style="text-align: left; line-height: 1.6; margin-bottom: 0;">
-        <li><strong>Prompt kopieren:</strong> Nutzen Sie unseren <a href="prompt-gen.html" style="font-weight: bold; text-decoration: underline;">Prompt-Generator</a> (für neue Themen) oder den <a href="ocr-prompt.html" style="font-weight: bold; text-decoration: underline;">OCR-Prompt-Generator</a> (für Fotos aus Schulbüchern), um einen fertigen Befehl zu erstellen.</li>
+    <div class="highlight highlight-primary">
+      <h3 class="m-0">🚀 In 4 Schritten zum Vokabelset (direkt am Handy)</h3>
+      <ol class="text-left mt-10 mb-0" style="line-height: 1.6;">
+        <li><strong>Prompt kopieren:</strong> Nutzen Sie unseren <a href="prompt-gen.html" class="bold" style="text-decoration: underline;">Prompt-Generator</a> (für neue Themen) oder den <a href="ocr-prompt.html" class="bold" style="text-decoration: underline;">OCR-Prompt-Generator</a> (für Fotos aus Schulbüchern), um einen fertigen Befehl zu erstellen.</li>
         <li><strong>KI füttern:</strong> Öffnen Sie eine KI-App (z.B. ChatGPT, Gemini oder DeepSeek). Fügen Sie den kopierten Text in das Schreibfeld ein und senden Sie die Nachricht ab.</li>
         <li><strong>Ergebnis kopieren:</strong> Die KI erzeugt nun den Code. Nutzen Sie am besten das „Kopieren“-Symbol direkt am schwarzen Code-Block der KI oder markieren Sie den Text manuell (von der ersten Klammer <code>[</code> bis zur letzten Klammer <code>]</code>) und kopieren ihn.</li>
         <li><strong>Umwandeln & Speichern:</strong> Fügen Sie den Code im <a href="csv-to-json.html" style="color: var(--primary); font-weight: bold; text-decoration: underline;">🔧 CSV/JSON-Converter</a> ein und klicken Sie auf „Download“. Die Datei landet in Ihrem Download-Ordner und kann direkt in der App ausgewählt werden.</li>
       </ol>
-      <div style="margin-top: 20px; text-align: center; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <div class="mt-20 text-center d-flex gap-10 justify-center flex-wrap">
         <a class="btn btn-primary" href="prompt-gen.html">🚀 Zum Prompt-Generator</a>
         <a class="btn btn-secondary" href="csv-to-json.html">Zum Converter & Speichern</a>
       </div>
@@ -144,11 +144,11 @@ Jedes Objekt im Array muss diese Struktur haben:
 Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
-    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+    <p class="text-center italic mt-10" style="color: #555;">
       So sieht das Ergebnis nach dem Import in der App aus:
     </p>
 
-    <div class="section" style="text-align: center;">
+    <div class="section text-center">
       <div class="viewer">
           <img id="img-ex1" src="pics/screenshots/ki/ex1/show_ki-example1-01.png" alt="Screenshot KI Beispiel 1" onclick="openModal('ex1')">
       </div>
@@ -178,11 +178,11 @@ Format: [
 Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
-    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+    <p class="text-center italic mt-10" style="color: #555;">
       So sieht das Ergebnis nach dem Import in der App aus:
     </p>
 
-    <div class="section" style="text-align: center;">
+    <div class="section text-center">
       <div class="viewer">
           <img id="img-ex2" src="pics/screenshots/ki/ex2/show_ki-example2-01.png" alt="Screenshot KI Beispiel 2" onclick="openModal('ex2')">
       </div>
@@ -211,11 +211,11 @@ Jedes Objekt muss diese Struktur haben:
 Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
-    <p style="text-align: center; font-style: italic; margin-top: 10px; color: #555;">
+    <p class="text-center italic mt-10" style="color: #555;">
       So sieht das Ergebnis nach dem Import in der App aus:
     </p>
 
-    <div class="section" style="text-align: center;">
+    <div class="section text-center">
       <div class="viewer">
           <img id="img-ex3" src="pics/screenshots/ki/ex3/show_ki-example3-01.png" alt="Screenshot KI Beispiel 3" onclick="openModal('ex3')">
       </div>
@@ -230,8 +230,8 @@ Gib nur den rohen JSON-Code aus.</pre>
     <h2>✨ Zu kompliziert? Nutze unseren Generator!</h2>
     <p>Du möchtest größere Sets für eine Sprache mit sinnvollen Gruppen erstellen, oder sogar alle wichtigen Vokabeln einer Sprache auf einmal generieren, aber das Schreiben der KI-Prompts ist dir zu aufwendig?</p>
     <p>Kein Problem! Unser <strong>VokabelSet Prompt Generator</strong> erstellt dir den perfekten Befehl für deine KI basierend auf deinen Wünschen.</p>
-    <div style="text-align: center; margin-top: 20px;">
-      <a class="btn btn-primary" href="prompt-gen.html" style="font-size: 1.1em; padding: 15px 30px;">🚀 Zum Prompt-Generator</a>
+    <div class="text-center mt-20">
+      <a class="btn btn-primary p-15 fs-1-1" href="prompt-gen.html">🚀 Zum Prompt-Generator</a>
     </div>
   </div>
 

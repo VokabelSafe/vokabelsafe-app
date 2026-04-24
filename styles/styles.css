@@ -388,9 +388,14 @@ textarea:focus-visible {
   margin-bottom: 20px;
 }
 
+.highlight-warning {
+  background-color: #fff9e6;
+  border-left: 5px solid #f39c12;
+}
+
 .highlight-danger {
   background-color: #fdf2f2;
-  border-left-color: #e74c3c;
+  border-left: 5px solid #e74c3c;
 }
 
 .highlight-danger h1,
@@ -432,6 +437,10 @@ textarea:focus-visible {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .mt-15 {
   margin-top: 15px;
 }
@@ -441,8 +450,20 @@ textarea:focus-visible {
 .mt-15 { margin-top: 15px; }
 .mt-20 { margin-top: 20px; }
 .mt-30 { margin-top: 30px; }
+.mb-0 { margin-bottom: 0; }
 .mb-15 { margin-bottom: 15px; }
 .m-0 { margin: 0; }
+
+.btn-small {
+  padding: 5px 12px;
+  font-size: 14px;
+}
+
+.ml-10 { margin-left: 10px; }
+
+.hidden {
+  display: none !important;
+}
 
 .variant-label {
   display: block;
@@ -506,6 +527,29 @@ textarea:focus-visible {
 .flex-1 { flex: 1; }
 .p-15 { padding: 15px; }
 .fs-1-1 { font-size: 1.1em; }
+.highlight-primary {
+  background-color: #f0f7ff;
+  border-left: 5px solid var(--primary);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
+
+.w-300 { width: 300px; }
+.max-w-300 { max-width: 300px; }
+
+.fs-14 { font-size: 14px; }
+
+.flex-wrap { flex-wrap: wrap; }
+.gap-10 { gap: 10px; }
+.d-flex { display: flex; }
+.d-block { display: block; }
+.italic { font-style: italic; }
+.bold { font-weight: bold; }
+.color-orange { color: #d35400; }
+.color-gray { color: #555; }
 
 footer {
   text-align: center;
