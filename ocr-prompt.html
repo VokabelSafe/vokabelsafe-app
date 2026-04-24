@@ -112,6 +112,7 @@
       <p><strong>💡 So sieht ein kopierter Text ("Text-Salat") oft aus:</strong><br>
       <em>"page 42 Unit 1 A Hello there hallo da drüben apple Apfel blue blau Checkpoint 1..."</em><br>
       Keine Sorge: Die KI erkennt automatisch, was eine Vokabel ist und was nicht!</p>
+      <p class="mt-10"><strong>🚀 Tipp:</strong> In unseren Tests liefert <strong>Gemini (Google)</strong> die besten und präzisesten Ergebnisse für diese Aufgabe.</p>
     </div>
   </div>
 
@@ -165,16 +166,21 @@
       return;
     }
 
-    const prompt = `Erstelle mir aus dem folgenden Text ein JSON-Vokabelset für VokabelSafe.
+    const prompt = `Handle als hochpräziser Daten-Generator.
+Erstelle mir aus dem folgenden Text ein JSON-Vokabelset für VokabelSafe.
 Extrahiere nur Vokabeln und Übersetzungen. Ignoriere Seitenzahlen oder Übungen.
 
-Struktur pro Objekt:
+TECHNISCHE ANFORDERUNGEN:
+1. Gib das Ergebnis AUSSCHLIESSLICH als ein einziges valides JSON-Array aus.
+2. Jedes Objekt im Array MUSS exakt diese Struktur haben:
 {
   "vocabulary_group": "${groupName}",
   "term_learning_language": "[Fremdsprache]",
   "term_user_language": "[Deutsch]",
   "learning_status": 1
 }
+3. Stelle sicher, dass die Liste vollständig ist und das JSON-Array sauber schließt.
+4. WICHTIG: Gib nur den rohen JSON-Code aus. Kein Text davor, kein Text danach, keine Erklärungen.
 
 Hier ist der kopierte Text aus meinem Buch:
 ${ocrText}`;
