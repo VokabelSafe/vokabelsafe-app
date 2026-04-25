@@ -278,7 +278,7 @@
 
     <div class="form-group">
       <label class="checkbox-group">
-        <input type="checkbox" id="useEmojis" checked>
+        <input type="checkbox" id="useEmojis">
         Sollen Emojis in der Übersetzung enthalten sein? 🦁
       </label>
     </div>
@@ -564,16 +564,10 @@ Jede Unit MUSS EXAKT ${wordCount} Vokabeln enthalten.
 Gehe nach Häufigkeit vor: Unit 1 beginnt mit den wichtigsten Wörtern.`;
     }
 
-    const emojiInstruction = useEmojis ?
-      "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein." :
-      "Verwende keine Emojis.";
-
     const prompt = `Handle als hochpräziser Daten-Generator.
 ${strategy}
 
-${emojiInstruction}
-
-TECHNISCHE ANFORDERUNGEN:
+${useEmojis ? "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein.\n\n" : ""}TECHNISCHE ANFORDERUNGEN:
 1. Gib das Ergebnis AUSSCHLIESSLICH als ein einziges valides JSON-Array aus.
 2. Jedes Objekt im Array MUSS exakt diese Struktur haben:
 {

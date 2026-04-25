@@ -127,6 +127,13 @@
       <textarea id="ocrText" placeholder="Fügen Sie hier den Text ein, den Sie aus Ihrem Buch kopiert haben..." class="mt-5 h-200 font-sans"></textarea>
     </div>
 
+    <div class="form-group">
+      <label class="checkbox-group">
+        <input type="checkbox" id="useEmojis">
+        Sollen Emojis in der Übersetzung enthalten sein? 🦁
+      </label>
+    </div>
+
     <div class="mt-20">
       <button class="btn btn-primary btn-full p-15 fs-1-1" onclick="generatePrompt()">
         🚀 Prompt generieren
@@ -152,6 +159,7 @@
   function generatePrompt() {
     const groupName = document.getElementById('groupName').value.trim();
     const ocrText = document.getElementById('ocrText').value.trim();
+    const useEmojis = document.getElementById('useEmojis').checked;
 
     if (!groupName) {
       alert('Bitte geben Sie einen Gruppennamen ein.');
@@ -166,7 +174,7 @@
 Erstelle mir aus dem folgenden Text ein JSON-Vokabelset für VokabelSafe.
 Extrahiere nur Vokabeln und Übersetzungen. Ignoriere Seitenzahlen oder Übungen.
 
-TECHNISCHE ANFORDERUNGEN:
+${useEmojis ? "Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein.\n\n" : ""}TECHNISCHE ANFORDERUNGEN:
 1. Gib das Ergebnis AUSSCHLIESSLICH als ein einziges valides JSON-Array aus.
 2. Jedes Objekt im Array MUSS exakt diese Struktur haben:
 {
