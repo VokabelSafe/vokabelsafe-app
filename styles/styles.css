@@ -870,4 +870,9 @@ ul {
   .form-row .form-group {
     flex: 1 1 100%;
   }
+
+  .badge-new {
+    position: static;
+    margin-bottom: 15px;
+  }
 }
