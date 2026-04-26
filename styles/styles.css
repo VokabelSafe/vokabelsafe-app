@@ -629,6 +629,13 @@ ul {
   .menu-list {
     max-width: calc(100vw - 24px);
   }
+
+  .badge-new {
+    position: static;
+    margin: 0 auto 15px auto;
+    display: flex;
+    width: max-content;
+  }
 }
 
 /* Screenshot Gallery */
@@ -869,10 +876,5 @@ ul {
 @media (max-width: 600px) {
   .form-row .form-group {
     flex: 1 1 100%;
-  }
-
-  .badge-new {
-    position: static;
-    margin-bottom: 15px;
   }
 }
