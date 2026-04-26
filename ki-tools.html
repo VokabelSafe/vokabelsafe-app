@@ -222,6 +222,32 @@ Gib nur den rohen JSON-Code aus.</pre>
     </div>
   </div>
 
+  <div class="card">
+    <h2>🌍 Beispiel 4: Unterstützung für Mehrsprachigkeit (Brückensprache)</h2>
+    <p>Nutzen Sie die Muttersprache (z. B. Arabisch, Türkisch oder Ukrainisch) als Merkhilfe. Die KI ergänzt die Übersetzung automatisch in Klammern:</p>
+    <div class="prompt-box">
+      <button class="copy-btn" onclick="copyPrompt(this)">📋 Kopieren</button>
+      <pre>Erstelle eine Liste mit 10 englischen Vokabeln zum Thema "Familie".
+Wichtig: Ergänze im Feld "term_user_language" nach der deutschen Übersetzung immer das entsprechende Wort auf Ukrainisch in Klammern (z.B. "der Vater (bat'ko)").
+Format: JSON-Array mit den bekannten 4 Feldern.
+Gib nur den rohen JSON-Code aus.</pre>
+    </div>
+
+    <p class="text-center italic mt-10 color-gray">
+      So sieht das Ergebnis nach dem Import in der App aus:
+    </p>
+
+    <div class="section text-center">
+      <div class="viewer">
+          <img id="img-ex4" src="pics/screenshots/ki/ex4/show_ki-example4-01.png" alt="Screenshot KI Beispiel 4" onclick="openModal('ex4')">
+      </div>
+      <div class="controls">
+          <button class="btn-nav" onclick="prev('ex4')" aria-label="Vorheriges Bild">◀</button>
+          <button class="btn-nav" onclick="next('ex4')" aria-label="Nächstes Bild">▶</button>
+      </div>
+    </div>
+  </div>
+
   <div class="card highlight-promo">
     <h2>✨ Zu kompliziert? Nutze unseren Generator!</h2>
     <p>Du möchtest größere Sets für eine Sprache mit sinnvollen Gruppen erstellen, oder sogar alle wichtigen Vokabeln einer Sprache auf einmal generieren, aber das Schreiben der KI-Prompts ist dir zu aufwendig?</p>
@@ -262,13 +288,20 @@ const images = {
         "pics/screenshots/ki/ex3/show_ki-example3-02.png",
         "pics/screenshots/ki/ex3/show_ki-example3-03.png",
         "pics/screenshots/ki/ex3/show_ki-example3-04.png"
+    ],
+    ex4: [
+        "pics/screenshots/ki/ex4/show_ki-example4-01.png",
+        "pics/screenshots/ki/ex4/show_ki-example4-02.png",
+        "pics/screenshots/ki/ex4/show_ki-example4-03.png",
+        "pics/screenshots/ki/ex4/show_ki-example4-04.png"
     ]
 };
 
 const index = {
     ex1: 0,
     ex2: 0,
-    ex3: 0
+    ex3: 0,
+    ex4: 0
 };
 
 let currentModalCategory = '';
