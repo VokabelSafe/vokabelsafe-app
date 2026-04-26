@@ -534,9 +534,35 @@ textarea:focus-visible {
 .fs-1-1 { font-size: 1.1em; }
 .highlight-primary {
   background-color: #f0f7ff;
-  border-left: 5px solid var(--primary);
+  border: 2px solid var(--primary);
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(74, 163, 255, 0.15);
+}
+
+.badge-new {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #fff9e6;
+  border: 1px solid #ffe082;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 1.0em;
+  font-weight: bold;
+  color: #1f2a36;
+  box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
+  z-index: 5;
+  gap: 6px;
+}
+
+.badge-new .icon {
+  font-size: 2.2em;
+  line-height: 1;
 }
 
 .justify-center { justify-content: center; }
