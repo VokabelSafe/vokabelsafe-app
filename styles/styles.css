@@ -604,7 +604,12 @@ footer {
   text-align: center;
   font-size: 0.9em;
   color: #666;
-  padding: 30px 20px;
+  padding: 10px 20px 30px;
+}
+
+main > *:last-child,
+.container > *:last-child {
+  margin-bottom: 0 !important;
 }
 
 ul {
