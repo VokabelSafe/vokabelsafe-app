@@ -110,14 +110,13 @@
 <main id="main-content" class="container">
   <div class="card">
     <h1>✨ VokabelSet Prompt Generator</h1>
-    <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (z.B. ChatGPT) einfügen können.</p>
+    <p>Konfigurieren Sie hier Ihr Wunsch-Vokabelset. Der Generator erstellt Ihnen einen optimierten Befehl (Prompt), den Sie einfach kopieren und in eine KI Ihrer Wahl (am besten Gemini) einfügen können.</p>
 
     <div class="highlight highlight-info">
       <strong>🤖 Welche KI eignet sich am besten für Vokabel-Sets?</strong><br>
-      • <strong>Gemini 1.5 (Google):</strong> Aktuell die beste Empfehlung. Hält sich sehr strikt an die Menge und das Format.<br>
-      • <strong>DeepSeek:</strong> Sehr leistungsstark, liefert oft sogar mehr als angefordert. Falls der Code abbricht, einfach "fortsetzen" tippen.<br>
-      • <strong>ChatGPT (OpenAI):</strong> Bei größeren Mengen stößt ChatGPT oft an das Limit der Antwortlänge. Wir empfehlen Sets bis max. 300 Vokabeln.<br>
-      • <strong>Tipp:</strong> Es ist egal, ob die KI den Code schön untereinander oder alles in eine lange Zeile schreibt – der Converter akzeptiert beides!
+      • <strong>Gemini (Google):</strong> Aktuell unsere <strong>Top-Empfehlung</strong>. Gemini liefert die präzisesten Ergebnisse, hält sich strikt an die Mengenbegrenzung und das JSON-Format.<br>
+      • <strong>DeepSeek:</strong> Sehr leistungsstark. Für sehr lange Listen oft am besten geeignet, da man die Ausgabe bei einem Abbruch einfach mit "fortsetzen" weiterlaufen lassen kann.<br>
+      • <strong>ChatGPT (OpenAI):</strong> Gut für kleinere Mengen (z. B. einzelne Buchseiten). Bei großen Sets neigt ChatGPT dazu, die Liste heimlich zu kürzen oder das Format zu beschädigen.
     </div>
 
     <div class="highlight highlight-danger">
@@ -434,7 +433,7 @@
 
     <div id="promptOutput" class="prompt-output mt-20" style="display: none;">
       <h3 class="m-0">📋 Dein persönlicher KI-Prompt:</h3>
-      <p class="prompt-intro">Kopiere diesen Text und füge ihn in ChatGPT, Gemini oder eine andere KI ein:</p>
+      <p class="prompt-intro">Kopiere diesen Text und füge ihn in eine KI (am besten <strong>Gemini</strong>) ein:</p>
       <div class="prompt-box">
         <button class="copy-btn" onclick="copyGeneratedPrompt()">📋 Kopieren</button>
         <pre id="promptText"></pre>
