@@ -228,8 +228,17 @@ Gib nur den rohen JSON-Code aus.</pre>
     <div class="prompt-box">
       <button class="copy-btn" onclick="copyPrompt(this)">📋 Kopieren</button>
       <pre>Erstelle eine Liste mit 10 englischen Vokabeln zum Thema "Familie".
-Wichtig: Ergänze im Feld "term_user_language" nach der deutschen Übersetzung immer das entsprechende Wort auf Ukrainisch in Klammern (z.B. "der Vater (bat'ko)").
-Format: JSON-Array mit den bekannten 4 Feldern.
+Füge in das Feld 'term_user_language' (die deutsche Übersetzung) immer 1-2 passende Emojis ein.
+Ergänze im Feld 'term_user_language' nach der deutschen Übersetzung immer das entsprechende Wort auf Ukrainisch in Klammern (z.B. "der Apfel (...)").
+
+Gib das Ergebnis ausschließlich als JSON-Array aus.
+Jedes Objekt im Array muss diese Struktur haben:
+{
+  "vocabulary_group": "Hotel",
+  "term_learning_language": "[Englisches Wort]",
+  "term_user_language": "[Deutsche Übersetzung]",
+  "learning_status": 1
+}
 Gib nur den rohen JSON-Code aus.</pre>
     </div>
 
