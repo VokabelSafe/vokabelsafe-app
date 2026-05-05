@@ -8,7 +8,7 @@ VokabelSafe ist eine **Vokabel App für Schüler, Eltern und Familien**, die spe
 
 ## 🌐 Website (Pormo Aktion: Aktuell kostenloser Premium Zugang)
 
-👉 https://vokabelsafe.github.io/vokabelsafe-app/
+👉 https://www.vokabelsafe.app/
 
 ---
 
