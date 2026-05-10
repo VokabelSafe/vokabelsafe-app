@@ -128,6 +128,6 @@ Vokabeltrainer, Vokabel App, Vokabeln lernen, Vokabeln Schule, Vokabeltrainer Ki
 
 ## 📩 Kontakt
 
-[christine.steiner.dev@gmail.com](mailto:christine.steiner.dev@gmail.com)
+[support@vokabelsafe.de](mailto:support@vokabelsafe.de)
 
 ---
