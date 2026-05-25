@@ -131,7 +131,11 @@
 </header>
 
 <main id="main-content" class="container">
-  <img src="pics/banner.webp" alt="VokabelSafe Banner" style="width: 100%; border-radius: 12px; display: block; margin-bottom: 20px;">
+  <div class="text-center mb-20">
+    <div class="viewer">
+      <img src="pics/banner.webp" alt="VokabelSafe Banner" onclick="openModal(this.src)">
+    </div>
+  </div>
   <div class="buttons mt-0 mb-20">
     <a class="btn btn-promo" href="promo-aktion.html">✨ VokabelSafe gemeinsam verbessern & Lifetime-Zugang geschenkt bekommen – Jetzt mitmachen! ✨</a>
   </div>
@@ -263,6 +267,14 @@
     </div>
   </div>
 
+  <!-- Modal / Lightbox -->
+  <div id="screenshotModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" class="modal-img" src="" alt="Vollbild Screenshot" onclick="closeModal()">
+    </div>
+  </div>
+
 </main>
 
 <footer>
@@ -274,6 +286,26 @@
 
   <p>&copy; 2026 VokabelSafe</p>
 </footer>
+
+<script>
+function openModal(src) {
+    const modal = document.getElementById("screenshotModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("screenshotModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Schließen mit Escape-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
 
 </body>
 </html>
