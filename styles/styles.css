@@ -61,7 +61,7 @@ header {
 .header-left img {
   width: 70px;
   border: 3px solid white;
-  border-radius: 18px;
+  border-radius: 22px;
 }
 
 .header-left h1,
@@ -134,21 +134,25 @@ textarea:focus-visible {
 
 .header-actions::before {
   content: "Hello 🇬🇧 \A Salut 🇫🇷\A Hola 🇪🇸    \A Ciao 🇮🇹 ";
-  left: calc(-70px - 2vw);
+  right: 100%;
+  margin-right: calc(65px + 2vw);
+  left: auto;
   transform: translateY(-50%) rotate(-10deg);
   text-align: right;
 }
 
 .header-actions::after {
   content: " 🏛️ Salve\A 🇺🇦 Привіт\A    🇬🇷 Γεια\A  🇳🇱 Hallo";
-  right: calc(-90px - 2vw);
+  left: 100%;
+  margin-left: calc(55px + 2vw);
+  right: auto;
   transform: translateY(-50%) rotate(10deg);
   text-align: left;
 }
 
 @media (min-width: 1200px) {
-  .header-actions::before { left: -130px; }
-  .header-actions::after { right: -140px; }
+  .header-actions::before { margin-right: 120px; }
+  .header-actions::after { margin-left: 110px; }
 }
 
 @media (max-width: 920px) {
@@ -157,7 +161,24 @@ textarea:focus-visible {
   }
   .header-actions::before,
   .header-actions::after {
-    font-size: 1.2em;
+    font-size: 1.1em;
+  }
+  .header-actions::before {
+    margin-right: 10px;
+  }
+  .header-actions::after {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions::before {
+    margin-right: 2px;
+    font-size: 1.0em;
+  }
+  .header-actions::after {
+    margin-left: 2px;
+    font-size: 1.0em;
   }
 }
 
@@ -252,6 +273,11 @@ textarea:focus-visible {
 .menu-list a.current {
   background: #4aa3ff;
   color: #ffffff;
+}
+
+.text-highlight-green {
+  color: #7cffad;
+  font-weight: bold;
 }
 
 .sr-only {
