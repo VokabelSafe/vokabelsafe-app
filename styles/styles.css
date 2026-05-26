@@ -174,8 +174,8 @@ textarea:focus-visible {
 }
 
 @media (min-width: 1200px) {
-  .header-actions::before { margin-right: 120px; }
-  .header-actions::after { margin-left: 110px; }
+  .header-actions::before { margin-right: 80px; }
+  .header-actions::after { margin-left: 80px; }
 }
 
 @media (max-width: 920px) {
