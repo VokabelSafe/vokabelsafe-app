@@ -31,7 +31,9 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, var(--primary), #6ec6ff);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../pics/background.webp');
+  background-size: cover;
+  background-position: center;
   color: white;
   padding: 30px 20px 40px;
 }
@@ -66,14 +68,16 @@ header {
 .site-title {
   margin: 5px 0;
   font-size: 1.8em;
-  color: #1f2a36;
+  color: #ffffff;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .header-left p {
   margin: 0;
-  opacity: 0.95;
-  color: #1f2a36;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
 }
 
 .btn {
