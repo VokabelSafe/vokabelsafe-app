@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --primary: #4aa3ff;
   --secondary: #4caf50;
@@ -8,10 +12,12 @@
 
 body {
   margin: 0;
+  padding: 0 2px;
   font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .skip-link {
