@@ -31,7 +31,9 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, var(--primary), #6ec6ff);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../pics/background.webp');
+  background-size: cover;
+  background-position: center;
   color: white;
   padding: 30px 20px 40px;
 }
@@ -66,14 +68,21 @@ header {
 .site-title {
   margin: 5px 0;
   font-size: 1.8em;
-  color: #1f2a36;
+  color: #ffffff;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.header-left p {
+.header-left p:not(.site-title) {
   margin: 0;
-  opacity: 0.95;
-  color: #1f2a36;
+  margin-bottom: 6px;
+  color: #ffffff;
+  font-size: 0.9em;
+  font-weight: normal;
+  background-color: #002e8c;
+  padding: 0 12px;
+  border-radius: 12px;
+  display: inline-block;
 }
 
 .btn {
@@ -109,7 +118,7 @@ textarea:focus-visible {
   flex: 0 0 auto;
   min-width: 0;
   position: relative;
-  padding: 0 50px;
+  padding: 0 25px 0 15px;
 }
 
 .header-actions::before,
@@ -117,24 +126,29 @@ textarea:focus-visible {
   position: absolute;
   top: 50%;
   display: block;
-  font-size: 1.7em;
-  line-height: 1.3;
+  font-size: 1.3em;
+  line-height: 1.4;
   white-space: pre;
   pointer-events: none;
 }
 
 .header-actions::before {
-  content: " 🇬🇧\A  🇫🇷\A 🇪🇸\A  🇮🇹";
-  left: -30px;
+  content: "Hello 🇬🇧 \A Salut 🇫🇷\A Hola 🇪🇸    \A Ciao 🇮🇹 ";
+  left: calc(-70px - 2vw);
   transform: translateY(-50%) rotate(-10deg);
-  text-align: left;
+  text-align: right;
 }
 
 .header-actions::after {
-  content: " 🏛️\A 🇺🇦\A    🇹🇷\A  🇸🇦";
-  right: -30px;
+  content: " 🏛️ Salve\A 🇺🇦 Привіт\A    🇬🇷 Γεια\A  🇳🇱 Hallo";
+  right: calc(-90px - 2vw);
   transform: translateY(-50%) rotate(10deg);
   text-align: left;
+}
+
+@media (min-width: 1200px) {
+  .header-actions::before { left: -130px; }
+  .header-actions::after { right: -140px; }
 }
 
 @media (max-width: 920px) {
@@ -640,8 +654,23 @@ textarea:focus-visible {
 footer {
   text-align: center;
   font-size: 0.9em;
-  color: #666;
-  padding: 10px 20px 30px;
+  padding: 40px 20px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../pics/background.webp');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+footer a,
+footer p:last-child {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: normal;
+  background-color: #002e8c;
+  padding: 0 12px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 5px 0;
 }
 
 main > *:last-child,
