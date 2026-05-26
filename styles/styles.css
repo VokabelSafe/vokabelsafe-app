@@ -158,7 +158,7 @@ textarea:focus-visible {
 .header-actions::before {
   content: "Hello 🇬🇧 \A Salut 🇫🇷\A Hola 🇪🇸    \A Ciao 🇮🇹 ";
   right: 100%;
-  margin-right: calc(65px + 2vw);
+  margin-right: calc(50px + 2vw);
   left: auto;
   transform: translateY(-50%) rotate(-10deg);
   text-align: right;
@@ -167,7 +167,7 @@ textarea:focus-visible {
 .header-actions::after {
   content: " 🏛️ Salve\A 🇺🇦 Привіт\A    🇬🇷 Γεια\A  🇳🇱 Hallo";
   left: 100%;
-  margin-left: calc(55px + 2vw);
+  margin-left: calc(50px + 2vw);
   right: auto;
   transform: translateY(-50%) rotate(10deg);
   text-align: left;
