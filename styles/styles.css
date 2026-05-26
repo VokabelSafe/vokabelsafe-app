@@ -179,9 +179,6 @@ textarea:focus-visible {
 }
 
 @media (max-width: 920px) {
-  .header-actions {
-    padding: 0 20px;
-  }
   .header-actions::before,
   .header-actions::after {
     font-size: 0.8em;
