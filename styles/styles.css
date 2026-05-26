@@ -36,6 +36,7 @@ header {
   background-position: center;
   color: white;
   padding: 30px 20px 40px;
+  position: relative;
 }
 
 .header-inner {
@@ -48,7 +49,7 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 }
 
 .header-left {
@@ -81,11 +82,10 @@ header {
 
 .header-left p:not(.site-title) {
   margin: 0;
-  margin-bottom: 6px;
   color: #ffffff;
   font-size: 0.9em;
   font-weight: normal;
-  background-color: rgba(0, 46, 140, 0.65);
+  background-color: rgba(0, 46, 140, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 3px 10px;
   border-radius: 8px;
@@ -115,7 +115,20 @@ textarea:focus-visible {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background-color: rgba(74, 163, 255, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-primary::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg') no-repeat center;
+  background-size: contain;
 }
 
 .header-actions {
@@ -167,28 +180,30 @@ textarea:focus-visible {
 
 @media (max-width: 920px) {
   .header-actions {
-    padding: 0 40px;
+    padding: 0 20px;
   }
   .header-actions::before,
   .header-actions::after {
-    font-size: 1.1em;
+    font-size: 0.95em;
   }
   .header-actions::before {
-    margin-right: 10px;
+    margin-right: 5px;
   }
   .header-actions::after {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 }
 
 @media (max-width: 480px) {
+  .header-actions::before,
+  .header-actions::after {
+    font-size: 0.8em;
+  }
   .header-actions::before {
-    margin-right: 2px;
-    font-size: 1.0em;
+    margin-right: 0;
   }
   .header-actions::after {
-    margin-left: 2px;
-    font-size: 1.0em;
+    margin-left: 0;
   }
 }
 
@@ -221,8 +236,8 @@ textarea:focus-visible {
   box-sizing: border-box;
   padding: 10px 12px;
   border-radius: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.65);
-  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background-color: rgba(74, 163, 255, 0.55);
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
@@ -242,7 +257,7 @@ textarea:focus-visible {
 }
 
 .menu-dropdown[open] .menu-summary {
-  background: rgba(255, 255, 255, 0.3);
+  background-color: rgba(74, 163, 255, 0.75);
 }
 
 .menu-list {
@@ -288,6 +303,51 @@ textarea:focus-visible {
 .text-highlight-green {
   color: #7cffad;
   font-weight: bold;
+}
+
+.header-bullets {
+  position: static;
+}
+
+.bullet-item {
+  position: absolute;
+  font-size: 0.65em;
+  background-color: rgba(0, 46, 140, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0 2px;
+  border-radius: 8px;
+  color: #ffffff;
+  z-index: 100;
+  font-weight: bold;
+  white-space: nowrap !important;
+  display: table !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+.bullet-icon {
+  font-size: 1.6em;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+.bullet-desc {
+  font-weight: normal;
+  opacity: 0.85;
+  margin-left: 1px;
+  display: inline !important;
+}
+
+.bullet-item:nth-child(1) { top: 2px; left: max(10px, calc(50% - 440px)); }
+.bullet-item:nth-child(2) { top: 2px; right: max(10px, calc(50% - 440px)); }
+.bullet-item:nth-child(3) { bottom: 2px; left: max(10px, calc(50% - 440px)); }
+.bullet-item:nth-child(4) { bottom: 2px; right: max(10px, calc(50% - 440px)); }
+
+@media (max-width: 600px) {
+  .bullet-item {
+    font-size: 0.62em;
+    padding: 1px 7px;
+  }
 }
 
 .sr-only {
@@ -702,7 +762,7 @@ footer p:last-child {
   color: #ffffff;
   text-decoration: none;
   font-weight: normal;
-  background-color: rgba(0, 46, 140, 0.65);
+  background-color: rgba(0, 46, 140, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 3px 12px;
   border-radius: 8px;
