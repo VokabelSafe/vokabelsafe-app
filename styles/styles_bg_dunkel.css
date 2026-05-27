@@ -181,7 +181,7 @@ textarea:focus-visible {
 @media (max-width: 920px) {
   .header-actions::before,
   .header-actions::after {
-    font-size: 1.0em;
+    font-size: 0.85em;
   }
   .header-actions::before {
     margin-right: 0;
