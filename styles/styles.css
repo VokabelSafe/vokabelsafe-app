@@ -74,7 +74,7 @@ header {
 .header-left h1,
 .site-title {
   margin: 5px 0;
-  font-size: 1.8em;
+  font-size: clamp(1.4em, 5vw, 1.8em);
   color: #ffffff;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -157,19 +157,19 @@ textarea:focus-visible {
 
 .flags-left {
   right: 100%;
-  margin-right: calc(50px + 2vw);
+  margin-right: calc(25px + 3vw);
   align-items: flex-end;
 }
 
 .flags-right {
   left: 100%;
-  margin-left: calc(30px + 2vw);
+  margin-left: calc(15px + 3vw);
   align-items: flex-start;
 }
 
 .flags-left span,
 .flags-right span {
-  font-size: 1.3em;
+  font-size: clamp(0.9em, 4vw, 1.3em);
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 2px 6px;
@@ -308,10 +308,10 @@ textarea:focus-visible {
 
 .bullet-item {
   position: absolute;
-  font-size: 0.75em;
+  font-size: clamp(0.55em, 2vw, 0.75em);
   background-color: rgba(0, 46, 140, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 2px 5px;
+  padding: 2px clamp(3px, 1vw, 5px);
   border-radius: 8px;
   color: #ffffff;
   z-index: 100;
