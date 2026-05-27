@@ -312,10 +312,10 @@ textarea:focus-visible {
 
 .bullet-item {
   position: absolute;
-  font-size: clamp(0.85em, 1.2vw, 1.05em);
+  font-size: 11px;
   background-color: rgba(0, 46, 140, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 2px clamp(3px, 1vw, 5px);
+  padding: 3px 8px;
   border-radius: 8px;
   color: #ffffff;
   z-index: 100;
@@ -349,7 +349,6 @@ textarea:focus-visible {
     width: 45.5vw !important; /* Leicht verbreitert für weniger Platz in der Mitte */
     max-width: 45.5vw !important;
     box-sizing: border-box;
-    font-size: 2.7vw !important; /* Schrift minimal erhöht */
     padding: 2px 4px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
