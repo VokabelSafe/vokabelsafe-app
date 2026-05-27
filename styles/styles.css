@@ -346,10 +346,10 @@ textarea:focus-visible {
 
 @media (max-width: 920px) {
   .bullet-item {
-    width: 44vw !important;
-    max-width: 44vw !important;
+    width: 45.5vw !important; /* Leicht verbreitert für weniger Platz in der Mitte */
+    max-width: 45.5vw !important;
     box-sizing: border-box;
-    font-size: 2.4vw !important; /* Minimal erhöht */
+    font-size: 2.7vw !important; /* Schrift minimal erhöht */
     padding: 2px 4px !important;
     white-space: nowrap !important;
     overflow: hidden !important;
