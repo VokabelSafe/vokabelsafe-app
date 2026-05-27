@@ -153,18 +153,40 @@ textarea:focus-visible {
   flex-direction: column;
   gap: 5px;
   pointer-events: none;
+  z-index: 10;
 }
 
 .flags-left {
   right: 100%;
-  margin-right: calc(25px + 3vw);
+  margin-right: 20px;
   align-items: flex-end;
 }
 
 .flags-right {
   left: 100%;
-  margin-left: calc(15px + 3vw);
+  margin-left: 20px;
   align-items: flex-start;
+}
+
+/* Rutsch-Logik für kleine/gezoomte Bildschirme */
+@media (max-width: 500px) {
+  .flags-left {
+    right: auto;
+    left: -40px;
+    margin-right: 0;
+    align-items: flex-start;
+  }
+  .flags-right {
+    left: auto;
+    right: -40px;
+    margin-left: 0;
+    align-items: flex-end;
+  }
+
+  .flags-left span:nth-child(odd),
+  .flags-right span:nth-child(odd) { margin-left: 0; margin-right: 0; }
+  .flags-left span:nth-child(even),
+  .flags-right span:nth-child(even) { margin-left: 0; margin-right: 0; }
 }
 
 .flags-left span,
@@ -185,24 +207,6 @@ textarea:focus-visible {
 
 .flags-right span:nth-child(odd) { margin-left: 10px; }
 .flags-right span:nth-child(even) { margin-left: 40px; }
-
-@media (min-width: 1200px) {
-  .flags-left { margin-right: 80px; }
-  .flags-right { margin-left: 80px; }
-}
-
-@media (max-width: 920px) {
-  .flags-left span,
-  .flags-right span {
-    font-size: 0.85em;
-  }
-  .flags-left {
-    margin-right: 0;
-  }
-  .flags-right {
-    margin-left: 0;
-  }
-}
 
 .header-menu {
   min-width: 0;
