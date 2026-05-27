@@ -35,7 +35,7 @@ header {
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 30px 20px 40px;
+  padding: 36px 20px 44px;
   position: relative;
 }
 
@@ -295,7 +295,7 @@ textarea:focus-visible {
 
 .bullet-item {
   position: absolute;
-  font-size: 0.85em;
+  font-size: 0.75em;
   background-color: rgba(74, 163, 255, 0.55);
   border: 2px solid rgba(255, 255, 255, 0.45);
   padding: 2px 5px;
@@ -329,7 +329,7 @@ textarea:focus-visible {
 
 @media (max-width: 600px) {
   .bullet-item {
-    font-size: 0.62em;
+    font-size: 0.75em;
     padding: 1px 7px;
   }
 }
