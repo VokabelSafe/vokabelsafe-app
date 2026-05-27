@@ -295,14 +295,14 @@ textarea:focus-visible {
 
 .bullet-item {
   position: absolute;
-  font-size: 0.65em;
+  font-size: 0.85em;
   background-color: rgba(74, 163, 255, 0.55);
   border: 2px solid rgba(255, 255, 255, 0.45);
   padding: 2px 5px;
   border-radius: 8px;
   color: #ffffff;
   z-index: 100;
-  font-weight: bold;
+  font-weight: normal;
   white-space: nowrap !important;
   display: table !important;
   width: auto !important;
