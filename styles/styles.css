@@ -115,6 +115,10 @@ textarea:focus-visible {
 }
 
 .btn-primary {
+  background-color: var(--primary);
+}
+
+.btn-playstore {
   background-color: rgba(74, 163, 255, 0.55);
   border: 2px solid rgba(255, 255, 255, 0.45);
   display: inline-flex;
@@ -122,7 +126,7 @@ textarea:focus-visible {
   gap: 10px;
 }
 
-.btn-primary::before {
+.btn-playstore::before {
   content: "";
   display: inline-block;
   width: 24px;
@@ -215,7 +219,7 @@ textarea:focus-visible {
   position: relative;
 }
 
-.header-actions .btn-primary {
+.header-actions .btn-playstore {
   width: 32ch;
   max-width: min(100%, calc(100vw - 40px));
   box-sizing: border-box;
@@ -802,7 +806,7 @@ ul {
     width: min(100%, 32ch);
   }
 
-  .header-actions .btn-primary {
+  .header-actions .btn-playstore {
     width: min(100%, 32ch);
   }
 
