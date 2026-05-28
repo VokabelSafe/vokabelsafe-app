@@ -1,5 +1,5 @@
 :root {
-  --primary: #4aa3ff;
+  --primary: #002e8c;
   --secondary: #4caf50;
   --bg: #f4f9ff;
   --text: #1f2a36;
@@ -192,8 +192,8 @@ textarea:focus-visible {
 .flags-left span,
 .flags-right span {
   font-size: clamp(0.9em, 4vw, 1.3em);
-  background-color: rgba(74, 163, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 2px 6px;
   border-radius: 8px;
   display: inline-block;
