@@ -192,8 +192,8 @@ textarea:focus-visible {
 .flags-left span,
 .flags-right span {
   font-size: clamp(0.9em, 4vw, 1.3em);
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(74, 163, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   padding: 2px 6px;
   border-radius: 8px;
   display: inline-block;
