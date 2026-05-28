@@ -364,6 +364,28 @@ textarea:focus-visible {
   .bullet-item:nth-child(even) { right: 3vw !important; }
   .bullet-item:nth-child(1), .bullet-item:nth-child(2) { top: 5px !important; }
   .bullet-item:nth-child(3), .bullet-item:nth-child(4) { bottom: 5px !important; }
+
+  /* Verkleinerung von Buttons und Menü für kleine Bildschirme */
+  .header-actions .btn-playstore,
+  .header-menu,
+  .menu-summary {
+    width: 170px !important;
+    max-width: min(100%, calc(100vw - 40px)) !important;
+    font-size: 2.0vw !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    line-height: 1.6 !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .btn-playstore::before {
+    width: 12px !important;
+    height: 12px !important;
+  }
 }
 
 .sr-only {
