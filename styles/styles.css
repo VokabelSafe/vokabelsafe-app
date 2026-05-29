@@ -166,13 +166,13 @@ textarea:focus-visible {
 
 .flags-left {
   right: 100%;
-  margin-right: 20px;
+  margin-right: 70px;
   align-items: flex-end;
 }
 
 .flags-right {
   left: 100%;
-  margin-left: 20px;
+  margin-left: 70px;
   align-items: flex-start;
 }
 
