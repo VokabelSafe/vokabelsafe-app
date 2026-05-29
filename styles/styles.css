@@ -36,7 +36,7 @@ header {
   background-size: cover;
   background-position: center;
   color: white;
-  padding: 40px 20px 50px;
+  padding: 40px 20px 55px;
   position: relative;
 }
 
@@ -217,14 +217,14 @@ textarea:focus-visible {
 
 .header-menu {
   min-width: 0;
-  width: 196px;
+  width: 225px;
   max-width: min(100%, calc(100vw - 40px));
   position: relative;
   overflow: visible;
 }
 
 .header-actions .btn-playstore {
-  width: 196px;
+  width: 225px;
   max-width: min(100%, calc(100vw - 40px));
   box-sizing: border-box;
   display: block;
@@ -407,12 +407,12 @@ textarea:focus-visible {
   }
 
   .menu-list {
-    width: 130% !important;
-    min-width: 130% !important;
+    width: 140% !important;
+    min-width: 140% !important;
   }
 
   .menu-list a {
-    font-size: 2.5vw !important;
+    font-size: 2.7vw !important; /* Schriftgröße leicht angepasst */
     padding: 6px 10px !important;
   }
 
