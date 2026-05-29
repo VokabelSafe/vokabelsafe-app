@@ -217,14 +217,14 @@ textarea:focus-visible {
 
 .header-menu {
   min-width: 0;
-  width: 235px;
+  width: 245px;
   max-width: min(100%, calc(100vw - 40px));
   position: relative;
   overflow: visible;
 }
 
 .header-actions .btn-playstore {
-  width: 235px;
+  width: 245px;
   max-width: min(100%, calc(100vw - 40px));
   box-sizing: border-box;
   display: block;
@@ -368,7 +368,7 @@ textarea:focus-visible {
 
 @media (max-width: 500px) {
   .header-left p:not(.site-title) {
-    font-size: 3.05vw !important; /* Festgelegter VW-Wert für exakt 2 Zeilen */
+    font-size: 2.95vw !important; /* Festgelegter VW-Wert für exakt 2 Zeilen */
   }
 
   .bullet-item {
