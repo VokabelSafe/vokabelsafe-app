@@ -93,6 +93,7 @@ header {
   border-radius: 8px;
   display: inline;
   line-height: 1.6;
+  white-space: nowrap; /* Verhindert Umbruch beim Skalieren */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
@@ -369,7 +370,13 @@ textarea:focus-visible {
 
 @media (max-width: 500px) {
   .header-left p:not(.site-title) {
-    font-size: 3.0vw !important; /* Optimiert für 1 Zeile bei neuem Text */
+    font-size: 3.0vw !important;
+    display: block !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 75vw !important; /* Erhöht, um bündig mit den Bullet-Edges (97vw) zu sein */
+    box-sizing: border-box;
   }
 
   .bullet-item {
