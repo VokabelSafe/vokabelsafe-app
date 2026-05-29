@@ -47,10 +47,9 @@ header {
 
 .header-top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
 }
 
 .header-left {
@@ -58,6 +57,8 @@ header {
   align-items: center;
   gap: 15px;
   text-align: left;
+  width: 100%;
+  justify-content: center;
 }
 
 .header-left div {
@@ -130,10 +131,12 @@ textarea:focus-visible {
 .btn-playstore::before {
   content: "";
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 15px;
+  height: 15px;
   background: url('../pics/Google_Play_Arrow_logo.svg') no-repeat center;
   background-size: contain;
+  vertical-align: middle;
+  margin-right: 2px;
 }
 
 .header-actions {
@@ -141,12 +144,11 @@ textarea:focus-visible {
   flex-direction: column-reverse;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   flex: 0 0 auto;
   min-width: 0;
   position: relative;
-  padding: 0 15px 0 15px;
+  padding: 0 15px;
 }
 
 .flags-left,
@@ -215,24 +217,25 @@ textarea:focus-visible {
 
 .header-menu {
   min-width: 0;
-  width: 32ch;
+  width: 196px;
   max-width: min(100%, calc(100vw - 40px));
   position: relative;
+  overflow: visible;
 }
 
 .header-actions .btn-playstore {
-  width: 32ch;
+  width: 196px;
   max-width: min(100%, calc(100vw - 40px));
   box-sizing: border-box;
-  display: inline-flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.menu-dropdown {
-  position: relative;
   display: block;
-  width: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.6;
+  padding: 10px 6px;
+  font-size: clamp(12px, 2.9vw, 15px);
 }
 
 .menu-summary {
@@ -240,7 +243,7 @@ textarea:focus-visible {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 12px;
+  padding: 10px 18px 10px 6px;
   border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.45);
   background-color: rgba(74, 163, 255, 0.55);
@@ -250,6 +253,10 @@ textarea:focus-visible {
   user-select: none;
   white-space: nowrap;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  font-size: clamp(12px, 2.9vw, 15px);
 }
 
 .menu-summary::-webkit-details-marker {
@@ -258,8 +265,12 @@ textarea:focus-visible {
 
 .menu-summary::after {
   content: "▾";
-  margin-left: 10px;
   opacity: 0.9;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 .menu-dropdown[open] .menu-summary {
@@ -274,8 +285,8 @@ textarea:focus-visible {
   left: 50%;
   top: 100%;
   transform: translateX(-50%);
-  min-width: max(100%, 36ch);
-  width: max-content;
+  min-width: 130%;
+  width: 130%;
   max-width: min(calc(100vw - 24px), 52ch);
   overflow-x: auto;
   background: #e9f4ff;
@@ -290,10 +301,11 @@ textarea:focus-visible {
   text-decoration: none;
   color: #1f2a36;
   font-weight: 700;
-  padding: 9px 10px;
+  padding: 7px 11px;
   border-radius: 8px;
   white-space: nowrap;
   text-align: center;
+  font-size: clamp(12px, 2.9vw, 15px);
 }
 
 .menu-list a:hover,
@@ -857,20 +869,6 @@ ul {
 }
 
 @media (max-width: 920px) {
-  .header-actions {
-    margin: 10px auto;
-    width: auto;
-    align-items: center;
-  }
-
-  .header-menu {
-    width: min(100%, 32ch);
-  }
-
-  .header-actions .btn-playstore {
-    width: min(100%, 32ch);
-  }
-
   .menu-list {
     max-width: calc(100vw - 24px);
   }
