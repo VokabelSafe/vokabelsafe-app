@@ -85,7 +85,7 @@ header {
 .header-left p:not(.site-title) {
   margin: 0;
   color: #ffffff;
-  font-size: 15px; /* 10% mehr als der mobile Wert bei 500px, danach stabil */
+  font-size: 15px;
   font-weight: normal;
   background-color: rgba(var(--primary-rgb), 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -217,14 +217,14 @@ textarea:focus-visible {
 
 .header-menu {
   min-width: 0;
-  width: 225px;
+  width: 235px;
   max-width: min(100%, calc(100vw - 40px));
   position: relative;
   overflow: visible;
 }
 
 .header-actions .btn-playstore {
-  width: 225px;
+  width: 235px;
   max-width: min(100%, calc(100vw - 40px));
   box-sizing: border-box;
   display: block;
@@ -368,7 +368,7 @@ textarea:focus-visible {
 
 @media (max-width: 500px) {
   .header-left p:not(.site-title) {
-    font-size: 2.9vw !important; /* Festgelegter VW-Wert für exakt 2 Zeilen */
+    font-size: 3.05vw !important; /* Festgelegter VW-Wert für exakt 2 Zeilen */
   }
 
   .bullet-item {
@@ -383,7 +383,7 @@ textarea:focus-visible {
 
   /* Verkleinerung von Buttons und Menü für kleine Bildschirme */
   .header-actions .btn-playstore {
-    width: 170px !important;
+    width: 180px !important;
     max-width: min(100%, calc(100vw - 40px)) !important;
     font-size: 2.5vw !important;
     white-space: nowrap !important;
@@ -397,7 +397,7 @@ textarea:focus-visible {
   }
 
   .menu-summary {
-    width: 170px !important;
+    width: 180px !important;
     max-width: min(100%, calc(100vw - 40px)) !important;
     font-size: 2.5vw !important;
     white-space: nowrap !important;
@@ -421,7 +421,7 @@ textarea:focus-visible {
   }
 
   .header-menu {
-    width: 170px !important;
+    width: 180px !important;
     max-width: min(100%, calc(100vw - 40px)) !important;
     overflow: visible !important;
   }
