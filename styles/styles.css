@@ -271,6 +271,7 @@ textarea:focus-visible {
   top: 50%;
   transform: translateY(-50%);
   margin: 0;
+  font-size: 1.35em; /* Etwas angepasst für Desktop/Tablets */
 }
 
 .menu-dropdown[open] .menu-summary {
@@ -439,6 +440,7 @@ textarea:focus-visible {
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0 !important;
+    font-size: 1.15em !important; /* Etwas angepasst für mobile Bildschirme */
   }
 }
 
