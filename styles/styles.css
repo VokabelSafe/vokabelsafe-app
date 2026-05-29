@@ -85,7 +85,7 @@ header {
 .header-left p:not(.site-title) {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(0.65em, 2.3vw, 0.85em);
+  font-size: 15px; /* 10% mehr als der mobile Wert bei 500px, danach stabil */
   font-weight: normal;
   background-color: rgba(var(--primary-rgb), 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -367,6 +367,10 @@ textarea:focus-visible {
 .bullet-item:nth-child(4) { bottom: 5px; right: max(15px, calc(50% - 450px)); }
 
 @media (max-width: 500px) {
+  .header-left p:not(.site-title) {
+    font-size: 2.9vw !important; /* Festgelegter VW-Wert für exakt 2 Zeilen */
+  }
+
   .bullet-item {
     width: 45.5vw !important;
     max-width: 45.5vw !important;
