@@ -302,7 +302,7 @@ textarea:focus-visible {
   text-decoration: none;
   color: #1f2a36;
   font-weight: 700;
-  padding: 7px 11px;
+  padding: 7.5px 11px;
   border-radius: 8px;
   white-space: nowrap;
   text-align: center;
@@ -386,7 +386,7 @@ textarea:focus-visible {
   .header-actions .btn-playstore {
     width: 198px !important;
     max-width: min(100%, calc(100vw - 40px)) !important;
-    font-size: 2.7vw !important;
+    font-size: 2.8vw !important;
     white-space: nowrap !important;
     display: block !important;
     position: relative !important;
@@ -400,7 +400,7 @@ textarea:focus-visible {
   .menu-summary {
     width: 100% !important;
     max-width: min(100%, calc(100vw - 40px)) !important;
-    font-size: 2.7vw !important;
+    font-size: 2.8vw !important;
     white-space: nowrap !important;
     display: block !important;
     position: relative !important;
@@ -417,8 +417,8 @@ textarea:focus-visible {
   }
 
   .menu-list a {
-    font-size: 2.9vw !important; /* Schriftgröße leicht angepasst */
-    padding: 6px 10px !important;
+    font-size: 3.0vw !important; /* Schriftgröße leicht angepasst */
+    padding: 6.5px 10px !important;
   }
 
   .header-menu {
@@ -440,7 +440,7 @@ textarea:focus-visible {
     top: 50% !important;
     transform: translateY(-50%) !important;
     margin: 0 !important;
-    font-size: 1.15em !important; /* Etwas angepasst für mobile Bildschirme */
+    font-size: 1.25em !important; /* Etwas angepasst für mobile Bildschirme */
   }
 }
 
