@@ -80,6 +80,28 @@ header {
   color: #ffffff;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-link {
+  display: inline-block;
+  width: 2.25em;
+  height: 2.25em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+}
+
+.link-noad {
+  background-image: url('../pics/noad.png');
+  margin-left: 18px;
+}
+
+.link-offline {
+  background-image: url('../pics/offline.png');
+  margin-left: 8px;
 }
 
 .header-left p:not(.site-title) {
