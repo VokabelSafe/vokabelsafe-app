@@ -187,13 +187,13 @@ textarea:focus-visible {
 
 .flags-left {
   right: 100%;
-  margin-right: 35px;
+  margin-right: clamp(10px, calc(25vw - 195px), 100px);
   align-items: flex-end;
 }
 
 .flags-right {
   left: 100%;
-  margin-left: 35px;
+  margin-left: clamp(10px, calc(25vw - 195px), 100px);
   align-items: flex-start;
 }
 
@@ -202,21 +202,25 @@ textarea:focus-visible {
 @media (max-width: 500px) {
   .flags-left {
     right: auto;
-    left: -40px;
+    left: calc(-25vw + 85px); /* Letzter guter mobiler Wert */
+    transform: translate(-50%, -50%);
     margin-right: 0;
-    align-items: flex-start;
+    align-items: center;
   }
   .flags-right {
     left: auto;
-    right: -40px;
+    right: calc(-25vw + 85px); /* Letzter guter mobiler Wert */
+    transform: translate(50%, -50%);
     margin-left: 0;
-    align-items: flex-end;
+    align-items: center;
   }
 
-  .flags-left span:nth-child(odd),
-  .flags-right span:nth-child(odd) { margin-left: 0; margin-right: 0; }
-  .flags-left span:nth-child(even),
-  .flags-right span:nth-child(even) { margin-left: 0; margin-right: 0; }
+  /*
+  .flags-left span,
+  .flags-right span {
+    margin: 0 !important;
+  }
+  */
 }
 
 .flags-left span,
