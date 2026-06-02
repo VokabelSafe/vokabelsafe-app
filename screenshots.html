@@ -64,7 +64,6 @@
   <link rel="apple-touch-icon" href="favicon/favicon-64.png">
   <link rel="stylesheet" href="styles/styles.css">
 
-
 </head>
 
 <body>
@@ -131,29 +130,20 @@
   <div class="card">
     <h1>📸 Screenshots & Einblicke</h1>
     <p>Hier erhalten Sie einen Einblick in die Benutzeroberfläche von VokabelSafe. Die App ist bewusst schlicht und ruhig gestaltet, um Kinder beim Lernen nicht abzulenken.</p>
+
+    <div class="buttons mt-20">
+      <button id="btn-smartphone" class="btn btn-primary" onclick="setDevice('smartphone')">📱 Smartphone</button>
+      <button id="btn-tablet" class="btn btn-gray" onclick="setDevice('tablet')">💻 Tablet</button>
+    </div>
   </div>
 
-  <div class="screenshot-grid">
-    <div class="section">
-      <h2>📱 Smartphone</h2>
-      <div class="viewer">
-          <img id="img-smartphone" src="pics/screenshots/smartphone/S1.webp" alt="VokabelSafe App Smartphone Screenshot – Vokabeln abfragen und lernen" onclick="openModal('smartphone')">
-      </div>
-      <div class="controls">
-          <button class="btn-nav" onclick="prev('smartphone')" aria-label="Vorheriges Bild">◀</button>
-          <button class="btn-nav" onclick="next('smartphone')" aria-label="Nächstes Bild">▶</button>
-      </div>
+  <div class="text-center mt-20 mb-20">
+    <div class="viewer">
+      <img id="main-screenshot" src="pics/screenshots/smartphone/S0.webp" alt="VokabelSafe App Smartphone Screenshot – Vokabeln abfragen und lernen" onclick="openModal()">
     </div>
-
-    <div class="section">
-      <h2>💻 Tablet</h2>
-      <div class="viewer">
-          <img id="img-tablet" src="pics/screenshots/tablet/T1.webp" alt="VokabelSafe App Tablet Screenshot – Übersichtliche Vokabellisten auf dem Tablet" onclick="openModal('tablet')">
-      </div>
-      <div class="controls">
-          <button class="btn-nav" onclick="prev('tablet')" aria-label="Vorheriges Bild">◀</button>
-          <button class="btn-nav" onclick="next('tablet')" aria-label="Nächstes Bild">▶</button>
-      </div>
+    <div class="controls">
+      <button class="btn-nav" onclick="prev()" aria-label="Vorheriges Bild">◀</button>
+      <button class="btn-nav" onclick="next()" aria-label="Nächstes Bild">▶</button>
     </div>
   </div>
 
@@ -181,6 +171,7 @@
 <script>
 const images = {
     smartphone: [
+        "pics/screenshots/smartphone/S0.webp",
         "pics/screenshots/smartphone/S1.webp",
         "pics/screenshots/smartphone/S2.webp",
         "pics/screenshots/smartphone/S3.webp",
@@ -191,6 +182,7 @@ const images = {
         "pics/screenshots/smartphone/S8.webp"
     ],
     tablet: [
+        "pics/screenshots/tablet/T0.webp",
         "pics/screenshots/tablet/T1.webp",
         "pics/screenshots/tablet/T2.webp",
         "pics/screenshots/tablet/T3.webp",
@@ -202,38 +194,51 @@ const images = {
     ]
 };
 
-const index = {
-    smartphone: 0,
-    tablet: 0
-};
+let currentIndex = 0;
+let currentDevice = 'smartphone';
 
-let currentModalCategory = '';
+function show() {
+    const imgPath = images[currentDevice][currentIndex];
+    const mainImg = document.getElementById("main-screenshot");
+    mainImg.src = imgPath;
 
-function show(category) {
-    const imgPath = images[category][index[category]];
-    document.getElementById("img-" + category).src = imgPath;
+    // Alt-Text anpassen
+    if (currentDevice === 'smartphone') {
+        mainImg.alt = "VokabelSafe App Smartphone Screenshot – Vokabeln abfragen und lernen";
+    } else {
+        mainImg.alt = "VokabelSafe App Tablet Screenshot – Übersichtliche Vokabellisten auf dem Tablet";
+    }
+
     if (document.getElementById("screenshotModal").style.display === "flex") {
         document.getElementById("modalImg").src = imgPath;
     }
 }
 
-function next(category) {
-    index[category] = (index[category] + 1) % images[category].length;
-    show(category);
+function next() {
+    currentIndex = (currentIndex + 1) % images[currentDevice].length;
+    show();
 }
 
-function prev(category) {
-    index[category] =
-        (index[category] - 1 + images[category].length) % images[category].length;
-    show(category);
+function prev() {
+    currentIndex = (currentIndex - 1 + images[currentDevice].length) % images[currentDevice].length;
+    show();
 }
 
-function openModal(category) {
-    currentModalCategory = category;
+function setDevice(device) {
+    currentDevice = device;
+
+    // Buttons aktualisieren
+    document.getElementById('btn-smartphone').className = device === 'smartphone' ? 'btn btn-primary' : 'btn btn-gray';
+    document.getElementById('btn-tablet').className = device === 'tablet' ? 'btn btn-primary' : 'btn btn-gray';
+
+    show();
+}
+
+function openModal() {
     const modal = document.getElementById("screenshotModal");
     const modalImg = document.getElementById("modalImg");
     modal.style.display = "flex";
-    modalImg.src = images[category][index[category]];
+    modalImg.src = images[currentDevice][currentIndex];
     document.body.style.overflow = "hidden"; // Scrollen verhindern
 }
 
@@ -243,19 +248,19 @@ function closeModal() {
 }
 
 function nextModal() {
-    next(currentModalCategory);
+    next();
 }
 
 function prevModal() {
-    prev(currentModalCategory);
+    prev();
 }
 
-// Schließen mit Escape-Taste
+// Schließen mit Escape-Taste und Navigation mit Pfeiltasten
 document.addEventListener('keydown', function(e) {
     if (e.key === "Escape") closeModal();
-    if (document.getElementById("screenshotModal").style.display === "flex") {
-        if (e.key === "ArrowRight") nextModal();
-        if (e.key === "ArrowLeft") prevModal();
+    if (document.getElementById("screenshotModal").style.display === "flex" || true) { // Pfeiltasten immer erlauben für Hauptansicht
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
     }
 });
 </script>
