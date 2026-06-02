@@ -68,7 +68,7 @@ header {
 }
 
 .header-left img {
-  width: 70px;
+  width: 65px; /* 15% größer als die mobile Basis (56px * 1.15) */
   border: 3px solid white;
   border-radius: 22px;
 }
@@ -76,7 +76,7 @@ header {
 .header-left h1,
 .site-title {
   margin: 5px 0 0;
-  font-size: clamp(1.4em, 5vw, 1.8em);
+  font-size: clamp(1.4em, 5vw, 1.6em); /* 15% größer als mobile Basis (1.4em * 1.15) */
   color: #ffffff;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -107,11 +107,11 @@ header {
 .header-left p:not(.site-title) {
   margin: 0;
   color: #ffffff;
-  font-size: 17px;
+  font-size: 17px; /* 15% größer als mobile Basis (ca. 15px * 1.15) */
   font-weight: normal;
   background-color: rgba(var(--primary-rgb), 0.55);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  padding: 3px 10px;
+  padding: 3px 12px;
   border-radius: 8px;
   display: inline;
   line-height: 1.6;
@@ -395,6 +395,15 @@ textarea:focus-visible {
    Anpassung von Schriftgrößen (vw-Einheiten), Button-Breiten und Abständen,
    damit die UI auf Smartphones kompakt und bedienbar bleibt. */
 @media (max-width: 500px) {
+  .header-left img {
+    width: 56px !important; /* Logo 20% kleiner als das ursprüngliche Basismaß (70px * 0.8) */
+  }
+
+  .header-left h1,
+  .site-title {
+    font-size: clamp(1.4em, 5vw, 1.8em) !important; /* Mobile Basisgröße für Titel */
+  }
+
   .header-left p:not(.site-title) {
     font-size: 3.0vw !important;
     display: block !important;
@@ -403,6 +412,7 @@ textarea:focus-visible {
     text-overflow: ellipsis !important;
     max-width: 75vw !important; /* Erhöht, um bündig mit den Bullet-Edges (97vw) zu sein */
     box-sizing: border-box;
+    padding: 3px 10px !important; /* Kompakteres Padding für Mobile */
   }
 
   .bullet-item {
