@@ -908,12 +908,8 @@ ul {
 }
 
 /* Anpassungen für mittlere Bildschirmbreiten (bis 920px):
-   Begrenzung der Menüliste und Zentrierung des "Neu"-Badges für Tablets. */
+   Zentrierung des "Neu"-Badges für Tablets. */
 @media (max-width: 920px) {
-  .menu-list {
-    max-width: calc(100vw - 24px);
-  }
-
   .badge-new {
     position: static;
     margin: 0 auto 15px auto;
