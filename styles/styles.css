@@ -198,7 +198,8 @@ textarea:focus-visible {
   align-items: flex-start;
 }
 
-/* Rutsch-Logik für kleine/gezoomte Bildschirme */
+/* Optimierungen für Smartphones (bis 500px):
+   Anpassung der Flaggen-Positionierung für sehr schmale Bildschirme. */
 @media (max-width: 500px) {
   .flags-left {
     right: auto;
@@ -390,6 +391,9 @@ textarea:focus-visible {
 .bullet-item:nth-child(3) { bottom: 5px; left: max(15px, calc(50% - 450px)); }
 .bullet-item:nth-child(4) { bottom: 5px; right: max(15px, calc(50% - 450px)); }
 
+/* Umfangreiche mobile Optimierung (bis 500px):
+   Anpassung von Schriftgrößen (vw-Einheiten), Button-Breiten und Abständen,
+   damit die UI auf Smartphones kompakt und bedienbar bleibt. */
 @media (max-width: 500px) {
   .header-left p:not(.site-title) {
     font-size: 3.0vw !important;
@@ -903,6 +907,8 @@ ul {
   padding-left: 20px;
 }
 
+/* Anpassungen für mittlere Bildschirmbreiten (bis 920px):
+   Begrenzung der Menüliste und Zentrierung des "Neu"-Badges für Tablets. */
 @media (max-width: 920px) {
   .menu-list {
     max-width: calc(100vw - 24px);
@@ -1096,6 +1102,14 @@ ul {
   min-width: 200px;
 }
 
+/* Layout-Anpassung für Formulare (bis 600px):
+   Formulargruppen werden untereinander gestapelt statt nebeneinander. */
+@media (max-width: 600px) {
+  .form-row .form-group {
+    flex: 1 1 100%;
+  }
+}
+
 .prompt-output {
   background: #f4f7f9;
   padding: 20px;
@@ -1149,10 +1163,4 @@ ul {
 .tag .remove {
   cursor: pointer;
   font-weight: bold;
-}
-
-@media (max-width: 600px) {
-  .form-row .form-group {
-    flex: 1 1 100%;
-  }
 }
