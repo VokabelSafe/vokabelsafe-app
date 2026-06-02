@@ -110,7 +110,6 @@ header {
   font-size: 17px; /* 15% größer als mobile Basis (ca. 15px * 1.15) */
   font-weight: normal;
   background-color: rgba(var(--primary-rgb), 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 3px 12px;
   border-radius: 8px;
   display: inline;
@@ -900,12 +899,15 @@ footer p:last-child {
   text-decoration: none;
   font-weight: normal;
   background-color: rgba(var(--primary-rgb), 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 3px 12px;
   border-radius: 8px;
   display: inline-block;
   margin: 5px 0;
   line-height: 1.4;
+}
+
+footer a {
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 main > *:last-child,
