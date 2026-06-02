@@ -1099,15 +1099,7 @@ ul {
 
 .form-row .form-group {
   flex: 1;
-  min-width: 200px;
-}
-
-/* Layout-Anpassung für Formulare (bis 600px):
-   Formulargruppen werden untereinander gestapelt statt nebeneinander. */
-@media (max-width: 600px) {
-  .form-row .form-group {
-    flex: 1 1 100%;
-  }
+  min-width: 180px;
 }
 
 .prompt-output {
