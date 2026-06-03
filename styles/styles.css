@@ -751,6 +751,12 @@ textarea:focus-visible {
   font-size: 14px;
 }
 
+.btn-fixed-width {
+  width: 220px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .ml-10 { margin-left: 10px; }
 
 .hidden {
