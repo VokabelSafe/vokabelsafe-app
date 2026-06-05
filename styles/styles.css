@@ -1188,31 +1188,36 @@ ul {
 .countdown-timer {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 8px; /* Reduzierter Abstand für mobile */
     margin-bottom: 20px;
-    flex-wrap: wrap; /* Erlaubt Umbruch auf sehr kleinen Screens */
+    flex-wrap: nowrap; /* Kein Umbruch mehr, wir skalieren lieber */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .timer-unit {
     background: #002e8c;
     color: white;
-    padding: 8px 4px;
+    padding: 6px 2px;
     border-radius: 8px;
-    min-width: 55px;
-    flex: 1; /* Lässt Einheiten gleichmäßig wachsen/schrumpfen */
+    flex: 1;
+    min-width: 0; /* Erlaubt das Schrumpfen unter die Inhaltsgröße */
     max-width: 80px;
 }
 
 .timer-value {
     display: block;
-    font-size: clamp(1.1rem, 4vw, 1.5rem); /* Dynamische Schriftgröße */
+    font-size: clamp(1rem, 5vw, 1.5rem); /* Stärkerer Fokus auf VW für echte Skalierung */
     font-weight: bold;
+    line-height: 1.2;
 }
 
 .timer-label {
-    font-size: clamp(0.6rem, 2vw, 0.7rem); /* Dynamische Labelgröße */
+    display: block;
+    font-size: clamp(0.5rem, 2.5vw, 0.7rem);
     text-transform: uppercase;
     opacity: 0.8;
+    white-space: nowrap;
 }
 
 .progress-container {
