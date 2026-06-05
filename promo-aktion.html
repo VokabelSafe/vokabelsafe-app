@@ -138,10 +138,31 @@
 
   <div class="card highlight-primary">
     <span class="badge-new"><span class="icon">🎁</span> GRATIS</span>
-    <h2>Für Familien: Dauerhaft kostenlos nutzen</h2>
+    <h2>Für Familien: Nur noch kurze Zeit kostenlos</h2>
     <p>
-      Sichern Sie sich jetzt einen <strong>Lifetime-Vollzugang</strong> (regulärer Wert: 49,99 €) völlig kostenlos. Wir vergeben aktuell eine begrenzte Anzahl an Aktivierungscodes an interessierte Eltern.
+      Sichern Sie sich jetzt im Rahmen unserer Willkommens-Aktion einen <strong>Lifetime-Vollzugang</strong> (regulärer Wert: 49,99 €) völlig kostenlos.
     </p>
+
+    <div class="urgency-container">
+      <p class="mb-10"><strong>⏳ Aktion endet am 30.06.2026:</strong></p>
+      <div id="timer" class="countdown-timer">
+        <div class="timer-unit"><span id="days" class="timer-value">00</span><span class="timer-label">Tage</span></div>
+        <div class="timer-unit"><span id="hours" class="timer-value">00</span><span class="timer-label">Std</span></div>
+        <div class="timer-unit"><span id="minutes" class="timer-value">00</span><span class="timer-label">Min</span></div>
+        <div class="timer-unit"><span id="seconds" class="timer-value">00</span><span class="timer-label">Sek</span></div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Vergebene Gratis-Lizenzen:</span>
+          <span id="progress-text" class="text-urgent">15%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progress-fill" class="progress-bar-fill" style="width: 15%;"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="highlight">
       <strong>So sichern Sie sich Ihr Geschenk:</strong>
       <p class="mt-10">Fordern Sie einfach über den Button unten Ihren persönlichen Code per E-Mail an. Schauen Sie sich die App ganz entspannt mit Ihrem Kind an. Über eine kurze Nachricht, ob Ihnen die App gefällt oder was wir noch besser machen können, freuen wir uns natürlich riesig – das ist aber kein Muss!</p>
@@ -160,11 +181,11 @@
   </div>
 
   <div class="card">
-    <h2>👨‍🏫 Für Lehrer & Schulen</h2>
+    <h2>👨‍🏫 Bildungs-Initiative: Für Lehrer & Schulen</h2>
     <p>
-      Möchten Sie VokabelSafe in Ihrer Klasse einsetzen? Wir unterstützen Bildungseinrichtungen gerne dabei, eine sichere und werbefreie Lernumgebung zu etablieren.
+      Möchten Sie VokabelSafe in Ihrer Klasse einsetzen? Wir unterstützen Bildungseinrichtungen dabei, eine sichere und werbefreie Lernumgebung zu etablieren.
     </p>
-    <p>Gerne stellen wir Ihnen <strong>kostenlose Vollzugänge für ganze Schulklassen</strong> zur Verfügung, damit Ihre Schüler ungestört und datenschutzkonform lernen können.</p>
+    <p>Im Rahmen unserer aktuellen Initiative stellen wir Ihnen <strong>kostenlose Vollzugänge für ganze Schulklassen</strong> zur Verfügung, damit Ihre Schüler ungestört und datenschutzkonform lernen können.</p>
 
     <ul class="mt-15">
       <li><strong>Kein Aufwand:</strong> Keine Schüler-Accounts nötig, sofort startklar.</li>
@@ -192,6 +213,49 @@
     </p>
   </div>
 </main>
+
+<script>
+  // Konfiguration
+  const startDate = new Date('2026-06-06T00:00:00').getTime(); // Start der Aktion (für Progress-Berechnung)
+  const endDate = new Date('2026-06-30T23:59:59').getTime(); // Ende der Aktion
+  const startPercent = 15;
+  const endPercent = 100;
+
+  function updateUrgency() {
+    const now = new Date().getTime();
+    const timeLeft = endDate - now;
+
+    // 1. Countdown berechnen
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days.toString().padStart(2, '0');
+      document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    }
+
+    // 2. Progress-Balken berechnen (Lineare Interpolation)
+    const totalDuration = endDate - startDate;
+    const elapsed = now - startDate;
+
+    let currentPercent = startPercent + ((endPercent - startPercent) * (elapsed / totalDuration));
+
+    // Grenzen einhalten
+    if (currentPercent < startPercent) currentPercent = startPercent;
+    if (currentPercent > 98) currentPercent = 98; // Nie ganz 100% zeigen vor Ende
+
+    document.getElementById("progress-fill").style.width = currentPercent + "%";
+    document.getElementById("progress-text").innerText = Math.floor(currentPercent) + "%";
+  }
+
+  // Initialer Aufruf und Intervall
+  updateUrgency();
+  setInterval(updateUrgency, 1000);
+</script>
 
 <footer>
   <p>
