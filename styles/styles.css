@@ -1188,26 +1188,29 @@ ul {
 .countdown-timer {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Erlaubt Umbruch auf sehr kleinen Screens */
 }
 
 .timer-unit {
     background: #002e8c;
     color: white;
-    padding: 10px;
+    padding: 8px 4px;
     border-radius: 8px;
-    min-width: 65px;
+    min-width: 55px;
+    flex: 1; /* Lässt Einheiten gleichmäßig wachsen/schrumpfen */
+    max-width: 80px;
 }
 
 .timer-value {
     display: block;
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 4vw, 1.5rem); /* Dynamische Schriftgröße */
     font-weight: bold;
 }
 
 .timer-label {
-    font-size: 0.7rem;
+    font-size: clamp(0.6rem, 2vw, 0.7rem); /* Dynamische Labelgröße */
     text-transform: uppercase;
     opacity: 0.8;
 }
