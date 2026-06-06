@@ -128,75 +128,84 @@
 </header>
 
 <main id="main-content" class="container">
-  <div class="promo-banner">
+  <div class="card">
     <h1>🎁 Exklusives Kennenlern-Angebot: VokabelSafe geschenkt</h1>
     <p><strong>Wir feiern den Start von VokabelSafe und verschenken eine begrenzte Anzahl an Lifetime-Vollzugängen.</strong></p>
     <p>
-      VokabelSafe ist ein echtes Familienprojekt. Damit noch mehr Kinder ohne Werbung und Tracking lernen können, möchten wir die App bekannter machen und suchen Familien, die uns auf diesem Weg begleiten.
+      VokabelSafe ist ein echtes Familienprojekt. Damit noch mehr Kinder ohne Werbung und Tracking lernen können, möchten wir die App bekannter machen und suchen Partner, die uns auf diesem Weg begleiten.
     </p>
+
+    <div class="buttons mt-20">
+      <button id="btn-families" class="btn btn-primary" onclick="setView('families')">👨‍👩‍👧‍👦 Für Familien</button>
+      <button id="btn-teachers" class="btn btn-gray" onclick="setView('teachers')">👨‍🏫 Für Lehrer & Schulen</button>
+    </div>
   </div>
 
-  <div class="card highlight-primary">
-    <span class="badge-new"><span class="icon">🎁</span> GRATIS</span>
-    <h2>Für Familien: Nur noch kurze Zeit kostenlos</h2>
-    <p>
-      Sichern Sie sich jetzt im Rahmen unserer Willkommens-Aktion einen <strong>Lifetime-Vollzugang</strong> (regulärer Wert: 49,99 €) völlig kostenlos.
-    </p>
+  <div id="view-families">
+    <div class="card highlight-primary">
+      <span class="badge-new"><span class="icon">🎁</span> GRATIS</span>
+      <h2>Für Familien: Nur noch kurze Zeit kostenlos</h2>
+      <p>
+        Sichern Sie sich jetzt im Rahmen unserer Willkommens-Aktion einen <strong>Lifetime-Vollzugang</strong> (regulärer Wert: 49,99 €) völlig kostenlos.
+      </p>
 
-    <div class="urgency-container">
-      <p class="mb-10"><strong>⏳ Aktion endet am 30.06.2026:</strong></p>
-      <div id="timer" class="countdown-timer">
-        <div class="timer-unit"><span id="days" class="timer-value">00</span><span class="timer-label">Tage</span></div>
-        <div class="timer-unit"><span id="hours" class="timer-value">00</span><span class="timer-label">Std</span></div>
-        <div class="timer-unit"><span id="minutes" class="timer-value">00</span><span class="timer-label">Min</span></div>
-        <div class="timer-unit"><span id="seconds" class="timer-value">00</span><span class="timer-label">Sek</span></div>
+      <div class="urgency-container">
+        <p class="mb-10"><strong>⏳ Aktion endet am 30.06.2026:</strong></p>
+        <div id="timer" class="countdown-timer">
+          <div class="timer-unit"><span id="days" class="timer-value">00</span><span class="timer-label">Tage</span></div>
+          <div class="timer-unit"><span id="hours" class="timer-value">00</span><span class="timer-label">Std</span></div>
+          <div class="timer-unit"><span id="minutes" class="timer-value">00</span><span class="timer-label">Min</span></div>
+          <div class="timer-unit"><span id="seconds" class="timer-value">00</span><span class="timer-label">Sek</span></div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-label">
+            <span>Vergebene Gratis-Lizenzen:</span>
+            <span id="progress-text" class="text-urgent">15%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div id="progress-fill" class="progress-bar-fill" style="width: 15%;"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="progress-container">
-        <div class="progress-label">
-          <span>Vergebene Gratis-Lizenzen:</span>
-          <span id="progress-text" class="text-urgent">15%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div id="progress-fill" class="progress-bar-fill" style="width: 15%;"></div>
-        </div>
+      <div class="highlight">
+        <strong>So sichern Sie sich Ihr Geschenk:</strong>
+        <p class="mt-10">Fordern Sie einfach über den Button unten Ihren persönlichen Code per E-Mail an. Schauen Sie sich die App ganz entspannt mit Ihrem Kind an. Über eine kurze Nachricht, ob Ihnen die App gefällt oder was wir noch besser machen können, freuen wir uns natürlich riesig – das ist aber kein Muss!</p>
       </div>
+      <p class="fs-09">
+        <em>Unser Ziel ist es, eine App von Eltern für Eltern zu schaffen. Ihr Vertrauen und Ihre Anregungen sind für uns das schönste Feedback.</em>
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="mailto:support@vokabelsafe.de?subject=VokabelSafe%20Lifetime%20Angebot&amp;body=Hallo,%20ich%20m%C3%B6chte%20VokabelSafe%20gerne%20mit%20meiner%20Familie%20nutzen.%20Bitte%20senden%20Sie%20mir%20einen%20Aktivierungscode%20zu.">
+          ✉️ Jetzt Aktivierungscode anfragen
+        </a>
+      </div>
+      <p class="fs-08 text-center opacity-08">
+        💡 <em>Sollten Sie nach 24h keine Antwort erhalten, prüfen Sie bitte auch Ihren <strong>Spam-Ordner</strong>.</em>
+      </p>
     </div>
-
-    <div class="highlight">
-      <strong>So sichern Sie sich Ihr Geschenk:</strong>
-      <p class="mt-10">Fordern Sie einfach über den Button unten Ihren persönlichen Code per E-Mail an. Schauen Sie sich die App ganz entspannt mit Ihrem Kind an. Über eine kurze Nachricht, ob Ihnen die App gefällt oder was wir noch besser machen können, freuen wir uns natürlich riesig – das ist aber kein Muss!</p>
-    </div>
-    <p class="fs-09">
-      <em>Unser Ziel ist es, eine App von Eltern für Eltern zu schaffen. Ihr Vertrauen und Ihre Anregungen sind für uns das schönste Feedback.</em>
-    </p>
-    <div class="buttons">
-      <a class="btn btn-primary" href="mailto:support@vokabelsafe.de?subject=VokabelSafe%20Lifetime%20Angebot&amp;body=Hallo,%20ich%20m%C3%B6chte%20VokabelSafe%20gerne%20mit%20meiner%20Familie%20nutzen.%20Bitte%20senden%20Sie%20mir%20einen%20Aktivierungscode%20zu.">
-        ✉️ Jetzt Aktivierungscode anfragen
-      </a>
-    </div>
-    <p class="fs-08 text-center opacity-08">
-      💡 <em>Sollten Sie nach 24h keine Antwort erhalten, prüfen Sie bitte auch Ihren <strong>Spam-Ordner</strong>.</em>
-    </p>
   </div>
 
-  <div class="card">
-    <h2>👨‍🏫 Bildungs-Initiative: Für Lehrer & Schulen</h2>
-    <p>
-      Möchten Sie VokabelSafe in Ihrer Klasse einsetzen? Wir unterstützen Bildungseinrichtungen dabei, eine sichere und werbefreie Lernumgebung zu etablieren.
-    </p>
-    <p>Im Rahmen unserer aktuellen Initiative stellen wir Ihnen <strong>kostenlose Vollzugänge für ganze Schulklassen</strong> zur Verfügung, damit Ihre Schüler ungestört und datenschutzkonform lernen können.</p>
+  <div id="view-teachers" style="display:none;">
+    <div class="card">
+      <h2>👨‍🏫 Bildungs-Initiative: Für Lehrer & Schulen</h2>
+      <p>
+        Möchten Sie VokabelSafe in Ihrer Klasse einsetzen? Wir unterstützen Bildungseinrichtungen dabei, eine sichere und werbefreie Lernumgebung zu etablieren.
+      </p>
+      <p>Im Rahmen unserer aktuellen Initiative stellen wir Ihnen <strong>kostenlose Vollzugänge für ganze Schulklassen</strong> zur Verfügung, damit Ihre Schüler ungestört und datenschutzkonform lernen können.</p>
 
-    <ul class="mt-15">
-      <li><strong>Kein Aufwand:</strong> Keine Schüler-Accounts nötig, sofort startklar.</li>
-      <li><strong>100% Sicher:</strong> Funktioniert komplett offline ohne Datenerhebung.</li>
-      <li><strong>Unterstützung:</strong> Wir helfen Ihnen gerne beim Setup Ihrer ersten Vokabelsets.</li>
-    </ul>
+      <ul class="mt-15">
+        <li><strong>Kein Aufwand:</strong> Keine Schüler-Accounts nötig, sofort startklar.</li>
+        <li><strong>100% Sicher:</strong> Funktioniert komplett offline ohne Datenerhebung.</li>
+        <li><strong>Unterstützung:</strong> Wir helfen Ihnen gerne beim Setup Ihrer ersten Vokabelsets.</li>
+      </ul>
 
-    <div class="buttons">
-      <a class="btn btn-secondary" href="mailto:support@vokabelsafe.de?subject=VokabelSafe%20Klassen-Zug%C3%A4nge&amp;body=Hallo,%20ich%20bin%20Lehrer/in%20und%20interessiere%20mich%20f%C3%BCr%20Vollzug%C3%A4nge%20f%C3%BCr%20meine%20Klasse.%0A%0AAnzahl%20der%20ben%C3%B6tigten%20Codes:%20">
-        ✉️ Codes für Schulklasse anfragen
-      </a>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="mailto:support@vokabelsafe.de?subject=VokabelSafe%20Klassen-Zug%C3%A4nge&amp;body=Hallo,%20ich%20bin%20Lehrer/in%20und%20interessiere%20mich%20f%C3%BCr%20Vollzug%C3%A4nge%20f%C3%BCr%20meine%20Klasse.%0A%0AAnzahl%20der%20ben%C3%B6tigten%20Codes:%20">
+          ✉️ Codes für Schulklasse anfragen
+        </a>
+      </div>
     </div>
   </div>
 
@@ -215,6 +224,15 @@
 </main>
 
 <script>
+  function setView(view) {
+    document.getElementById('view-families').style.display = view === 'families' ? 'block' : 'none';
+    document.getElementById('view-teachers').style.display = view === 'teachers' ? 'block' : 'none';
+
+    // Buttons aktualisieren
+    document.getElementById('btn-families').className = view === 'families' ? 'btn btn-primary' : 'btn btn-gray';
+    document.getElementById('btn-teachers').className = view === 'teachers' ? 'btn btn-primary' : 'btn btn-gray';
+  }
+
   // Konfiguration
   const startDate = new Date('2026-06-06T00:00:00').getTime(); // Start der Aktion (für Progress-Berechnung)
   const endDate = new Date('2026-06-30T23:59:59').getTime(); // Ende der Aktion
@@ -229,23 +247,32 @@
     if (timeLeft <= 0) {
       const card = document.querySelector(".card.highlight-primary");
       if (card) {
-        card.style.opacity = "0.7";
+        // Hintergrundelemente ausbleichen (Transparenz auf 0.6 setzen)
+        const toFade = card.querySelectorAll("h2, p:not(.text-urgent), .highlight, .fs-09, .fs-08");
+        toFade.forEach(el => {
+            if (!el.closest('.urgency-container')) {
+                el.style.opacity = "0.6";
+            }
+        });
+
         const badge = card.querySelector(".badge-new");
         if (badge) {
           badge.innerHTML = '<span class="icon">⌛</span> BEENDET';
           badge.style.background = "#6c757d";
+          badge.style.opacity = "1";
         }
         const urgencyContainer = document.querySelector(".urgency-container");
         if (urgencyContainer) {
+          urgencyContainer.style.opacity = "1";
           urgencyContainer.innerHTML = '<p class="text-urgent" style="margin:0; font-size:1.1rem;"><strong>Diese Aktion ist leider bereits abgelaufen.</strong></p>' +
-                                     '<p class="fs-09 mt-10" style="color:#444;">Sie können uns aber weiterhin kontaktieren, um über zukünftige Angebote informiert zu werden.</p>';
+                                     '<p class="fs-09 mt-10" style="color:#444;">Schauen Sie bald wieder vorbei – wir planen regelmäßig neue Überraschungen und Aktionen für Familien!</p>';
         }
         const button = card.querySelector(".btn-primary");
         if (button) {
-          button.innerText = "✉️ Kontakt aufnehmen";
-          button.href = "mailto:support@vokabelsafe.de?subject=VokabelSafe%20Anfrage";
-          button.classList.remove("btn-primary");
-          button.classList.add("btn-secondary");
+          button.href = "javascript:void(0)";
+          button.style.pointerEvents = "none";
+          button.style.opacity = "0.5";
+          button.style.cursor = "not-allowed";
         }
       }
       return;
