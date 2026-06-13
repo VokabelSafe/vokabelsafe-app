@@ -148,6 +148,26 @@
 
 <main id="main-content" class="container">
 
+  <a id="promo-banner" href="promo-aktion.html" class="urgency-container" style="display: none; text-decoration: none; color: inherit; max-width: 320px; margin: 0 auto 20px auto; padding: 8px; background: #fff9e6; border: 1px solid #f39c12; display: block;">
+    <p class="mb-5" style="font-size: 13px;"><strong>🎁 Gratis Vollversion sichern! Aktion endet in:</strong></p>
+    <div id="timer" class="countdown-timer" style="margin-bottom: 8px; gap: 4px;">
+      <div class="timer-unit" style="padding: 3px 1px;"><span id="days" class="timer-value" style="font-size: 1.0rem;">00</span><span class="timer-label" style="font-size: 0.5rem;">Tage</span></div>
+      <div class="timer-unit" style="padding: 3px 1px;"><span id="hours" class="timer-value" style="font-size: 1.0rem;">00</span><span class="timer-label" style="font-size: 0.5rem;">Std</span></div>
+      <div class="timer-unit" style="padding: 3px 1px;"><span id="minutes" class="timer-value" style="font-size: 1.0rem;">00</span><span class="timer-label" style="font-size: 0.5rem;">Min</span></div>
+      <div class="timer-unit" style="padding: 3px 1px;"><span id="seconds" class="timer-value" style="font-size: 1.0rem;">00</span><span class="timer-label" style="font-size: 0.5rem;">Sek</span></div>
+    </div>
+
+    <div class="progress-container" style="margin-top: 2px;">
+      <div class="progress-label" style="font-size: 0.75rem;">
+        <span>Vergebene Gratis-Lizenzen:</span>
+        <span id="progress-text" class="text-urgent">15%</span>
+      </div>
+      <div class="progress-bar-bg" style="height: 6px;">
+        <div id="progress-fill" class="progress-bar-fill" style="width: 15%;"></div>
+      </div>
+    </div>
+  </a>
+
   <div class="card">
     <div class="hero-flex">
       <div class="hero-text">
@@ -155,8 +175,8 @@
 
         <p>Hand aufs Herz: Sieht Ihr Nachmittag auch so aus? Das Kind ist nach der Schule müde, die Hausaufgaben ziehen sich, und dann kommt auch noch das <strong>stundenlange Vokabel-Abfragen</strong> am Küchentisch. Das Ergebnis? Frust auf beiden Seiten und Vokabeln, die nach zwei Wochen wieder vergessen sind.</p>
 
-        <div class="highlight-info">
-          <strong>VokabelSafe ist anders:</strong> Wir haben diese App für unsere eigene Tochter entwickelt, um genau diesen Teufelskreis zu durchbrechen.
+        <div class="card highlight-primary mt-20" style="box-shadow: 0 4px 15px rgba(74, 163, 255, 0.1);">
+          <strong>VokabelSafe ist unsere Lösung:</strong><br> 👨‍👩‍👧 Von Eltern für die eigene Tochter entwickelt, um dem täglichen Frust am Küchentisch ein Ende zu setzen – für <strong>stressfreies Lernen mit mehr Spaß</strong>.
         </div>
       </div>
       <div class="hero-image">
@@ -169,38 +189,46 @@
       </div>
     </div>
 
-    <p class="mt-15">Unsere Tochter spart durch VokabelSafe <strong>täglich ca. eine Stunde Hausaufgabenzeit</strong>. Statt mühsamem Abfragen nutzt sie die App einfach dort, wo sie gerade ist (z. B. im Schulbus oder Wartezimmer). Da VokabelSafe <strong>zu 100% offline</strong> funktioniert, lernt sie ihre täglichen Vokabeln in 15 Minuten entspannt zwischendurch. Dabei bleibt der Aufwand immer konstant und planbar – egal ob 500 oder 2.000 Vokabeln in der Datenbank sind (je nach eingestelltem Fragenlimit und Schwierigkeitsgrad ca. 10 bis 30 Min. pro Tag). Das Beste: Ihr Kind lernt dabei <strong>völlig selbstständig</strong> – Sie müssen nicht mehr "Polizei spielen" oder mühsam am Küchentisch abfragen. Da das System automatisch neue und schwierige Wörter priorisiert und freie Plätze bis Fragenlimit mit Wiederholungen bereits gelernter Vokabeln auffüllt, wird Neues effektiv gelernt und Altes nicht vergessen. Und wenn ein Test ansteht? Dann kann jederzeit gezielt eine einzelne Gruppe (z. B. nur Unit 4) intensiv gelernt werden. Das sorgt für Erfolgserlebnisse und die Stimmung zu Hause bleibt entspannt.</p>
-  </div>
+    <div class="mt-15">
+      <p>🕒 Unsere Tochter spart durch VokabelSafe <strong>täglich ca. eine Stunde Hausaufgabenzeit</strong>. Statt mühsamem Abfragen nutzt sie die App einfach dort, wo sie gerade ist (z. B. im Schulbus oder Wartezimmer).</p>
 
-  <!-- Umschalt-Buttons für die Themenbereiche -->
-  <div class="buttons mt-20 mb-20">
-    <button id="btn-system" class="btn btn-primary" onclick="showSection('system')">🧠 System</button>
-    <button id="btn-motivation" class="btn btn-gray" onclick="showSection('motivation')">🎯 Motivation</button>
-    <button id="btn-language" class="btn btn-gray" onclick="showSection('language')">🌍 Muttersprache</button>
-    <button id="btn-security" class="btn btn-gray" onclick="showSection('security')">🛡️ Sicherheit & Mehr</button>
-    <button id="btn-why" class="btn btn-gray" onclick="showSection('why')">⚖️ Warum VokabelSafe?</button>
-  </div>
+      <p>🔌 Da VokabelSafe <strong>zu 100% offline und werbefrei</strong> funktioniert, lernt sie ihre täglichen Vokabeln in 15 Minuten entspannt zwischendurch. Dabei bleibt der Aufwand immer konstant und planbar – egal ob 500 oder 2.000 Vokabeln in der Datenbank sind (je nach eingestelltem Fragenlimit und Schwierigkeitsgrad ca. 10 bis 30 Min. pro Tag).</p>
 
-  <div id="section-why" style="display:none;">
-    <div class="card highlight-primary">
-      <h2>⚖️ Warum VokabelSafe? – Ehrliche Bildung ohne versteckte Kosten</h2>
-      <p>Wir finden: Bildung sollte planbar und fair sein. Während man bei anderen Anbietern oft für jedes einzelne Schulbuch-Paket extra bezahlen muss, gehen wir einen anderen Weg:</p>
+      <p>🧠 Das Beste: Ihr Kind lernt dabei <strong>völlig selbstständig</strong> – Sie müssen nicht mehr "Polizei spielen" oder mühsam am Küchentisch abfragen. Das System priorisiert automatisch neue und schwierige Wörter. Freie Plätze bis zum Fragenlimit werden mit Wiederholungen bereits gelernter Vokabeln aufgefüllt. So wird Neues effektiv gelernt und Altes bleibt sicher im Gedächtnis.</p>
 
-      <ul class="lh-16">
-        <li><strong>Vokabel-Inhalte kosten immer 0 €:</strong> Egal ob Englisch, Französisch oder Latein – Sie erstellen oder importieren genau das, was im Unterricht vorkommt, völlig kostenlos.</li>
-        <li><strong>Sorglos mit Lifetime-Option:</strong> Wir bieten ein echtes Lifetime-Paket an. Einmal kaufen, die gesamte Schulzeit nutzen – ohne an laufende Kosten denken zu müssen.</li>
-        <li><strong>Fokus statt Werbe-Unterbrechungen:</strong> Während viele Apps den Lernfluss durch Werbevideos stören oder "Belohnungs-Videos" erzwingen, bleibt VokabelSafe für Ihr Kind eine ruhige, werbefreie Umgebung.</li>
-        <li><strong>Privatsphäre als Standard:</strong> 100% offline, kein Account-Zwang. Die Daten Ihres Kindes bleiben dort, wo sie hingehören: auf Ihrem Gerät.</li>
-      </ul>
-
-      <div class="buttons mt-15 mb-0">
-        <a class="btn btn-secondary btn-small btn-fixed-width" href="ueber-uns.html">👩‍👧 Von Eltern entwickelt</a>
-      </div>
+      <p>🎯 Und wenn ein Test ansteht? Dann kann jederzeit gezielt eine einzelne Gruppe (z. B. nur Unit 4) intensiv gelernt werden. Das sorgt für Erfolgserlebnisse und die Stimmung zu Hause bleibt entspannt.</p>
     </div>
   </div>
 
-  <div id="section-system">
-    <div class="card">
+  <div id="features-area" class="card">
+    <!-- Umschalt-Buttons für die Themenbereiche -->
+    <div class="buttons buttons-snap mt-20 mb-20">
+      <button id="btn-system" class="btn btn-primary btn-small btn-tab" onclick="showSection('system')"><span class="btn-icon">🧠</span> System</button>
+      <button id="btn-motivation" class="btn btn-gray btn-small btn-tab" onclick="showSection('motivation')"><span class="btn-icon">🎯</span> Motivation</button>
+      <button id="btn-language" class="btn btn-gray btn-small btn-tab" onclick="showSection('language')"><span class="btn-icon">🌍</span> Muttersprache</button>
+      <button id="btn-security" class="btn btn-gray btn-small btn-tab" onclick="showSection('security')"><span class="btn-icon">🛡️</span> Sicherheit & Mehr</button>
+      <button id="btn-why" class="btn btn-gray btn-small btn-tab" onclick="showSection('why')"><span class="btn-icon">⚖️</span> Warum VokabelSafe?</button>
+    </div>
+
+    <div id="section-why" style="display:none;">
+      <div class="highlight-primary p-15" style="border-radius: 12px;">
+        <h2>⚖️ Warum VokabelSafe? – Ehrliche Bildung ohne versteckte Kosten</h2>
+        <p>Wir finden: Bildung sollte planbar und fair sein. Während man bei anderen Anbietern oft für jedes einzelne Schulbuch-Paket extra bezahlen muss, gehen wir einen anderen Weg:</p>
+
+        <ul class="lh-16">
+          <li><strong>Vokabel-Inhalte kosten immer 0 €:</strong> Egal ob Englisch, Französisch oder Latein – Sie erstellen oder importieren genau das, was im Unterricht vorkommt, völlig kostenlos.</li>
+          <li><strong>Sorglos mit Lifetime-Option:</strong> Wir bieten ein echtes Lifetime-Paket an. Einmal kaufen, die gesamte Schulzeit nutzen – ohne an laufende Kosten denken zu müssen.</li>
+          <li><strong>Fokus statt Werbe-Unterbrechungen:</strong> Während viele Apps den Lernfluss durch Werbevideos stören oder "Belohnungs-Videos" erzwingen, bleibt VokabelSafe für Ihr Kind eine ruhige, werbefreie Umgebung.</li>
+          <li><strong>Privatsphäre als Standard:</strong> 100% offline, kein Account-Zwang. Die Daten Ihres Kindes bleiben dort, wo sie hingehören: auf Ihrem Gerät.</li>
+        </ul>
+
+        <div class="buttons mt-15 mb-0">
+          <a class="btn btn-secondary btn-small btn-fixed-width" href="ueber-uns.html">👩‍👧 Von Eltern entwickelt</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="section-system">
       <h1>📚 Vokabeltrainer für Schüler – Vokabel App die mitwächst</h1>
 
       <p>VokabelSafe ist ein Vokabeltrainer für Kinder, Schüler und Familien, der sich an den Schulalltag anpasst.</p>
@@ -221,14 +249,9 @@
         <div class="feature">Such- und Filterfunktionen</div>
         <div class="feature">Multi-Set-System für verschiedene Fächer</div>
       </div>
-
-
-
     </div>
-  </div>
 
-  <div id="section-motivation" style="display:none;">
-    <div class="card">
+    <div id="section-motivation" style="display:none;">
       <h2>🎯 Spielerisch motivieren – Das Belohnungssystem</h2>
       <p>Erfolgserlebnisse beim Lernen werden in VokabelSafe direkt belohnt. Durch tägliches Training und Fortschritte sammeln Kinder wertvolle <strong>Lernmünzen</strong>.</p>
 
@@ -246,16 +269,14 @@
       <p class="mt-15">Für die Pausen zwischendurch bietet VokabelSafe aktuell <strong>4 kleine Minispiele</strong>, die komplett mit Lernmünzen finanziert werden:</p>
       <ul class="lh-16">
         <li><strong>Spiele-Upgrades:</strong> Münzen können für Extra-Leben, mehr Zeit oder höhere Punktzahlen ausgegeben werden.</li>
-        <li><strong>Jederzeit pausierbar:</strong> Die Spiele sind kurzweilig und lassen sich sofort beenden, wenn das Lernen weitergeht.</li>
+        <li><strong>Jederzeit pausierbar:</strong> Die Spiele sind kurzweilig und lassen sich jederzeit pausieren.</li>
         <li><strong>Garantiert sicher:</strong> Es gibt keine In-App-Käufe für Spiele, keine Lootboxen und kein Pay-to-Win. Alles wird allein durch Fleiß beim Vokabelnlernen freigeschaltet.</li>
       </ul>
     </div>
-  </div>
 
-  <div id="section-security" style="display:none;">
-    <div class="card">
+    <div id="section-security" style="display:none;">
       <h2>🛡️ Einzigartiges Konzept: Zwei getrennte Welten</h2>
-      <p>VokabelSafe ist ein <strong>digitaler Schutzraum</strong> für Ihr Kind. Für maximale Sicherheit und Effizienz trennen wir strikt zwischen der Lernumgebung des Kindes und der Inhaltserstellung:</p>
+      <p>VokabelSafe ist ein <strong>digitaler Schutzraum</strong> für Ihr Kind. Für maximale Sicherheit and Effizienz trennen wir strikt zwischen der Lernumgebung des Kindes und der Inhaltserstellung:</p>
 
       <div class="features mb-20">
         <div class="feature">
@@ -264,7 +285,7 @@
         </div>
         <div class="feature">
           <strong>💻 Web-Portal: Volle Power</strong>
-          <p class="fs-14 mt-5">Auf unserer Website nutzen Eltern & Lehrer moderne <a href="ki-tools.html" class="bold underline color-primary">🤖 KI-Tools</a>, um Vokabeln per Foto-Import oder Generator in Sekunden zu erstellen – völlig kostenlos.</p>
+          <p class="fs-14 mt-5">Auf unserer Website nutzen Eltern & Lehrer moderne <a href="ki-tools.html" class="bold underline color-primary">🤖 Generatoren</a>, um aus kopierten Buchtexten (OCR) oder Themen per KI-Prompt in Sekunden fertige Vokabelsets zu erstellen – völlig kostenlos.</p>
         </div>
       </div>
 
@@ -276,24 +297,33 @@
         <p><strong>Wichtiger Hinweis zum Backup:</strong> Da VokabelSafe keinen Cloud-Account nutzt, liegen alle Vokabeln ausschließlich auf Ihrem Gerät. Damit bei einem Handywechsel oder Verlust nichts verloren geht, bietet die App eine einfache <strong>manuelle Backup-Funktion</strong>. Sichern Sie Ihre Daten regelmäßig, um sie jederzeit auf ein neues Gerät übertragen zu können.</p>
       </div>
     </div>
-  </div>
 
-  <div id="section-language" style="display:none;">
-    <div id="muttersprache" class="card highlight-primary">
-      <h2>🌍 Muttersprache als Brücke – Vokabeln effizienter lernen</h2>
-      <p>VokabelSafe hilft Kindern mit Migrationshintergrund, Fremdsprachen effizienter zu lernen. Nutzen Sie die <strong>Muttersprache als Brücke</strong>. Unsere Website bietet hierfür eine besondere Funktion – so funktioniert es mit unserer <a href="schulbuch-vokabeln.html" class="bold underline color-primary">📚 Schulbuch-Anleitung</a>:</p>
+    <div id="section-language" style="display:none;">
+      <div id="muttersprache" class="highlight-primary p-15" style="border-radius: 12px;">
+        <h2>🌍 Muttersprache als Brücke – Vokabeln effizienter lernen</h2>
+        <p>VokabelSafe hilft Kindern mit Migrationshintergrund, Fremdsprachen effizienter zu lernen. Nutzen Sie die <strong>Muttersprache als Brücke</strong>. Unsere Website bietet hierfür eine besondere Funktion – so funktioniert es mit unserer <a href="schulbuch-vokabeln.html" class="bold underline color-primary">📚 Schulbuch-Anleitung</a>:</p>
 
-      <ul class="lh-16">
-        <li><strong>Schulbuch fotografieren:</strong> Einfach die Vokabelseite mit dem Handy erfassen.</li>
-        <li><strong>KI ergänzt Muttersprache:</strong> Unsere Generatoren wie der <a href="ocr-prompt.html" class="bold underline color-primary">📸 OCR-Prompt-Generator</a> erstellen den passenden Befehl, damit die KI automatisch die Übersetzung in der Herkunftssprache (z. B. Ukrainisch, Arabisch oder Türkisch) als Merkhilfe ergänzt – auch wenn diese nicht im Buch steht!</li>
-        <li><strong>Einfacher Import:</strong> Das fertige Set landet in Sekunden in der App.</li>
-      </ul>
+        <ul class="lh-16">
+          <li><strong>Schulbuch fotografieren:</strong> Einfach die Vokabelseite mit dem Handy erfassen.</li>
+          <li><strong>KI ergänzt Muttersprache:</strong> Unsere Generatoren wie der <a href="ocr-prompt.html" class="bold underline color-primary">📸 OCR-Prompt-Generator</a> erstellen den passenden Befehl, damit die KI automatisch die Übersetzung in der Herkunftssprache (z. B. Ukrainisch, Arabisch oder Türkisch) als Merkhilfe ergänzt – auch wenn diese nicht im Buch steht!</li>
+          <li><strong>Einfacher Import:</strong> Das fertige Set landet in Sekunden in der App.</li>
+        </ul>
 
-      <p class="mt-15">Ebenso lassen sich mit unserem <a href="prompt-gen.html" class="bold underline color-primary">✨ Themen-Generator</a> komplette Vokabelsets zu beliebigen Themen erstellen, bei denen die Muttersprache als Brücke automatisch ergänzt werden kann.</p>
+        <p class="mt-15">Ebenso lassen sich mit unserem <a href="prompt-gen.html" class="bold underline color-primary">✨ Themen-Generator</a> komplette Vokabelsets zu beliebigen Themen erstellen, bei denen die Muttersprache als Brücke automatisch ergänzt werden kann.</p>
 
-      <div class="buttons mt-15 mb-0">
-        <a class="btn btn-secondary btn-small btn-fixed-width" href="ki-tools.html#beispiel-brueckensprache">📸 Beispiel ansehen</a>
+        <div class="buttons mt-15 mb-0">
+          <a class="btn btn-secondary btn-small btn-fixed-width" href="ki-tools.html#beispiel-brueckensprache">📸 Beispiel ansehen</a>
+        </div>
       </div>
+    </div>
+
+    <!-- Zusätzliche Umschalt-Buttons am Ende der Card -->
+    <div class="buttons buttons-snap mt-30 mb-10 border-top-light pt-20">
+      <button id="btn-system-bot" class="btn btn-primary btn-small btn-tab" onclick="showSection('system')"><span class="btn-icon">🧠</span> System</button>
+      <button id="btn-motivation-bot" class="btn btn-gray btn-small btn-tab" onclick="showSection('motivation')"><span class="btn-icon">🎯</span> Motivation</button>
+      <button id="btn-language-bot" class="btn btn-gray btn-small btn-tab" onclick="showSection('language')"><span class="btn-icon">🌍</span> Muttersprache</button>
+      <button id="btn-security-bot" class="btn btn-gray btn-small btn-tab" onclick="showSection('security')"><span class="btn-icon">🛡️</span> Sicherheit & Mehr</button>
+      <button id="btn-why-bot" class="btn btn-gray btn-small btn-tab" onclick="showSection('why')"><span class="btn-icon">⚖️</span> Warum VokabelSafe?</button>
     </div>
   </div>
 
@@ -304,16 +334,16 @@
     <h2>💰 Preise für die Vokabel App</h2>
 
     <!-- Umschalt-Buttons für die Preise -->
-    <div class="buttons mt-15 mb-15">
-      <button id="btn-p-test" class="btn btn-gray btn-small" onclick="showPrice('test')">🆓 Test-Version</button>
-      <button id="btn-p-lifetime" class="btn btn-primary btn-small" onclick="showPrice('lifetime')">💎 Lifetime</button>
-      <button id="btn-p-abo" class="btn btn-gray btn-small" onclick="showPrice('abo')">📅 Abo-Modelle</button>
-      <button id="btn-p-promo" class="btn btn-gray btn-small" onclick="showPrice('promo')">🎁 Gratis-Aktion</button>
+    <div class="buttons buttons-snap mt-15 mb-15">
+      <button id="btn-p-test" class="btn btn-primary btn-small btn-tab" onclick="showPrice('test')"><span class="btn-icon">⏱️</span> Test-Version</button>
+      <button id="btn-p-lifetime" class="btn btn-gray btn-small btn-tab" onclick="showPrice('lifetime')"><span class="btn-icon">💎</span> Lifetime</button>
+      <button id="btn-p-abo" class="btn btn-gray btn-small btn-tab" onclick="showPrice('abo')"><span class="btn-icon">📅</span> Abo-Modelle</button>
+      <button id="btn-p-promo" class="btn btn-gray btn-small btn-tab" onclick="showPrice('promo')"><span class="btn-icon">🎁</span> Gratis-Aktion</button>
     </div>
 
-    <div id="price-test" style="display:none;">
+    <div id="price-test">
       <div class="feature text-center">
-        <h3>🆓 30 Tage Test-Version</h3>
+        <h3>⏱️ 30 Tage Test-Version</h3>
         <p><strong>Kostenlos und unverbindlich</strong></p>
         <p>Testen Sie alle Funktionen 30 Tage lang ausgiebig. Ideal, um zu sehen, wie die App den Lernalltag Ihres Kindes erleichtert.</p>
         <p class="fs-14 italic mt-10">Kein Abo-Zwang, keine automatische Verlängerung.</p>
@@ -322,7 +352,7 @@
       </div>
     </div>
 
-    <div id="price-lifetime">
+    <div id="price-lifetime" style="display:none;">
       <div class="feature text-center highlight-promo">
         <h3>💎 Lifetime-Vollversion</h3>
         <p><strong>Einmalig 49,99 €</strong></p>
@@ -357,7 +387,8 @@
   <div class="text-center mt-30 mb-30">
     <h2 class="mb-15">🚀 Bereit für entspannte Nachmittage?</h2>
     <p class="mb-20">Testen Sie VokabelSafe 30 Tage lang völlig kostenlos und unverbindlich.</p>
-    <a class="btn btn-primary btn-large" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer" style="padding: 15px 30px; font-size: 1.2em;">
+    <a class="btn btn-primary btn-large" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer" style="padding: 15px 30px; font-size: 1.2em; display: inline-flex; align-items: center; justify-content: center;">
+      <img src="pics/Google_Play_Arrow_logo.svg" alt="" style="width: 24px; height: 24px; margin-right: 12px;">
       Jetzt gratis im Play Store laden
     </a>
     <p class="fs-14 color-gray mt-15">✅ Werbefrei & Sicher &nbsp; ✅ Offline nutzbar &nbsp; ✅ Kein Account nötig</p>
@@ -397,12 +428,19 @@
     // Die gewählte Sektion einblenden
     document.getElementById('section-' + section).style.display = 'block';
 
-    // Buttons aktualisieren
-    document.getElementById('btn-system').className = section === 'system' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-motivation').className = section === 'motivation' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-language').className = section === 'language' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-security').className = section === 'security' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-why').className = section === 'why' ? 'btn btn-primary' : 'btn btn-gray';
+    // Zum Anfang des Bereichs scrollen
+    document.getElementById('features-area').scrollIntoView({ behavior: 'smooth' });
+
+    // Buttons aktualisieren (Top und Bottom)
+    const sections = ['system', 'motivation', 'language', 'security', 'why'];
+    sections.forEach(s => {
+      const activeClass = 'btn btn-primary btn-small btn-tab';
+      const inactiveClass = 'btn btn-gray btn-small btn-tab';
+      const className = (s === section) ? activeClass : inactiveClass;
+
+      document.getElementById('btn-' + s).className = className;
+      document.getElementById('btn-' + s + '-bot').className = className;
+    });
   }
 
   function showPrice(plan) {
@@ -416,10 +454,10 @@
     document.getElementById('price-' + plan).style.display = 'block';
 
     // Buttons aktualisieren
-    document.getElementById('btn-p-test').className = plan === 'test' ? 'btn btn-primary btn-small' : 'btn btn-gray btn-small';
-    document.getElementById('btn-p-abo').className = plan === 'abo' ? 'btn btn-primary btn-small' : 'btn btn-gray btn-small';
-    document.getElementById('btn-p-lifetime').className = plan === 'lifetime' ? 'btn btn-primary btn-small' : 'btn btn-gray btn-small';
-    document.getElementById('btn-p-promo').className = plan === 'promo' ? 'btn btn-primary btn-small' : 'btn btn-gray btn-small';
+    document.getElementById('btn-p-test').className = plan === 'test' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
+    document.getElementById('btn-p-abo').className = plan === 'abo' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
+    document.getElementById('btn-p-lifetime').className = plan === 'lifetime' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
+    document.getElementById('btn-p-promo').className = plan === 'promo' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
   }
 
   function handleHash() {
@@ -474,6 +512,56 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === "Escape") closeModal();
   });
+
+  // Promo-Aktion Konfiguration
+  const startDate = new Date('2026-06-06T00:00:00').getTime();
+  const endDate = new Date('2026-06-30T23:59:59').getTime();
+  const startPercent = 15;
+  const endPercent = 100;
+
+  function updateUrgency() {
+    const now = new Date().getTime();
+    const timeLeft = endDate - now;
+    const banner = document.getElementById("promo-banner");
+
+    if (timeLeft <= 0) {
+      if (banner) banner.style.display = "none";
+      return;
+    }
+
+    if (banner) banner.style.display = "block";
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+    if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+    if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+    if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+
+    const totalDuration = endDate - startDate;
+    const elapsed = now - startDate;
+    let currentPercent = startPercent + ((endPercent - startPercent) * (elapsed / totalDuration));
+
+    if (currentPercent < startPercent) currentPercent = startPercent;
+    if (currentPercent > 98) currentPercent = 98;
+
+    const progressFill = document.getElementById("progress-fill");
+    const progressText = document.getElementById("progress-text");
+
+    if (progressFill) progressFill.style.width = currentPercent + "%";
+    if (progressText) progressText.innerText = Math.floor(currentPercent) + "%";
+  }
+
+  updateUrgency();
+  setInterval(updateUrgency, 1000);
 </script>
 
 

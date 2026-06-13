@@ -136,8 +136,8 @@
     </p>
 
     <div class="buttons mt-20">
-      <button id="btn-families" class="btn btn-primary" onclick="setView('families')">👨‍👩‍👧‍👦 Für Familien</button>
-      <button id="btn-teachers" class="btn btn-gray" onclick="setView('teachers')">👨‍🏫 Für Lehrer & Schulen</button>
+      <button id="btn-families" class="btn btn-primary btn-small btn-tab" onclick="setView('families')"><span class="btn-icon">👨‍👩‍👧‍👦</span> Für Familien</button>
+      <button id="btn-teachers" class="btn btn-gray btn-small btn-tab" onclick="setView('teachers')"><span class="btn-icon">👨‍🏫</span> Für Lehrer & Schulen</button>
     </div>
   </div>
 
@@ -229,8 +229,8 @@
     document.getElementById('view-teachers').style.display = view === 'teachers' ? 'block' : 'none';
 
     // Buttons aktualisieren
-    document.getElementById('btn-families').className = view === 'families' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-teachers').className = view === 'teachers' ? 'btn btn-primary' : 'btn btn-gray';
+    document.getElementById('btn-families').className = view === 'families' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
+    document.getElementById('btn-teachers').className = view === 'teachers' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
   }
 
   // Konfiguration

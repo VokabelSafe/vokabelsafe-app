@@ -132,8 +132,8 @@
     <p>Hier erhalten Sie einen Einblick in die Benutzeroberfläche von VokabelSafe. Die App ist bewusst schlicht und ruhig gestaltet, um Kinder beim Lernen nicht abzulenken.</p>
 
     <div class="buttons mt-20">
-      <button id="btn-smartphone" class="btn btn-primary" onclick="setDevice('smartphone')">📱 Smartphone</button>
-      <button id="btn-tablet" class="btn btn-gray" onclick="setDevice('tablet')">💻 Tablet</button>
+      <button id="btn-smartphone" class="btn btn-primary btn-small btn-tab" onclick="setDevice('smartphone')"><span class="btn-icon">📱</span> Smartphone</button>
+      <button id="btn-tablet" class="btn btn-gray btn-small btn-tab" onclick="setDevice('tablet')"><span class="btn-icon">💻</span> Tablet</button>
     </div>
   </div>
 
@@ -228,8 +228,8 @@ function setDevice(device) {
     currentDevice = device;
 
     // Buttons aktualisieren
-    document.getElementById('btn-smartphone').className = device === 'smartphone' ? 'btn btn-primary' : 'btn btn-gray';
-    document.getElementById('btn-tablet').className = device === 'tablet' ? 'btn btn-primary' : 'btn btn-gray';
+    document.getElementById('btn-smartphone').className = device === 'smartphone' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
+    document.getElementById('btn-tablet').className = device === 'tablet' ? 'btn btn-primary btn-small btn-tab' : 'btn btn-gray btn-small btn-tab';
 
     show();
 }

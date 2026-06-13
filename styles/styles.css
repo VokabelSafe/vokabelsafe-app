@@ -488,6 +488,10 @@ textarea:focus-visible {
     margin: 0 !important;
     font-size: 1.25em !important; /* Etwas angepasst für mobile Bildschirme */
   }
+
+  .buttons-snap {
+    max-width: 335px;
+  }
 }
 
 .sr-only {
@@ -569,9 +573,13 @@ textarea:focus-visible {
 
 .hero-flex {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
   align-items: center;
+}
+
+.hero-text {
+  flex: 1;
 }
 
 .hero-image {
@@ -586,15 +594,6 @@ textarea:focus-visible {
   display: block;
 }
 
-@media (min-width: 768px) {
-  .hero-flex {
-    flex-direction: row;
-    align-items: center;
-  }
-  .hero-text {
-    flex: 1;
-  }
-}
 
 .card h1,
 .card h2 {
@@ -621,7 +620,7 @@ textarea:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .highlight {
@@ -782,9 +781,21 @@ textarea:focus-visible {
 .mb-20 { margin-bottom: 20px; }
 .m-0 { margin: 0; }
 
+.btn-tab {
+  width: 160px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 9px;
+}
+
 .btn-small {
-  padding: 5px 12px;
-  font-size: 14px;
+  padding: 5px 8px;
+  font-size: 13px;
 }
 
 .btn-fixed-width {
@@ -851,6 +862,20 @@ textarea:focus-visible {
 .form-label-small {
   font-size: 0.9em;
   color: #666;
+}
+
+.btn-icon {
+  background: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  font-size: 11px;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .btn-gray {
@@ -968,6 +993,16 @@ ul {
 /* Anpassungen für mittlere Bildschirmbreiten (bis 920px):
    Zentrierung des "Neu"-Badges für Tablets. */
 @media (max-width: 920px) {
+  .hero-flex {
+    flex-direction: column;
+  }
+
+  .buttons-snap {
+    max-width: clamp(335px, (100% - 850px) * 1000 + 335px, 840px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .badge-new {
     position: static;
     margin: 0 auto 15px auto;
