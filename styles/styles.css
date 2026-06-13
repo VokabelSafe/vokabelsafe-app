@@ -551,6 +551,7 @@ textarea:focus-visible {
 
 .card h1,
 .card h2,
+.hero-title,
 .promo-banner h1,
 .promo-banner h2,
 .highlight h1,
@@ -558,6 +559,41 @@ textarea:focus-visible {
   font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+.hero-title {
+  display: block;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.hero-image {
+  flex: 0 0 auto;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-flex {
+    flex-direction: row;
+    align-items: center;
+  }
+  .hero-text {
+    flex: 1;
+  }
 }
 
 .card h1,
