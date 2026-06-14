@@ -81,6 +81,7 @@
   <link rel="icon" type="image/png" sizes="64x64" href="favicon/favicon-64.png">
   <link rel="apple-touch-icon" href="favicon/favicon-64.png">
   <link rel="stylesheet" href="styles/styles.css">
+  <script src="js/pricing.js" defer></script>
 </head>
 
 <body>
@@ -355,7 +356,7 @@
     <div id="price-lifetime" style="display:none;">
       <div class="feature text-center highlight-promo">
         <h3>💎 Lifetime-Vollversion</h3>
-        <p><strong>Einmalig 49,99 €</strong></p>
+        <p><strong>Einmalig <span id="price-lifetime-val">49,99 €</span></strong></p>
         <p>Die beste Wahl für die gesamte Schulzeit. Einmal kaufen und VokabelSafe dauerhaft nutzen – ohne weitere Kosten oder Abos.</p>
         <p class="fs-14 bold mt-10">Ideal für Schüler von der Grundschule bis zum Abschluss.</p>
       </div>
@@ -365,8 +366,8 @@
       <div class="feature text-center">
         <h3>📅 Flexible Abo-Modelle</h3>
         <p>Wenn Sie volle Flexibilität möchten:</p>
-        <p class="mt-10"><strong>3,99 € / Monat</strong> (monatlich kündbar)</p>
-        <p><strong>29,99 € / Jahr</strong> (jährlich kündbar)</p>
+        <p class="mt-10"><strong><span id="price-monthly-val">3,99 €</span> / Monat</strong> (monatlich kündbar)</p>
+        <p><strong><span id="price-yearly-val">29,99 €</span> / Jahr</strong> (jährlich kündbar)</p>
         <p class="fs-14 mt-10 italic">Jederzeit flexibel im Play Store kündbar.</p>
       </div>
     </div>
@@ -374,7 +375,7 @@
     <div id="price-promo" style="display:none;">
       <div class="highlight highlight-warning m-0">
         <h3 class="text-center">🎁 Limitierte Start-Aktion</h3>
-        <p>Sichern Sie sich nur noch diesen Monat Ihren <strong>Gratis Lifetime-Vollzugang</strong> (Wert 49,99 €) für Ihre Familie!</p>
+        <p>Sichern Sie sich nur noch diesen Monat Ihren <strong>Gratis Lifetime-Vollzugang</strong> (Wert <span id="price-lifetime-promo-val">49,99 €</span>) für Ihre Familie!</p>
         <p class="mt-10">Wir vergeben aktuell kostenlose Lizenzen an Familien, Lehrer und Schulen, die uns beim Start unterstützen.</p>
         <div class="text-center mt-15">
           <a href="promo-aktion.html" class="btn btn-primary">Jetzt gratis sichern →</a>
