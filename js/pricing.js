@@ -16,6 +16,13 @@ async function updatePricing() {
   const cacheTimeKey = 'vokabelsafe_geo_time';
   const now = new Date().getTime();
 
+  // URL-Parameter Check für Reset (z.B. ?reset=1)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('reset')) {
+    localStorage.removeItem(cacheKey);
+    localStorage.removeItem(cacheTimeKey);
+  }
+
   let countryCode = localStorage.getItem(cacheKey);
   const cachedTime = localStorage.getItem(cacheTimeKey);
 
