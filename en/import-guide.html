@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Import Vocabulary Guide – VokabelSafe</title>
+  <meta name="description" content="Step-by-step guide for importing vocabulary lists (JSON/CSV) into the VokabelSafe app.">
+  <link rel="canonical" href="https://www.vokabelsafe.app/en/import-guide.html">
+  <link rel="alternate" hreflang="de" href="https://www.vokabelsafe.app/import-howto.html">
+  <link rel="alternate" hreflang="en" href="https://www.vokabelsafe.app/en/import-guide.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vokabelsafe.app/import-howto.html">
+  <meta name="theme-color" content="#002e8c">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Import Vocabulary Guide – VokabelSafe">
+  <meta name="twitter:description" content="How to bring your own vocabulary into the VokabelSafe app.">
+  <meta name="twitter:image" content="https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Import Vocabulary Guide – VokabelSafe">
+  <meta property="og:description" content="Simple guide for vocabulary import.">
+  <meta property="og:url" content="https://www.vokabelsafe.app/en/import-guide.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VokabelSafe">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png">
+  <meta property="og:image:alt" content="VokabelSafe Logo">
+
+  <!-- Website Name for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.vokabelsafe.app/en/#website",
+    "name": "VokabelSafe",
+    "url": "https://www.vokabelsafe.app/en/"
+  }
+  </script>
+
+  <!-- Organization / Developer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vokabelsafe Development",
+    "url": "https://www.vokabelsafe.app/en/",
+    "logo": "https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png",
+    "email": "support@vokabelsafe.de"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Import Vocabulary Guide",
+    "url": "https://www.vokabelsafe.app/en/import-guide.html",
+    "description": "Detailed guide for importing vocabulary sets into the app.",
+    "isPartOf": { "@id": "https://www.vokabelsafe.app/en/#website" }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../favicon/favicon-64.png">
+  <link rel="apple-touch-icon" href="../favicon/favicon-64.png">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="../pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
+        <div>
+          <p class="site-title">VokabelSafe <a href="privacy-policy.html#ad-free" class="header-link link-noad" title="Ad-free"></a> <a href="privacy-policy.html#offline" class="header-link link-offline" title="Usable offline"></a></p>
+          <div class="header-bullets">
+            <a href="privacy-policy.html#no-data" class="bullet-item"><span class="bullet-icon">🛡️</span> <strong>0% Data</strong> (no account)</a>
+            <a href="privacy-policy.html#no-access" class="bullet-item"><span class="bullet-icon">🔐</span> <strong>0% Access</strong> (camera, contacts)</a>
+            <a href="index.html#native-language" class="bullet-item"><span class="bullet-icon">🌍</span> <strong>Native Language as a Bridge</strong></a>
+            <a href="vocabulary-sets.html#vocabulary-sets" class="bullet-item"><span class="bullet-icon">🎁</span> <strong>Vocab Content Always Free</strong></a>
+          </div>
+          <p>The flexible vocabulary trainer for children and students</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="flags-left" aria-hidden="true">
+          <span>🇬🇧</span>
+          <span>🇫🇷</span>
+          <span>🇪🇸</span>
+          <span>🇮🇹</span>
+        </div>
+        <div class="header-menu">
+          <details class="menu-dropdown">
+            <summary class="menu-summary">📖 Import Guide</summary>
+            <ul class="menu-list" aria-label="Main menu">
+              <li><a href="index.html">🏠 Home</a></li>
+              <li><a href="screenshots.html">📸 Screenshots</a></li>
+              <li><a href="promo-campaign.html">🎁 Promo Campaign</a></li>
+              <li><a href="vocabulary-sets.html">🧾 Create Vocab Sets</a></li>
+              <li><a href="excel.html">📊 Excel / OpenOffice</a></li>
+              <li><a href="ai-tools.html">🤖 AI Tools</a></li>
+              <li><a href="prompt-gen.html">✨ Prompt Generator</a></li>
+              <li><a href="ocr-prompt.html">✨ OCR Prompt</a></li>
+              <li><a href="textbook-vocabulary.html">📚 Textbook Guide</a></li>
+              <li><a class="current" href="import-guide.html">📖 Import Guide</a></li>
+              <li><a href="csv-to-json.html">🔧 CSV Converter</a></li>
+              <li><a href="privacy-policy.html">🛡️ Security and Privacy</a></li>
+              <li><a href="about-us.html">👩‍👧 Developed by Parents</a></li>
+              <li><a href="contact.html">✉️ Contact and Support</a></li>
+            </ul>
+          </details>
+        </div>
+        <a class="btn btn-playstore" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Open in Play Store
+        </a>
+        <div class="flags-right">
+          <a href="../import-howto.html" title="Deutsche Version"><span>🇩🇪</span></a>
+          <span>🇺🇦</span>
+          <span>🇬🇷</span>
+          <span>🇳🇱</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container">
+  <div class="card">
+    <h1>📖 Importing Vocabulary into the App</h1>
+    <p>Importing your own vocabulary lists into VokabelSafe is easy and fast. Follow this short guide to transfer your files to your smartphone or tablet.</p>
+
+    <div class="highlight">
+      <h3>📁 Preparation: Transfer File</h3>
+      <p>Before you start, the JSON file must be saved on your mobile device (smartphone or tablet). You can easily transfer the file:</p>
+      <ul>
+        <li>Send it to yourself via <strong>email</strong> and save the attachment.</li>
+        <li>Use a cloud service like <strong>Google Drive</strong>, <strong>OneDrive</strong> or <strong>iCloud</strong>.</li>
+        <li>Send it to yourself via <strong>messenger</strong> (e.g. WhatsApp, Signal or Telegram).</li>
+      </ul>
+      <p>The only important thing is that the file is in your device's memory (e.g. in the "Downloads" folder).</p>
+    </div>
+
+    <h3>1. Open the "Add Vocabulary" Area</h3>
+    <p>Start the VokabelSafe app on your device. On the main page, tap the <strong>"Add Vocabulary"</strong> button.</p>
+    <div class="text-center mb-20">
+      <div class="viewer max-w-300">
+        <img src="../pics/screenshots_en/import/show_main.webp" alt="Screenshot of the VokabelSafe App: Main page with Add Vocabulary button" onclick="openModal(this.src)">
+      </div>
+    </div>
+
+    <h3>2. Start Import Function</h3>
+    <p>In the following view, you will find the <strong>"Restore Vocabulary from Backup"</strong> button. Tap this button to select your JSON file and start the import.</p>
+
+    <div class="text-center mb-20">
+      <div class="viewer max-w-300">
+        <img src="../pics/screenshots_en/import/show_import.webp" alt="Screenshot of the VokabelSafe App: Restore Vocabulary from Backup button" onclick="openModal(this.src)">
+      </div>
+    </div>
+
+    <div class="highlight">
+      <h3>💡 Tip: Observe File Format</h3>
+      <p>Ensure that your vocabulary list is in <strong>JSON format</strong>. If you still have an Excel spreadsheet or CSV file, use our <a href="csv-to-json.html">converter</a> or have the list created directly by an <a href="ai-tools.html">AI</a>.</p>
+    </div>
+
+    <h3>3. Select File and Finish</h3>
+    <p>After tapping the button, your device's file selector will open. Select your prepared JSON file there (it is usually in the "Downloads" folder). The vocabulary will now be automatically imported and will be available in your list immediately. Done!</p>
+  </div>
+
+
+  <!-- Modal / Lightbox -->
+  <div id="screenshotModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" class="modal-img" src="" alt="Full Screen Screenshot" onclick="closeModal()">
+    </div>
+  </div>
+</main>
+
+<script>
+function openModal(src) {
+    const modal = document.getElementById("screenshotModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("screenshotModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape") closeModal();
+});
+</script>
+
+<footer>
+  <p><a href="privacy.html" target="_blank" rel="noopener noreferrer">Imprint and Privacy Policy</a></p>
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>

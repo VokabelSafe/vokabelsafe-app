@@ -181,8 +181,21 @@ textarea:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  pointer-events: none;
+  pointer-events: auto;
   z-index: 10;
+}
+
+.flags-left a,
+.flags-right a {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.flags-left a:hover span,
+.flags-right a:hover span {
+  transform: scale(1.1);
+  border-color: var(--primary);
 }
 
 .flags-left {

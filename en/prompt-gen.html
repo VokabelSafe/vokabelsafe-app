@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VocabSet Prompt Generator – VokabelSafe</title>
+  <meta name="description" content="Create perfect AI prompts for vocabulary sets. Includes support for multilingualism (native language as a memory aid). Generate structured lists for ChatGPT & Gemini.">
+  <link rel="canonical" href="https://www.vokabelsafe.app/en/prompt-gen.html">
+  <link rel="alternate" hreflang="de" href="https://www.vokabelsafe.app/prompt-gen.html">
+  <link rel="alternate" hreflang="en" href="https://www.vokabelsafe.app/en/prompt-gen.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.vokabelsafe.app/prompt-gen.html">
+  <meta name="theme-color" content="#002e8c">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VocabSet Prompt Generator – VokabelSafe">
+  <meta name="twitter:description" content="The easiest way to complex vocabulary lists via AI.">
+  <meta name="twitter:image" content="https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VocabSet Prompt Generator – VokabelSafe">
+  <meta property="og:description" content="The easiest way to complex vocabulary lists via AI.">
+  <meta property="og:url" content="https://www.vokabelsafe.app/en/prompt-gen.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VokabelSafe">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png">
+  <meta property="og:image:alt" content="VokabelSafe Logo">
+
+  <!-- Website Name for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://www.vokabelsafe.app/en/#website",
+    "name": "VokabelSafe",
+    "url": "https://www.vokabelsafe.app/en/"
+  }
+  </script>
+
+  <!-- Organization / Developer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vokabelsafe Development",
+    "url": "https://www.vokabelsafe.app/en/",
+    "logo": "https://www.vokabelsafe.app/pics/VokabelSafe-Logo.png",
+    "email": "support@vokabelsafe.de"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "VocabSet Prompt Generator",
+    "url": "https://www.vokabelsafe.app/en/prompt-gen.html",
+    "description": "Online tool for creating optimized AI prompts for VokabelSafe.",
+    "isPartOf": { "@id": "https://www.vokabelsafe.app/en/#website" }
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../favicon/favicon-64.png">
+  <link rel="apple-touch-icon" href="../favicon/favicon-64.png">
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="header-left">
+        <img src="../pics/VokabelSafe-Logo.png" alt="VokabelSafe Logo">
+        <div>
+          <p class="site-title">VokabelSafe <a href="privacy-policy.html#ad-free" class="header-link link-noad" title="Ad-free"></a> <a href="privacy-policy.html#offline" class="header-link link-offline" title="Usable offline"></a></p>
+          <div class="header-bullets">
+            <a href="privacy-policy.html#no-data" class="bullet-item"><span class="bullet-icon">🛡️</span> <strong>0% Data</strong> (no account)</a>
+            <a href="privacy-policy.html#no-access" class="bullet-item"><span class="bullet-icon">🔐</span> <strong>0% Access</strong> (camera, contacts)</a>
+            <a href="index.html#native-language" class="bullet-item"><span class="bullet-icon">🌍</span> <strong>Native Language as a Bridge</strong></a>
+            <a href="vocabulary-sets.html#vocabulary-sets" class="bullet-item"><span class="bullet-icon">🎁</span> <strong>Vocab Content Always Free</strong></a>
+          </div>
+          <p>The flexible vocabulary trainer for children and students</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="flags-left" aria-hidden="true">
+          <span>🇬🇧</span>
+          <span>🇫🇷</span>
+          <span>🇪🇸</span>
+          <span>🇮🇹</span>
+        </div>
+        <div class="header-menu">
+          <details class="menu-dropdown">
+            <summary class="menu-summary">✨ Prompt Generator</summary>
+            <ul class="menu-list" aria-label="Main menu">
+              <li><a href="index.html">🏠 Home</a></li>
+              <li><a href="screenshots.html">📸 Screenshots</a></li>
+              <li><a href="promo-campaign.html">🎁 Promo Campaign</a></li>
+              <li><a href="vocabulary-sets.html">🧾 Create Vocab Sets</a></li>
+              <li><a href="excel.html">📊 Excel / OpenOffice</a></li>
+              <li><a href="ai-tools.html">🤖 AI Tools</a></li>
+              <li><a class="current" href="prompt-gen.html">✨ Prompt Generator</a></li>
+              <li><a href="ocr-prompt.html">✨ OCR Prompt</a></li>
+              <li><a href="textbook-vocabulary.html">📚 Textbook Guide</a></li>
+              <li><a href="import-guide.html">📖 Import Guide</a></li>
+              <li><a href="csv-to-json.html">🔧 CSV Converter</a></li>
+              <li><a href="privacy-policy.html">🛡️ Security and Privacy</a></li>
+              <li><a href="about-us.html">👩‍👧 Developed by Parents</a></li>
+              <li><a href="contact.html">✉️ Contact and Support</a></li>
+            </ul>
+          </details>
+        </div>
+        <a class="btn btn-playstore" href="https://play.google.com/store/apps/details?id=com.vokabelsafe.app" target="_blank" rel="noopener noreferrer">
+          Open in Play Store
+        </a>
+        <div class="flags-right">
+          <a href="../prompt-gen.html" title="Deutsche Version"><span>🇩🇪</span></a>
+          <span>🇺🇦</span>
+          <span>🇬🇷</span>
+          <span>🇳🇱</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="container">
+  <div class="card">
+    <h1>✨ VocabSet Prompt Generator</h1>
+    <p>Configure your desired vocabulary set here. The generator will create an optimized command (prompt) that you can simply copy and paste into an AI of your choice (best Gemini).</p>
+
+    <div class="highlight highlight-info">
+      <strong>🤖 Which AI is best suited for vocabulary sets?</strong><br>
+      • <strong>Gemini (Google):</strong> Currently our <strong>top recommendation</strong>. Gemini provides the most precise results, sticks strictly to quantity limits and the JSON format.<br>
+      • <strong>DeepSeek:</strong> Very powerful. Often best suited for very long lists, as you can simply let the output continue with "continue" if it breaks off.<br>
+      • <strong>ChatGPT (OpenAI):</strong> Good for smaller amounts (e.g. individual book pages). For large sets, ChatGPT tends to secretly shorten the list or damage the format.
+    </div>
+
+    <div class="highlight highlight-danger">
+      <strong>⚠️ Important note on reliability</strong><br>
+      AIs are not mathematical machines. It can happen that the AI counts the number of vocabulary words incorrectly or breaks off the output for very long lists. Use the <strong>"Check JSON"</strong> button in the converter to quickly check the result.
+    </div>
+  </div>
+
+  <div class="gen-container">
+    <div class="form-group">
+      <label for="language">Which language would you like to learn?</label>
+      <select id="language" onchange="checkOtherLanguage()">
+        <option value="Afrikaans">Afrikaans 🇿🇦</option>
+        <option value="Albanian">Albanian 🇦🇱</option>
+        <option value="Ancient Greek">Ancient Greek 🏺</option>
+        <option value="Amharic">Amharic 🇪🇹</option>
+        <option value="Arabic">Arabic 🇸🇦</option>
+        <option value="Armenian">Armenian 🇦🇲</option>
+        <option value="Azerbaijani">Azerbaijani 🇦🇿</option>
+        <option value="Basque">Basque 🇪🇸</option>
+        <option value="Belarusian">Belarusian 🇧🇾</option>
+        <option value="Bengali">Bengali 🇧🇩</option>
+        <option value="Bosnian">Bosnian 🇧🇦</option>
+        <option value="Bulgarian">Bulgarian 🇧🇬</option>
+        <option value="Burmese">Burmese 🇲🇲</option>
+        <option value="Chinese (Cantonese)">Chinese (Cantonese) 🇭🇰</option>
+        <option value="Chinese (Mandarin)">Chinese (Mandarin) 🇨🇳</option>
+        <option value="Danish">Danish 🇩🇰</option>
+        <option value="German">German 🇩🇪</option>
+        <option value="English">English 🇬🇧</option>
+        <option value="Estonian">Estonian 🇪🇪</option>
+        <option value="Finnish">Finnish 🇫🇮</option>
+        <option value="French">French 🇫🇷</option>
+        <option value="Georgian">Georgian 🇬🇪</option>
+        <option value="Greek">Greek 🇬🇷</option>
+        <option value="Gujarati">Gujarati 🇮🇳</option>
+        <option value="Haitian">Haitian 🇭🇹</option>
+        <option value="Hausa">Hausa 🇳🇬</option>
+        <option value="Hebrew">Hebrew 🇮🇱</option>
+        <option value="Hindi">Hindi 🇮🇳</option>
+        <option value="Indonesian">Indonesian 🇮🇩</option>
+        <option value="Irish">Irish 🇮🇪</option>
+        <option value="Icelandic">Icelandic 🇮🇸</option>
+        <option value="Italian">Italian 🇮🇹</option>
+        <option value="Japanese">Japanese 🇯🇵</option>
+        <option value="Javanese">Javanese 🇮🇩</option>
+        <option value="Kannada">Kannada 🇮🇳</option>
+        <option value="Kazakh">Kazakh 🇰🇿</option>
+        <option value="Catalan">Catalan 🇪🇸</option>
+        <option value="Khmer">Khmer 🇰🇭</option>
+        <option value="Kyrgyz">Kyrgyz 🇰🇬</option>
+        <option value="Korean">Korean 🇰🇷</option>
+        <option value="Croatian">Croatian 🇭🇷</option>
+        <option value="Kurdish">Kurdish ☀️</option>
+        <option value="Lao">Lao 🇱🇦</option>
+        <option value="Latin">Latin 🏛️</option>
+        <option value="Latvian">Latvian 🇱🇻</option>
+        <option value="Lithuanian">Lithuanian 🇱🇹</option>
+        <option value="Luxembourgish">Luxembourgish 🇱🇺</option>
+        <option value="Malagasy">Malagasy 🇲🇬</option>
+        <option value="Malay">Malay 🇲🇾</option>
+        <option value="Malayalam">Malayalam 🇮🇳</option>
+        <option value="Maltese">Maltese 🇲🇹</option>
+        <option value="Maori">Maori 🇳🇿</option>
+        <option value="Marathi">Marathi 🇮🇳</option>
+        <option value="Macedonian">Macedonian 🇲🇰</option>
+        <option value="Mongolian">Mongolian 🇲🇳</option>
+        <option value="Nepali">Nepali 🇳🇵</option>
+        <option value="Dutch">Dutch 🇳🇱</option>
+        <option value="Norwegian">Norwegian 🇳🇴</option>
+        <option value="Pashto">Pashto 🇦🇫</option>
+        <option value="Persian">Persian 🇮🇷</option>
+        <option value="Polish">Polish 🇵🇱</option>
+        <option value="Portuguese">Portuguese 🇵🇹</option>
+        <option value="Punjabi">Punjabi 🇮🇳</option>
+        <option value="Romanian">Romanian 🇷🇴</option>
+        <option value="Russian">Russian 🇷🇺</option>
+        <option value="Swedish">Swedish 🇸🇪</option>
+        <option value="Serbian">Serbian 🇷🇸</option>
+        <option value="Slovak">Slovak 🇸🇰</option>
+        <option value="Slovenian">Slovenian 🇸🇮</option>
+        <option value="Somali">Somali 🇸🇴</option>
+        <option value="Spanish" selected>Spanish 🇪🇸</option>
+        <option value="Swahili">Swahili 🇰🇪</option>
+        <option value="Tajik">Tajik 🇹🇯</option>
+        <option value="Tagalog">Tagalog 🇵🇭</option>
+        <option value="Tamil">Tamil 🇮🇳</option>
+        <option value="Telugu">Telugu 🇮🇳</option>
+        <option value="Thai">Thai 🇹🇭</option>
+        <option value="Czech">Czech 🇨🇿</option>
+        <option value="Turkish">Turkish 🇹🇷</option>
+        <option value="Turkmen">Turkmen 🇹🇲</option>
+        <option value="Ukrainian">Ukrainian 🇺🇦</option>
+        <option value="Hungarian">Hungarian 🇭🇺</option>
+        <option value="Urdu">Urdu 🇵🇰</option>
+        <option value="Uzbek">Uzbek 🇺🇿</option>
+        <option value="Vietnamese">Vietnamese 🇻🇳</option>
+        <option value="Welsh">Welsh 🏴󠁧󠁢󠁷󠁬󠁳󠁿</option>
+        <option value="Zulu">Zulu 🇿🇦</option>
+        <option value="other">Other language...</option>
+      </select>
+    </div>
+
+    <div id="otherLanguageGroup" class="form-group mt-10" style="display: none;">
+      <label for="otherLanguage">Name of the language</label>
+      <input type="text" id="otherLanguage" placeholder="Which language would you like to learn?">
+    </div>
+
+    <div class="form-group">
+      <label for="mode">Type of set</label>
+      <select id="mode" onchange="toggleMode()">
+        <option value="topics">Specific subject areas</option>
+        <option value="comprehensive">Basic language pack (most important vocabulary)</option>
+        <option value="riddle">Vocabulary riddles ("What am I?")</option>
+      </select>
+    </div>
+
+    <div id="topicsGroup" class="form-group">
+      <label for="topicSelect">Select / add topics</label>
+      <select id="topicSelect" onchange="addTopic()">
+        <option value="" disabled selected>Choose a topic...</option>
+        <option value="At the Restaurant 🍽️">At the Restaurant 🍽️</option>
+        <option value="Travel & Airport ✈️">Travel & Airport ✈️</option>
+        <option value="Jobs & Work 💼">Jobs & Work 💼</option>
+        <option value="Shopping & Money 🛒">Shopping & Money 🛒</option>
+        <option value="Hobbies & Leisure ⚽">Hobbies & Leisure ⚽</option>
+        <option value="Family & Friends 👨‍👩‍👧">Family & Friends 👨‍👩‍👧</option>
+        <option value="Body & Health 🏥">Body & Health 🏥</option>
+        <option value="Weather & Nature 🌳">Weather & Nature 🌳</option>
+        <option value="Directions 🗺️">Directions 🗺️</option>
+        <option value="Feelings & Character ❤️">Feelings & Character ❤️</option>
+        <option value="Animals 🦁">Animals 🦁</option>
+        <option value="Items in the House 🏠">Items in the House 🏠</option>
+        <option value="Fruit & Vegetables 🍎">Fruit & Vegetables 🍎</option>
+        <option value="Vehicles 🚗">Vehicles 🚗</option>
+        <option value="custom">Other topic...</option>
+      </select>
+
+      <div id="customTopicGroup" class="mt-10" style="display: none;">
+        <label for="customTopicInput" class="form-label-small">Name of the new topic</label>
+        <input type="text" id="customTopicInput" placeholder="e.g. At the Hotel">
+        <button type="button" class="btn btn-secondary mt-5 btn-full" onclick="addCustomTopic()">Add topic</button>
+      </div>
+
+      <div id="tagContainer" class="tag-container"></div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="wordCount" id="wordCountLabel">Vocab per group</label>
+        <select id="wordCount" onchange="updateGroupCountOptions()"></select>
+      </div>
+      <div id="groupCountContainer" class="form-group" style="display: none;">
+        <label for="groupCount">Number of groups</label>
+        <select id="groupCount"></select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-group">
+        <input type="checkbox" id="useEmojis">
+        Should emojis be included in the translation? 🦁
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-group">
+        <input type="checkbox" id="useNativeLanguage" onchange="document.getElementById('nativeLanguageGroup').style.display = this.checked ? 'block' : 'none'">
+        Native language as an additional memory aid? (Multilingualism) 🌍
+      </label>
+    </div>
+
+    <div id="nativeLanguageGroup" class="form-group mt-10" style="display: none;">
+      <label for="nativeLanguage">Additional language (Native language)</label>
+      <select id="nativeLanguage" onchange="document.getElementById('otherNativeLanguageGroup').style.display = (this.value === 'other') ? 'block' : 'none'">
+        <option value="" disabled selected>Select language...</option>
+        <option value="Afrikaans">Afrikaans 🇿🇦</option>
+        <option value="Albanian">Albanian 🇦🇱</option>
+        <option value="Ancient Greek">Ancient Greek 🏺</option>
+        <option value="Amharic">Amharic 🇪🇹</option>
+        <option value="Arabic">Arabic 🇸🇦</option>
+        <option value="Armenian">Armenian 🇦🇲</option>
+        <option value="Azerbaijani">Azerbaijani 🇦🇿</option>
+        <option value="Basque">Basque 🇪🇸</option>
+        <option value="Belarusian">Belarusian 🇧🇾</option>
+        <option value="Bengali">Bengali 🇧🇩</option>
+        <option value="Bosnian">Bosnian 🇧🇦</option>
+        <option value="Bulgarian">Bulgarian 🇧🇬</option>
+        <option value="Burmese">Burmese 🇲🇲</option>
+        <option value="Chinese (Cantonese)">Chinese (Cantonese) 🇭🇰</option>
+        <option value="Chinese (Mandarin)">Chinese (Mandarin) 🇨🇳</option>
+        <option value="Danish">Danish 🇩🇰</option>
+        <option value="Dutch">Dutch 🇳🇱</option>
+        <option value="English">English 🇬🇧</option>
+        <option value="Estonian">Estonian 🇪🇪</option>
+        <option value="Finnish">Finnish 🇫🇮</option>
+        <option value="French">French 🇫🇷</option>
+        <option value="Georgian">Georgian 🇬🇪</option>
+        <option value="German">German 🇩🇪</option>
+        <option value="Greek">Greek 🇬🇷</option>
+        <option value="Gujarati">Gujarati 🇮🇳</option>
+        <option value="Haitian">Haitian 🇭🇹</option>
+        <option value="Hausa">Hausa 🇳🇬</option>
+        <option value="Hebrew">Hebrew 🇮🇱</option>
+        <option value="Hindi">Hindi 🇮🇳</option>
+        <option value="Indonesian">Indonesian 🇮🇩</option>
+        <option value="Irish">Irish 🇮🇪</option>
+        <option value="Icelandic">Icelandic 🇮🇸</option>
+        <option value="Italian">Italian 🇮🇹</option>
+        <option value="Japanese">Japanese 🇯🇵</option>
+        <option value="Javanese">Javanese 🇮🇩</option>
+        <option value="Kannada">Kannada 🇮🇳</option>
+        <option value="Kazakh">Kazakh 🇰🇿</option>
+        <option value="Catalan">Catalan 🇪🇸</option>
+        <option value="Khmer">Khmer 🇰🇭</option>
+        <option value="Kyrgyz">Kyrgyz 🇰🇬</option>
+        <option value="Korean">Korean 🇰🇷</option>
+        <option value="Croatian">Croatian 🇭🇷</option>
+        <option value="Kurdish">Kurdish ☀️</option>
+        <option value="Lao">Lao 🇱🇦</option>
+        <option value="Latin">Latin 🏛️</option>
+        <option value="Latvian">Latvian 🇱🇻</option>
+        <option value="Lithuanian">Lithuanian 🇱🇹</option>
+        <option value="Luxembourgish">Luxembourgish 🇱🇺</option>
+        <option value="Malagasy">Malagasy 🇲🇬</option>
+        <option value="Malay">Malay 🇲🇾</option>
+        <option value="Malayalam">Malayalam 🇮🇳</option>
+        <option value="Maltese">Maltese 🇲🇹</option>
+        <option value="Maori">Maori 🇳🇿</option>
+        <option value="Marathi">Marathi 🇮🇳</option>
+        <option value="Macedonian">Macedonian 🇲🇰</option>
+        <option value="Mongolian">Mongolian 🇲🇳</option>
+        <option value="Nepali">Nepali 🇳🇵</option>
+        <option value="Norwegian">Norwegian 🇳🇴</option>
+        <option value="Pashto">Pashto 🇦🇫</option>
+        <option value="Persian">Persian 🇮🇷</option>
+        <option value="Polish">Polish 🇵🇱</option>
+        <option value="Portuguese">Portuguese 🇵🇹</option>
+        <option value="Punjabi">Punjabi 🇮🇳</option>
+        <option value="Romanian">Romanian 🇷🇴</option>
+        <option value="Russian">Russian 🇷🇺</option>
+        <option value="Swedish">Swedish 🇸🇪</option>
+        <option value="Serbian">Serbian 🇷🇸</option>
+        <option value="Slovak">Slovak 🇸🇰</option>
+        <option value="Slovenian">Slovenian 🇸🇮</option>
+        <option value="Somali">Somali 🇸🇴</option>
+        <option value="Spanish">Spanish 🇪🇸</option>
+        <option value="Swahili">Swahili 🇰🇪</option>
+        <option value="Tajik">Tajik 🇹🇯</option>
+        <option value="Tagalog">Tagalog 🇵🇭</option>
+        <option value="Tamil">Tamil 🇮🇳</option>
+        <option value="Telugu">Telugu 🇮🇳</option>
+        <option value="Thai">Thai 🇹🇭</option>
+        <option value="Czech">Czech 🇨🇿</option>
+        <option value="Turkish">Turkish 🇹🇷</option>
+        <option value="Turkmen">Turkmen 🇹🇲</option>
+        <option value="Ukrainian">Ukrainian 🇺🇦</option>
+        <option value="Hungarian">Hungarian 🇭🇺</option>
+        <option value="Urdu">Urdu 🇵🇰</option>
+        <option value="Uzbek">Uzbek 🇺🇿</option>
+        <option value="Vietnamese">Vietnamese 🇻🇳</option>
+        <option value="Welsh">Welsh 🏴󠁧󠁢󠁷󠁬󠁳󠁿</option>
+        <option value="Zulu">Zulu 🇿🇦</option>
+        <option value="other">Other language...</option>
+      </select>
+      <div id="otherNativeLanguageGroup" class="mt-10" style="display: none;">
+        <label for="otherNativeLanguage">Name of the language</label>
+        <input type="text" id="otherNativeLanguage" placeholder="Enter name of the language">
+      </div>
+    </div>
+
+    <div class="form-row mt-10">
+      <button type="button" class="btn btn-primary flex-2 p-15 fs-1-1" onclick="generatePrompt()">
+        🚀 Generate Prompt
+      </button>
+      <button type="button" class="btn btn-secondary btn-gray flex-1 p-15 fs-1-1" onclick="showExample()">
+        💡 Example JSON
+      </button>
+    </div>
+
+    <!-- Example Modal -->
+    <div id="exampleModal" class="modal" onclick="closeExample()">
+      <div class="card modal-card" onclick="event.stopPropagation()">
+        <h2>💡 Example of the Result</h2>
+        <p>The AI often outputs the code in different formats. Both are perfectly fine:</p>
+
+        <div class="mb-15">
+          <strong class="variant-label">Variant A: Multi-line (easy to read)</strong>
+          <div class="code-block code-block-dark">
+<pre>[
+  {
+    "vocabulary_group": "Unit 1",
+    "term_learning_language": "manzana",
+    "term_user_language": "apple 🍎",
+    "learning_status": 1
+  }
+]</pre>
+          </div>
+        </div>
+
+        <div class="mb-15">
+          <strong class="variant-label">Variant B: Single-line/Compact (Totally okay!)</strong>
+          <div class="code-block code-block-dark">
+<pre>[{"vocabulary_group":"Unit 1","term_learning_language":"manzana","term_user_language":"apple","learning_status":1}, ...]</pre>
+          </div>
+        </div>
+
+        <p class="note-box">
+          <strong>Note:</strong> It doesn't matter if the AI inserts spaces or line breaks. As long as the structure with the square brackets <code>[]</code> and the 4 field names is correct, the converter can process it.
+        </p>
+        <button class="btn btn-primary btn-full mt-15" onclick="closeExample()">Understood</button>
+      </div>
+    </div>
+
+    <div id="promptOutput" class="prompt-output mt-20" style="display: none;">
+      <h3 class="m-0">📋 Your Personal AI Prompt:</h3>
+      <p class="prompt-intro">Copy this text and paste it into an AI (best <strong>Gemini</strong>):</p>
+      <div class="prompt-box">
+        <button class="copy-btn" onclick="copyGeneratedPrompt()">📋 Copy</button>
+        <pre id="promptText"></pre>
+      </div>
+      <div class="mt-10 text-center">
+        <a class="btn btn-secondary" href="csv-to-json.html">Next: To JSON Converter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-help mt-30">
+    <p class="text-center">
+      <strong>Individual wishes?</strong><br>
+      Do you need vocabulary according to criteria that our generator does not yet cover?
+      <a href="contact.html">Simply contact us →</a>
+    </p>
+  </div>
+
+</main>
+
+<script>
+  let selectedTopics = [];
+
+  function toggleMode() {
+    const mode = document.getElementById('mode').value;
+    const isTopics = (mode === 'topics');
+    const isRiddle = (mode === 'riddle');
+    document.getElementById('topicsGroup').style.display = (isTopics || isRiddle) ? 'block' : 'none';
+
+    const topicLabel = document.querySelector('label[for="topicSelect"]');
+    if (isRiddle) {
+      topicLabel.textContent = "Topics for the riddles (optional)";
+    } else {
+      topicLabel.textContent = "Select / add topics";
+    }
+
+    updateWordCountOptions();
+  }
+
+  function checkOtherLanguage() {
+    const langSelect = document.getElementById('language');
+    const otherGroup = document.getElementById('otherLanguageGroup');
+    otherGroup.style.display = (langSelect.value === 'other') ? 'block' : 'none';
+  }
+
+  function addTopic() {
+    const select = document.getElementById('topicSelect');
+    const value = select.value;
+
+    if (value === 'custom') {
+      document.getElementById('customTopicGroup').style.display = 'block';
+      return;
+    }
+
+    if (value && !selectedTopics.includes(value)) {
+      selectedTopics.push(value);
+      renderTags();
+    }
+    select.value = "";
+    document.getElementById('customTopicGroup').style.display = 'none';
+  }
+
+  function addCustomTopic() {
+    const input = document.getElementById('customTopicInput');
+    const value = input.value.trim();
+    if (value && !selectedTopics.includes(value)) {
+      selectedTopics.push(value);
+      renderTags();
+    }
+    input.value = "";
+    document.getElementById('customTopicGroup').style.display = 'none';
+    document.getElementById('topicSelect').value = "";
+  }
+
+  function removeTopic(topic) {
+    selectedTopics = selectedTopics.filter(t => t !== topic);
+    renderTags();
+  }
+
+  const tagColors = [
+    '#4aa3ff', '#4caf50', '#ff9800', '#e91e63', '#9c27b0',
+    '#00bcd4', '#3f51b5', '#ff5722', '#607d8b', '#8bc34a'
+  ];
+
+  function renderTags() {
+    const container = document.getElementById('tagContainer');
+    container.innerHTML = "";
+    selectedTopics.forEach((topic, index) => {
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.style.backgroundColor = tagColors[index % tagColors.length];
+      tag.innerHTML = `${topic} <span class="remove" onclick="removeTopic('${topic}')">×</span>`;
+      container.appendChild(tag);
+    });
+    updateWordCountOptions();
+  }
+
+  function showExample() {
+    document.getElementById('exampleModal').style.display = 'flex';
+  }
+
+  function closeExample() {
+    document.getElementById('exampleModal').style.display = 'none';
+  }
+
+  function updateWordCountOptions() {
+    const mode = document.getElementById('mode').value;
+    const select = document.getElementById('wordCount');
+    const label = document.getElementById('wordCountLabel');
+    const currentValue = select.value;
+
+    let maxVal = 100;
+
+    if (mode === 'topics') {
+      const numTopics = selectedTopics.length;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(300 / numTopics)) : 100;
+      label.textContent = numTopics > 0 ? "Vocab per topic" : "Vocab per group";
+    } else if (mode === 'riddle') {
+      const numTopics = selectedTopics.length;
+      maxVal = numTopics > 0 ? Math.min(100, Math.floor(300 / numTopics)) : 100;
+      label.textContent = numTopics > 0 ? "Riddles per topic" : "Riddles per group";
+    } else {
+      maxVal = 100;
+      label.textContent = "Vocab per group";
+    }
+
+    select.innerHTML = "";
+    for (let i = 10; i <= maxVal; i += 10) {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = i;
+      if (parseInt(currentValue) === i) opt.selected = true;
+      select.appendChild(opt);
+    }
+
+    if (!select.value && select.options.length > 0) {
+      if (maxVal >= 20) select.value = "20";
+      else select.value = select.options[select.options.length - 1].value;
+    }
+
+    updateGroupCountOptions();
+  }
+
+  function updateGroupCountOptions() {
+    const mode = document.getElementById('mode').value;
+    const wordCount = parseInt(document.getElementById('wordCount').value) || 20;
+    const container = document.getElementById('groupCountContainer');
+    const groupSelect = document.getElementById('groupCount');
+    const numTopics = selectedTopics.length;
+
+    // The dropdown is shown if Basic Pack is selected OR Riddles without topic selection
+    if (mode === 'comprehensive' || (mode === 'riddle' && numTopics === 0)) {
+      container.style.display = 'block';
+      const maxGroups = Math.floor(300 / wordCount);
+      const currentVal = groupSelect.value;
+
+      groupSelect.innerHTML = "";
+      for (let i = 1; i <= maxGroups; i++) {
+        const opt = document.createElement('option');
+        opt.value = i;
+        opt.textContent = i;
+        if (parseInt(currentVal) === i) opt.selected = true;
+        groupSelect.appendChild(opt);
+      }
+
+      // Set default value if empty
+      if (!groupSelect.value) {
+        groupSelect.value = Math.min(maxGroups, 10);
+      }
+    } else {
+      container.style.display = 'none';
+    }
+  }
+
+  // Call initially
+  window.onload = updateWordCountOptions;
+
+  function generatePrompt() {
+    const langSelect = document.getElementById('language');
+    let language = langSelect.value;
+    if (language === 'other') {
+      language = document.getElementById('otherLanguage').value || 'foreign language';
+    }
+
+    const mode = document.getElementById('mode').value;
+    let wordCount = parseInt(document.getElementById('wordCount').value) || 25;
+    const useEmojis = document.getElementById('useEmojis').checked;
+
+    const useNativeLanguage = document.getElementById('useNativeLanguage').checked;
+    let nativeLanguage = document.getElementById('nativeLanguage').value;
+    if (nativeLanguage === 'other') {
+      nativeLanguage = document.getElementById('otherNativeLanguage').value.trim();
+    }
+
+    // Remove emojis from topic names for the prompt to avoid confusing the AI
+    const cleanTopics = selectedTopics.map(t => t.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/gu, '').trim());
+
+    let strategy = '';
+
+    if (mode === 'topics') {
+      if (selectedTopics.length === 0) {
+        alert("Please select at least one topic!");
+        return;
+      }
+
+      let groupCount = cleanTopics.length;
+      let wordsPerGroup = wordCount;
+
+      strategy = `Create a vocabulary set for ${language} with EXACTLY ${groupCount * wordsPerGroup} entries in total.
+Divide these into EXACTLY ${groupCount} groups: ${cleanTopics.join(", ")}.
+Each group MUST contain EXACTLY ${wordsPerGroup} vocabulary words.`;
+    } else if (mode === 'riddle') {
+      const numTopics = cleanTopics.length;
+      if (numTopics > 0) {
+        strategy = `Create a "What am I?" riddle set for ${language} with EXACTLY ${numTopics * wordCount} objects in total.
+Divide the set into EXACTLY ${numTopics} topics: ${cleanTopics.join(", ")}.
+Each group MUST contain EXACTLY ${wordCount} riddles.
+
+CONSTRUCTION PER OBJECT:
+- 'vocabulary_group': "Riddle: [Topic name]"
+- 'term_learning_language': Short description in ${language} (1-2 sentences).
+- 'term_user_language': Solution in the user's native language.`;
+      } else {
+        let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
+        strategy = `Create a total of EXACTLY ${groupCount * wordCount} "What am I?" riddles in ${language}.
+Divide these into EXACTLY ${groupCount} groups (scheme: "Riddle Unit 1" to "Riddle Unit ${groupCount}").
+Each Unit MUST contain EXACTLY ${wordCount} riddles.
+
+CONSTRUCTION PER OBJECT:
+- 'term_learning_language': Short description in ${language} (1-2 sentences).
+- 'term_user_language': Solution in the user's native language.
+- 'vocabulary_group': Name of the unit.`;
+      }
+    } else {
+      let groupCount = parseInt(document.getElementById('groupCount').value) || 1;
+      strategy = `Create a "Fluency Basic Package" for ${language} (A1-B2) with EXACTLY ${groupCount * wordCount} words in total.
+Divide the set into EXACTLY ${groupCount} lessons ("Unit 1" to "Unit ${groupCount}").
+Each Unit MUST contain EXACTLY ${wordCount} vocabulary words.
+Proceed by frequency: Unit 1 begins with the most important words.`;
+    }
+
+    let bridgeInstruction = "";
+    if (useNativeLanguage && nativeLanguage) {
+      bridgeInstruction = `In the 'term_user_language' field, after the primary language translation, always add the corresponding word in ${nativeLanguage} in parentheses (e.g. "apple (...)").\n\n`;
+    }
+
+    const prompt = `Act as a high-precision data generator.
+${strategy}
+
+${useEmojis ? "In the 'term_user_language' field (the native language translation), always insert 1-2 matching emojis.\n\n" : ""}${bridgeInstruction}TECHNICAL REQUIREMENTS:
+1. Output the result EXCLUSIVELY as a single valid JSON array.
+2. Each object in the array MUST have exactly this structure:
+{
+  "vocabulary_group": "[Group name]",
+  "term_learning_language": "[Word in ${language}]",
+  "term_user_language": "[Translation]",
+  "learning_status": 1
+}
+3. Ensure the list is complete and the JSON array closes cleanly.
+4. IMPORTANT: Output only the raw JSON code. No text before, no text after, no explanations.`;
+
+    document.getElementById('promptText').textContent = prompt;
+    document.getElementById('promptOutput').style.display = 'block';
+    document.getElementById('promptOutput').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function copyGeneratedPrompt() {
+    const text = document.getElementById('promptText').textContent;
+    const btn = document.querySelector('.prompt-box .copy-btn');
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerHTML;
+      btn.innerHTML = "✅ Copied!";
+      btn.style.background = "var(--secondary)";
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = "";
+      }, 2000);
+    }).catch(err => {
+      console.error('Error copying: ', err);
+    });
+  }
+</script>
+
+<footer>
+  <p><a href="privacy.html" target="_blank" rel="noopener noreferrer">Imprint and Privacy Policy</a></p>
+  <p>&copy; 2026 VokabelSafe</p>
+</footer>
+
+</body>
+</html>
